@@ -1,5 +1,4 @@
 const Bcrypt = require('bcrypt-nodejs');
-const jwt = require('jsonwebtoken');
 const User = require('./models/user');
 const Token = require("./models/tokenSchema");
 const nodemailer = require("nodemailer");
@@ -14,7 +13,7 @@ module.exports = function(req, res, next) {
         else
         {
             req.body.password = Bcrypt.hashSync(req.body.password, Bcrypt.genSaltSync(10));
-            user = new User({ email: req.body.email, password: req.body.password });
+            user = new User({ name: req.body.name, email: req.body.email, password: req.body.password });
             user.save(function (err){
                 if (err) 
                     return res.status(500).send({msg:err.message});

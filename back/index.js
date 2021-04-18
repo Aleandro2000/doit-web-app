@@ -1,21 +1,41 @@
 const express=require("express");
 const app=express();
 const bodyparser=require("body-parser");
-const cors=require("cors");
-const mongoose = require('mongoose');
+const bodyParser=require('body-parser');
+const mongoose=require('mongoose');
+const cookieParser=require('cookie-parser');
+const session=require('express-session');
+const morgan=require('morgan');
 
 const login=require("./auth/login");
 const register=require("./auth/register");
 const confirmation=require("./auth/confirmEmail");
 const resend=require("./auth/resendLink");
+const logout=require("./auth/logout");
 
 mongoose.connect('mongodb://localhost/DoIT');
 
-app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: false}));
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(session({
+    key: 'session',
+    secret: 'DoITAuthSessionSecret',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        expires: 600000
+    }
+}));
+app.use((req,res,next)=>{
+    if(req.cookies.session&&!req.session.user)
+        res.clearCookie('session');
+    next();
+});
 
-app.post("/login",(req,res)=>{
+app.get("/login",(req,res)=>{
     if(req.body)
         login(req,res);
     else
@@ -41,6 +61,10 @@ app.post("/resend",(req,res)=>{
         resend(req,res);
     else
         res.status(400).send("Request failed!");
+});
+
+app.get("/logout",(req, res)=>{
+    logout(req,res);
 });
 
 app.listen(3000);
