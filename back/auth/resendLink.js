@@ -5,9 +5,9 @@ const nodemailer = require("nodemailer");
 
 module.exports = function (req, res, next) {
     User.findOne({ email: req.body.email }, function (err, user) {
-        if (!user)
+        if(!user)
             return res.status(400).send({msg:'We were unable to find a user with that email. Make sure your Email is correct!'});
-        else if (user.isVerified)
+        else if(user.isVerified)
             return res.status(200).send('This account has been already verified. Please log in.');
         else
         {
