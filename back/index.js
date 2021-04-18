@@ -12,6 +12,7 @@ const register=require("./auth/register");
 const confirmation=require("./auth/confirmEmail");
 const resend=require("./auth/resendLink");
 const logout=require("./auth/logout");
+const deleteAccount=require("./auth/deleteAccount");
 
 mongoose.connect('mongodb://localhost/DoIT');
 
@@ -65,6 +66,10 @@ app.post("/resend",(req,res)=>{
 
 app.get("/logout",(req, res)=>{
     logout(req,res);
+});
+
+app.get("/account/delete",(req, res)=>{
+    deleteAccount(req,res);
 });
 
 app.listen(3000);

@@ -16,7 +16,7 @@ module.exports = function(req, res, next) {
             {
                 delete user.password;
 
-                req.session.user=user.name;
+                req.session.user=user;
                 return res.status(200).send({msg:"Succesful logged in!"});
             }
         });
