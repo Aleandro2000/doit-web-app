@@ -1,11 +1,19 @@
 import './App.css';
-import './w3.css';
-import logo from "./images/logo.png";
+import "milligram";
+import logo from "./images/logo copy.png";
 
 function App() {
   return(
     <>
-      
+      <nav className="navigation">
+        <section className="container">
+            <img className="rotation" src={logo}/>
+          <ul className="navigation-list float-right">
+             <li className="navigation-item"><a className="navigation-link button button-outline" href="/list">LOGIN</a></li>
+             <li className="navigation-item"><a className="navigation-link button button-outline" href="/login">REGISTER</a></li>
+          </ul>
+        </section>
+      </nav>
     </>
   );
 }
