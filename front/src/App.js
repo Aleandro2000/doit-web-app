@@ -1,6 +1,6 @@
 import './App.css';
 import "milligram";
-import logo from "./images/logo copy.png";
+import logo from "./images/logo.png";
 
 function App() {
   return(

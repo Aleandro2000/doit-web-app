@@ -93,6 +93,7 @@ body{
 }
 .navigation .navigation-item{
     float:left;
+    margin-top: 5px;
     margin-bottom:0;
     margin-left:2.5rem;
 }
@@ -201,6 +202,7 @@ body{
 .rotation {
     width: 60px;
     height: 50px;
+    margin-top: 5px;
     filter: opacity(0.5) drop-shadow(0 0 0 #9b4dca);
     transition: transform .7s ease-in-out;
 }
