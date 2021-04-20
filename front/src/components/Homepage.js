@@ -59,7 +59,6 @@ function Homepage()
                         <p align="center">
                             <img src={code} style={{filter: "grayscale(75%)"}}/>
                         </p>
-                        <hr/>
                     </div>
                 </div>
             </div>
