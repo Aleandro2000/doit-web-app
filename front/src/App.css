@@ -1,3 +1,6 @@
 body{
     scroll-behavior: smooth;
+    background-image: url("./images/background-content.svg");
+    background-size: cover;
+    background-position: center;
 }
