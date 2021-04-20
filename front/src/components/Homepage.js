@@ -28,7 +28,7 @@ function Homepage()
                         <hr/>
                     </b>
                     <p className="header-content-text">
-                        Become master at the coding interview and get your dream job. Learn how to write clean quality code that passes the technical interview. Develop your problem solving skills using our step by step interactive lessons, video content and code quality tests.
+                        Become <b>master</b> at the <b>coding interview</b> and get your <b>dream job</b>. Learn how to write <b>clean quality code</b> that passes the technical interview. Develop your <b>problem solving skills</b> using our <b>step by step</b> interactive lessons, video content and tips&#38;tricks.
                     </p>
                     <p className="header-content-text">
                         <a href="">
@@ -48,11 +48,11 @@ function Homepage()
                             You write, we guide
                         </h1>
                         <p align="justify">
-                            We helps you to translate ideas and thinking into code, guiding you step by step. Also, we learn you the best skill for today's word. We learn you how to learn.
+                            We helps you to translate <b>ideas and thinking</b> into code, guiding you <b>step by step</b>. Also, we learn you the best skill for today's word. We learn you how to learn.
                             <br/><br/>
-                            So, keep it clean and simple! We all hate red flags, don’t we? And choosing a bad variable name or overcomplicating the code is one of the most common mistakes in a job interview.
+                            So, <b>keep it clean and simple</b>! We all hate <b>red flags</b>, don’t we? And choosing a <b>bad variable</b> name or overcomplicating the code is one of the most common mistakes in a <b>job interview</b>.
                             <br/><br/>
-                            A picture is worth a thousand words. But a video offers you more than that. DoIT’s materials content doesn’t just hand you over the solution, it will get you in a thinking process adventure where you will easily develop your problem-solving skills. You'll be able to solve any problem you'll face during an interview.
+                            A <b>picture</b> is worth a thousand words. But a <b>video</b> offers you more than that. DoIT’s materials content doesn’t just hand you over the solution, it will get you in a <b>thinking process</b> adventure where you will easily develop your <b>problem-solving skills</b>. You'll be able to solve any problem you'll face during an <b>interview</b>.
                         </p>
                     </div>
                     <div className="column">
