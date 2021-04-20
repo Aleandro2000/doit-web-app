@@ -153,10 +153,10 @@
     }
 }
 
-@media only screen and (max-width: 400px)
+@media only screen and (max-width: 500px)
 {
     .header-content{
-        padding: 20px;
+        padding: 15px;
     }
 }
 
