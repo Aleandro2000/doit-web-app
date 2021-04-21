@@ -72,8 +72,8 @@
 }
 
 .rotation {
-    width: 60px;
-    height: 50px;
+    width: 200px;
+    height: 150px;
     margin-top: 5px;
     transition: transform .7s ease-in-out;
 }
@@ -86,7 +86,7 @@
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.61)),url("../images/banner.jpg");
     background-size: cover;
     background-position: center;
-    padding: 200px;
+    padding: 100px 200px 100px 200px;
     text-align: center;
 }
 
@@ -162,9 +162,6 @@
 
 @media only screen and (max-width: 285px)
 {
-    .navigation-item{
-        display: none;
-    }
     .header-content-title{
         font-size: 15px;
         line-height: 15px;
@@ -175,11 +172,14 @@
     }
 }
 
-@media only screen and (max-width: 222px)
+@media only screen and (max-width: 224px)
 {
     .header-content-title{
         font-size: 12px;
         line-height: 12px;
+    }
+    .responsive-no-button-border{
+        border: none;
     }
 }
 
