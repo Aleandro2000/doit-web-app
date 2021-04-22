@@ -23,7 +23,7 @@ function Homepage()
                 </section>
             </nav>
             <div className="header">
-                <img className="rotation fadeIn" style={{marginBottom: "20px"}} src={logo}/>
+                <img alt="" className="rotation fadeIn" style={{marginBottom: "20px"}} src={logo}/>
                 <p align="center">
                     <div className="header-content fadeIn">
                         <b className="header-content-title">
@@ -61,7 +61,71 @@ function Homepage()
                     </div>
                     <div className="column">
                         <p align="center">
-                            <img src={code} style={{filter: "grayscale(75%)"}}/>
+                            <img alt="" src={code} style={{filter: "grayscale(75%)"}}/>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div className="container content" data-aos='fade-up'>
+                <div className="row">
+                    <div className="column">
+                        <h1 align="center" style={{color: "#c21808"}}>
+                            <i className="fas fa-puzzle-piece"/>
+                        </h1>
+                        <h3 align="center">
+                            <b>
+                                90
+                            </b>
+                        </h3>
+                        <p align="center">
+                            <b>
+                                coding lessons
+                            </b>
+                        </p>
+                    </div>
+                    <div className="column">
+                        <h1 align="center" style={{color: "#c21808"}}>
+                            <i className="fas fa-play"/>
+                        </h1>
+                        <h3 align="center">
+                            <b>
+                                100+
+                            </b>
+                        </h3>
+                        <p align="center">
+                            <b>
+                                video lessons
+                            </b>
+                        </p>
+                    </div>
+                    <div className="column">
+                        <h1 align="center" style={{color: "#c21808"}}>
+                            <i className="fas fa-laptop-code"/>
+                        </h1>
+                        <h3 align="center">
+                            <b>
+                                Languages
+                            </b>
+                        </h3>
+                        <p align="center">
+                            <b>
+                                C, C++, Java, Python
+                            </b>
+                        </p>
+                    </div>
+                    <div className="column">
+                        <h1 align="center" style={{color: "#c21808"}}>
+                            <i className="fas fa-book"/>
+                        </h1>
+                        <h3 align="center">
+                            <b>
+                                DoDSA
+                            </b>
+                        </h3>
+                        <p align="center">
+                            <b>
+                                Intro Course in Algorithms and DS
+                            </b>
                         </p>
                     </div>
                 </div>
@@ -84,99 +148,99 @@ function Homepage()
                     <tbody>
                         <tr>
                             <td>Optimized for Coding Interviews</td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
                             <td>Performance Validation</td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
                             <td>Learn how to write Clean Quality Code </td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
                             <td>Step by Step Coding Tutorials</td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
                             <td>Video Content</td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
                             <td>Develops your Thinking Process and Problem Solving Skills </td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
                             <td>Code Quality Validation </td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
                             <td>Optimized Problem Set for fast Learning Curve</td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
                             <td>Exploring Every Solution to a given Problem</td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
                             <td>Teaching to become self-taught</td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
                             <td>Teaching programming languages with all programming concepts in background</td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
                             <td>Bot assistant during the studying</td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={redX} width="20px" heigh="20px"/></td>
-                            <td><img src={tick} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                     </tbody>
                 </table>
