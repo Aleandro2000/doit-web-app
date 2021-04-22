@@ -119,12 +119,12 @@ function Homepage()
                         </h1>
                         <h3 align="center">
                             <b>
-                                DoDSA
+                                DoIT like a GOD
                             </b>
                         </h3>
                         <p align="center">
                             <b>
-                                Intro Course in Algorithms and DS
+                                Intro Course in Algorithms, DS and OOP
                             </b>
                         </p>
                     </div>
