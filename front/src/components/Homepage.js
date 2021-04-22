@@ -124,7 +124,7 @@ function Homepage()
                         </h3>
                         <p align="center">
                             <b>
-                                Intro Course in Algorithms, DS and OOP
+                                Full Course in Algorithms, DS and OOP
                             </b>
                         </p>
                     </div>
