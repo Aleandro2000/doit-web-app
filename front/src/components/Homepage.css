@@ -119,6 +119,40 @@
     font-size: 30px;
 }
 
+.team{
+    border-radius: 50px 50px 200px 200px;
+    background-image: url("../images/team-background.svg");
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #B1B1B1;
+}
+
+.member{
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px #606c76;
+}
+
+.social-media{
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    margin: 7.5px;
+    border-radius: 100%;
+}
+
+.linkedin{
+    background-color: #005b96;
+}
+
+.youtube{
+    background-color: red;
+}
+
+.linkedin:hover, .youtube:hover{
+    background-color: #606c76;
+    transition-duration: 0.4s;
+}
+
 @media only screen and (min-width: 1750px)
 {
     .header-content{

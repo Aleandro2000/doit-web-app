@@ -6,6 +6,7 @@ import logo from "../images/logo.png";
 import code from "../images/code.svg";
 import tick from "../images/tick.png";
 import redX from "../images/red-x.png";
+import ceo from "../images/ceo.png";
 
 function Homepage()
 {
@@ -70,7 +71,7 @@ function Homepage()
                 <div className="row">
                     <div className="column">
                         <h1 align="center" style={{color: "#c21808"}}>
-                            <i className="fas fa-puzzle-piece"/>
+                            <i className="fa fa-puzzle-piece"/>
                         </h1>
                         <h3 align="center">
                             <b>
@@ -85,7 +86,7 @@ function Homepage()
                     </div>
                     <div className="column">
                         <h1 align="center" style={{color: "#c21808"}}>
-                            <i className="fas fa-play"/>
+                            <i className="fa fa-play"/>
                         </h1>
                         <h3 align="center">
                             <b>
@@ -100,7 +101,7 @@ function Homepage()
                     </div>
                     <div className="column">
                         <h1 align="center" style={{color: "#c21808"}}>
-                            <i className="fas fa-laptop-code"/>
+                            <i className="fa fa-code"/>
                         </h1>
                         <h3 align="center">
                             <b>
@@ -115,7 +116,7 @@ function Homepage()
                     </div>
                     <div className="column">
                         <h1 align="center" style={{color: "#c21808"}}>
-                            <i className="fas fa-book"/>
+                            <i className="fa fa-book"/>
                         </h1>
                         <h3 align="center">
                             <b>
@@ -203,7 +204,7 @@ function Homepage()
                             <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
-                            <td>Optimized Problem Set for fast Learning Curve</td>
+                            <td>Optimized Problem Set for fat Learning Curve</td>
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
                             <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
@@ -235,7 +236,7 @@ function Homepage()
                             <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
-                            <td>Bot assistant during the studying</td>
+                            <td>Bot assistant as digital teacher during the studying</td>
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
@@ -244,6 +245,41 @@ function Homepage()
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div className="container content" data-aos='fade-up'>
+                <h1 align="center">
+                    Meet the digital teacher!
+                </h1>
+                <p align="center">
+                    We provide the best digital teacher for competitive programming and coding interviews and professional experience in well-known tech companies. You may ask any question to our bot, because all questions it is kept secret.
+                </p>
+                <br/><br/>
+                <h1 align="center">
+                    Meet the team!
+                </h1>
+                <br/>
+                <div className="row" style={{textAlign: "center"}}>
+                    <div className="column member">
+                        <br/><br/>
+                        <img src={ceo} className="team"/>
+                        <h2>
+                            <b>
+                                Alexandru Carmici
+                            </b>
+                        </h2>
+                        <h3>
+                            <i>
+                                CEO
+                            </i>
+                        </h3>
+                        <i className="fa fa-linkedin social-media linkedin"/>
+                        <i className="fa fa-youtube social-media youtube"/>
+                        <p align="justify">
+                            <hr/>
+                            Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem 
+                        </p>
+                    </div>
+                </div>
             </div>
         </>
     );
