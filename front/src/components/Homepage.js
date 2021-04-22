@@ -262,11 +262,11 @@ function Homepage()
                     <div className="column member">
                         <br/><br/>
                         <img src={ceo} className="team"/>
-                        <h2>
+                        <h3>
                             <b>
-                                Alexandru Carmici
+                                Alexandru-Andrei Carmici
                             </b>
-                        </h2>
+                        </h3>
                         <h3>
                             <i>
                                 CEO
