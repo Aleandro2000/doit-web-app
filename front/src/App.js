@@ -39,20 +39,20 @@ function App() {
               <Register/>
           </Route>
         </Switch>
-        <div className="footer">
-          <p align="center">
-            <div className="row"></div>
-            <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
-            <i className="fa fa-instagram social-media"/>
-            <i className="fa fa-youtube social-media"/>
-            <i className="fa fa-linkedin social-media"/>
-            <hr/>
-            <b>
-              © Powered by <i>Softana</i>, All right reserved.
-            </b>
-          </p>
-        </div>
       </Router>
+      <div className="footer">
+        <p align="center">
+          <div className="row"></div>
+          <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
+          <i className="fa fa-instagram social-media"/>
+          <i className="fa fa-youtube social-media"/>
+          <i className="fa fa-linkedin social-media"/>
+          <br/>
+          <b>
+            © Powered by <i>Softana</i>, All right reserved.
+          </b>
+        </p>
+      </div>
     </>
   );
 }

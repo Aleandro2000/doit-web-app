@@ -1,6 +1,6 @@
 body{
-    scroll-behavior: smooth;
     background-color: black;
+    scroll-behavior: smooth;
 }
 
 @keyframes a{
@@ -79,19 +79,5 @@ body{
 .footer{
     color: white;
     background-color: black;
-    padding: 25px;
-}
-.social-media{
-    font-size: 24px;
-    padding: 15px;
-    margin: 10px;
-    background-color: black;
-    color: white;
-    border-radius: 100%;
-}
-
-.social-media:hover{
-    background-color: white;
-    color: black;
-    transition-duration: 0.4s;
+    padding-top: 25px;
 }
