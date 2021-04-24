@@ -1,28 +1,13 @@
-import "milligram";
-import AOS from "aos";
-import "../aos.css";
 import "./Homepage.css";
 import logo from "../images/logo.png";
 import code from "../images/code.svg";
 import tick from "../images/tick.png";
 import redX from "../images/red-x.png";
-import ceo from "../images/ceo.png";
 
 function Homepage()
 {
-    AOS.init({
-        duration: 1000
-    });
     return(
-        <>
-            <nav className="navigation">
-                <section className="container">
-                    <ul className="navigation-list float-right fadeIn">
-                        <li className="navigation-item"><a className="navigation-link button-white responsive-no-button-border" href="/list">Login</a></li>
-                        <li className="navigation-item"><a className="navigation-link button-white responsive-no-button-border" href="/login">Register</a></li>
-                    </ul>
-                </section>
-            </nav>
+        <div className="homepage">
             <div className="header">
                 <img alt="" className="rotation fadeIn" style={{marginBottom: "20px"}} src={logo}/>
                 <p align="center">
@@ -253,35 +238,16 @@ function Homepage()
                 <p align="center">
                     We provide the best digital teacher for competitive programming and coding interviews and professional experience in well-known tech companies. You may ask any question to our bot, because all questions it is kept secret.
                 </p>
-                <br/><br/>
-                <h1 align="center">
-                    Meet the team!
-                </h1>
-                <br/>
-                <div className="row" style={{textAlign: "center"}}>
-                    <div className="column member">
-                        <br/><br/>
-                        <img src={ceo} className="team"/>
-                        <h3>
-                            <b>
-                                Alexandru-Andrei Carmici
-                            </b>
-                        </h3>
-                        <h3>
-                            <i>
-                                CEO
-                            </i>
-                        </h3>
-                        <i className="fa fa-linkedin social-media linkedin"/>
-                        <i className="fa fa-youtube social-media youtube"/>
-                        <p align="justify">
-                            <hr/>
-                            Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem Lorem inpus dollor sit allem 
-                        </p>
-                    </div>
-                </div>
             </div>
-        </>
+            <div className="container content" data-aos='fade-up'>
+                <h1 align="center">
+                    Testimonial
+                </h1>
+                <p align="center">
+                    We provide the best digital teacher for competitive programming and coding interviews and professional experience in well-known tech companies. You may ask any question to our bot, because all questions it is kept secret.
+                </p>
+            </div>
+        </div>
     );
 }
 
