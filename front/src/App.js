@@ -46,7 +46,7 @@ function App() {
             <i className="fa fa-instagram social-media"/>
             <i className="fa fa-youtube social-media"/>
             <i className="fa fa-linkedin social-media"/>
-            <br/><br/>
+            <hr/>
             <b>
               © Powered by <i>Softana</i>, All right reserved.
             </b>
