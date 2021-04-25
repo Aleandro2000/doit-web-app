@@ -5,7 +5,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import './App.css';
 import Homepage from "./components/Homepage";
@@ -29,6 +30,9 @@ function App() {
           </section>
         </div>
         <Switch>
+          <Route exact path="/">
+            <Redirect to="/home"/>
+          </Route>
           <Route path="/home">
               <Homepage/>
           </Route>
