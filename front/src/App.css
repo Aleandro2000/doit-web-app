@@ -63,21 +63,3 @@ body{
 .navigation .navigation-link.active{
     color:#606c76
 }
-
-.button-white {
-    background-color: transparent;
-    color: white;
-    border: 1px solid white;
-    border-radius: 10px;
-}
-.button-white:hover{
-    background-color: white;
-    color: black;
-    transition-duration: 0.4s;
-}
-
-.footer{
-    color: white;
-    background-color: black;
-    padding-top: 25px;
-}

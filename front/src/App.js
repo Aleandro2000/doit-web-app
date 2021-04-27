@@ -20,21 +20,21 @@ function App() {
   return(
     <>
       <Router>
-        <div className="navigation">
-          <section className="container">
-            <ul className="navigation-list float-right fadeIn">
-              <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/home">Home</Link></li>
-              <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/login">Login</Link></li>
-              <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/register">Register</Link></li>
-            </ul>
-          </section>
-        </div>
         <Switch>
           <Route exact path="/">
             <Redirect to="/home"/>
           </Route>
           <Route path="/home">
-              <Homepage/>
+            <div className="navigation">
+              <div className="container">
+                <ul className="navigation-list float-right fadeIn">
+                  <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/home">Home</Link></li>
+                  <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/login">Login</Link></li>
+                  <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/register">Register</Link></li>
+                </ul>
+              </div>
+            </div>
+            <Homepage/>
           </Route>
           <Route path="/login">
               <Login/>
@@ -44,19 +44,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      <div className="footer">
-        <p align="center">
-          <div className="row"></div>
-          <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
-          <i className="fa fa-instagram social-media"/>
-          <i className="fa fa-youtube social-media"/>
-          <i className="fa fa-linkedin social-media"/>
-          <br/>
-          <b>
-            © Powered by <i>Softana</i>, All right reserved.
-          </b>
-        </p>
-      </div>
     </>
   );
 }

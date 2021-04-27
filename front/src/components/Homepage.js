@@ -247,6 +247,22 @@ function Homepage()
                     We provide the best digital teacher for competitive programming and coding interviews and professional experience in well-known tech companies. You may ask any question to our bot, because all questions it is kept secret.
                 </p>
             </div>
+            <div className="footer" data-aos='flip-up'>
+                <p align="center">
+                    <b>
+                        © Powered by <i><u>Softana</u></i>, All right reserved.
+                    </b>
+                </p>
+                <hr/>
+                <p align="center">
+                    <div className="row"></div>
+                    <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
+                    <i className="fa fa-instagram social-media"/>
+                    <i className="fa fa-youtube social-media"/>
+                    <i className="fa fa-linkedin social-media"/>
+                </p>
+                <br/>
+            </div>
         </div>
     );
 }
