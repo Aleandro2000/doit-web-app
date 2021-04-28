@@ -12,6 +12,7 @@ import './App.css';
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import NotFound from "./components/NotFound";
 
 function App() {
   AOS.init({
@@ -28,7 +29,6 @@ function App() {
             <div className="navigation">
               <div className="container">
                 <ul className="navigation-list float-right fadeIn">
-                  <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/home">Home</Link></li>
                   <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/login">Login</Link></li>
                   <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/register">Register</Link></li>
                 </ul>
@@ -42,6 +42,7 @@ function App() {
           <Route path="/register">
               <Register/>
           </Route>
+          <Route component={NotFound}/>
         </Switch>
       </Router>
     </>

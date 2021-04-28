@@ -21,6 +21,10 @@ body{
     text-shadow: 2.5px 2.5px 2.5px gray;
 }
 
+.button{
+    margin: 5px;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0

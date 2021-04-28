@@ -1,4 +1,5 @@
 import Register from "./Register"
+import Homepage from "../App";
 import "./Login.css";
 import logo from "../images/logo2.png";
 import {
@@ -13,6 +14,9 @@ function Login()
     return(
         <Router>
             <Switch>
+                <Route path="/home">
+                    <Homepage/>
+                </Route>
                 <Route path="/register">
                     <Register/>
                 </Route>
@@ -42,7 +46,12 @@ function Login()
                                 REGISTER
                             </button>
                         </Link>
-                        <br/><br/>
+                        <Link to="/home">
+                            <button className="button">
+                                Home
+                            </button>
+                        </Link>
+                        <hr/>
                         <p>
                             <b>
                                 © Powered by <i><u>Softana</u></i>, All right reserved.
