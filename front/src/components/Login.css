@@ -30,3 +30,19 @@ body{
         opacity: 1;
     }
 }
+
+@media only screen and (max-width: 360px){
+    .login{
+        padding: 12.5px;
+        margin: 12.5px;
+    }
+}
+
+@media only screen and (max-width: 200px){
+    .login{
+        padding: 6.25px;
+        margin: 0px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}
