@@ -1,7 +1,32 @@
 body{
-    background-image: url("../images/background-content.svg");
+    background-color: white;
 }
 
 .login{
-    margin: 100px;
+    margin: 50px;
+    padding: 25px;
+    box-shadow: 2.5px 2.5px 2.5px 2.5px gray;
+    text-align: center;
+    border-radius: 50px 0 50px 0;
+    animation: fadeIn 0.75s linear forwards;
+}
+
+.logo{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+.title{
+    text-shadow: 2.5px 2.5px 2.5px gray;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
