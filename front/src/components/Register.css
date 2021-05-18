@@ -11,6 +11,12 @@ body{
     animation: fadeIn 0.75s linear forwards;
 }
 
+.button{
+    background-color: black;
+    border: black;
+    margin: 5px;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0

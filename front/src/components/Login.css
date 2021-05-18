@@ -22,6 +22,8 @@ body{
 }
 
 .button{
+    background-color: black;
+    border: black;
     margin: 5px;
 }
 

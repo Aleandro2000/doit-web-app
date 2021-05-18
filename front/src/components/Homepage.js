@@ -3,11 +3,20 @@ import logo from "../images/logo.png";
 import code from "../images/code.svg";
 import tick from "../images/tick.png";
 import redX from "../images/red-x.png";
+import { Link } from "react-router-dom";
 
 function Homepage()
 {
     return(
         <div className="homepage">
+            <div className="navigation">
+              <div className="container">
+                <ul className="navigation-list float-right fadeIn">
+                  <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/login">Login</Link></li>
+                  <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/register">Register</Link></li>
+                </ul>
+              </div>
+            </div>
             <div className="header">
                 <img alt="" className="rotation fadeIn" style={{marginBottom: "20px"}} src={logo}/>
                 <p align="center">
@@ -247,7 +256,7 @@ function Homepage()
                     We provide the best digital teacher for competitive programming and coding interviews and professional experience in well-known tech companies. You may ask any question to our bot, because all questions it is kept secret.
                 </p>
             </div>
-            <div className="footer" data-aos='flip-up'>
+            <div className="footer" data-aos='zoom-in'>
                 <p align="center">
                     <b>
                         © Powered by <i><u>Softana</u></i>, All right reserved.

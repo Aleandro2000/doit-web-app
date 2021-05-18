@@ -9,7 +9,7 @@ function NotFound()
             <hr/>
             <h3 style={{color: "#960018"}}>
                 <b>
-                    ERROR 404: Not Found
+                    ERROR 404: Not Found :(
                 </b>
             </h3>
         </center>
