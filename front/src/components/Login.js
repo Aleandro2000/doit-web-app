@@ -1,6 +1,3 @@
-import Register from "./Register"
-import Homepage from "../App";
-import "./Login.css";
 import logo from "../images/logo2.png";
 import {
     Link,

@@ -1,4 +1,3 @@
-import "./NotFound.css";
 import logo from "../images/logo2.png";
 
 function NotFound()

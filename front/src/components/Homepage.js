@@ -1,4 +1,3 @@
-import "./Homepage.css";
 import logo from "../images/logo.png";
 import code from "../images/code.svg";
 import tick from "../images/tick.png";

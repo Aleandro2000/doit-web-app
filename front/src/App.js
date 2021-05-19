@@ -12,7 +12,7 @@ import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import NotFound from "./components/NotFound";
-import ResetPassword from "./components/ResetPassword";
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
   AOS.init({
@@ -28,7 +28,7 @@ function App() {
           <Route path="/home" component={Homepage}/>
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
-          <Route path="/forgotpassword" component={ResetPassword}/>
+          <Route path="/resend" component={ForgotPassword}/>
           <Route component={NotFound}/>
         </Switch>
       </Router>

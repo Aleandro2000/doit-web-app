@@ -56,18 +56,13 @@ const ResetPassword = () => {
                 <input type="password" name="password" style={{passwordInput}} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
                 <input type="password" name="repassword" style={{passwordInput}} placeholder="Retype password" onChange={e => { setRePassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
                 <button type="submit" className="button" onClick={sendRequest}>
-                    REGISTER
+                    RESET
                 </button>
             </form>
             <hr/>
-            <Link to="/login">
+            <Link to="/dashboard">
                 <button className="button">
-                    LOGIN
-                </button>
-            </Link>
-            <Link to="/home">
-                <button className="button">
-                    Home
+                    Dashboard
                 </button>
             </Link>
             <hr/>
