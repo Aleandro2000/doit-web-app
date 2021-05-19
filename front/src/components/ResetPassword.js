@@ -24,7 +24,7 @@ const ResetPassword = () => {
             setPasswordInput({borderColor: "green"});
 
         const data = {password, token: token.token}
-        const req = await fetch("http://localhost:3000/resetpass", {
+        const req = await fetch("http://localhost:9000/resetpass", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,8 +36,6 @@ const ResetPassword = () => {
             setSent(true);
         else
             setSent("Not Sent!");
-        
-        //make request
     }
 
     function handleSubmit(event) {

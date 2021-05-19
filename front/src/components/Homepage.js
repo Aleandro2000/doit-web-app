@@ -11,8 +11,16 @@ function Homepage()
             <div className="navigation">
               <div className="container">
                 <ul className="navigation-list float-right fadeIn">
-                  <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/login">Login</Link></li>
-                  <li className="navigation-item"><Link className="navigation-link button-white responsive-no-button-border" to="/register">Register</Link></li>
+                    <li className="navigation-item">
+                        <div class="dropdown">
+                            <div class="button-white responsive-no-button-border dropbtn">Authentificate</div>
+                            <div class="dropdown-content">
+                                <Link className="navigation-link button-white-dropdown" to="/login">Login</Link>
+                                <br/>
+                                <Link className="navigation-link button-white-dropdown" to="/register">Register</Link>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
               </div>
             </div>
