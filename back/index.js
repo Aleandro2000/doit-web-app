@@ -6,6 +6,7 @@ const mongoose=require('mongoose');
 const cookieParser=require('cookie-parser');
 const session=require('express-session');
 const morgan=require('morgan');
+const cors=require("cors");
 
 const login=require("./auth/login");
 const register=require("./auth/register");
@@ -15,7 +16,9 @@ const logout=require("./auth/logout");
 const deleteAccount=require("./auth/deleteAccount");
 
 mongoose.connect('mongodb://localhost/DoIT');
+mongoose.set('useCreateIndex', true);
 
+app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: false}));
 app.use(morgan('dev'));
@@ -72,4 +75,4 @@ app.get("/account/delete",(req, res)=>{
     deleteAccount(req,res);
 });
 
-app.listen(3000);
+app.listen(8081);

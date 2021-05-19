@@ -42,7 +42,7 @@ function Register()
             token: token.token
         }
 
-        const req=await fetch("http://localhost:3000/register", {
+        const req=await fetch("http://localhost:8081/register", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

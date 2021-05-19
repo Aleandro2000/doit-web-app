@@ -11,6 +11,7 @@
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "connect": "^3.7.0",
+    "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "express-session": "^1.17.1",
     "mongoose": "^5.12.4",

@@ -22,7 +22,7 @@ const ForgotPassword = () => {
             return;
         }
         const data = {email}
-        const req = await fetch("http://localhost:3000/forgotpass", {
+        const req = await fetch("http://localhost:8081/forgotpass", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
