@@ -36,7 +36,7 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.get("/login",(req,res)=>{
+app.post("/login",(req,res)=>{
     if(req.body)
         login(req,res);
     else
