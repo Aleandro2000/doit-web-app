@@ -72,4 +72,4 @@ app.get("/account/delete",(req, res)=>{
     deleteAccount(req,res);
 });
 
-app.listen(9000);
+app.listen(3000);

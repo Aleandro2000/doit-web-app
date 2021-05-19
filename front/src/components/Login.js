@@ -33,7 +33,7 @@ function Login()
         if(!ok)
             return;
         const data={email, password};
-        const req=await fetch("http://localhost:9000/login", {
+        const req=await fetch("http://localhost:3000/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
