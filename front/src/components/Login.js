@@ -74,7 +74,7 @@ function Login()
                     LOGIN
                 </button>
                 <br/><br/>
-                <Link to={"/forgotpassword"}>Forgot password?</Link>
+                <Link to={"/resend"}>Forgot password?</Link>
             </form>
             <hr/>
             <Link to="/register">
