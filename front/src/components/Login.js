@@ -61,21 +61,28 @@ function Login()
     return(
         <div className="content-box">
             <img src={logo} className="logo"/>
-            <h3 className="title">
-                <b>
-                    Login
-                </b>
-            </h3>
-            <hr/>
-            <form onSubmit={handleSubmit}>
-                <input type="email" name="email" style={{emailInput}} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}}/>
-                <input type="password" name="password" style={{passwordInput}} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
-                <button type="submit" className="button" onClick={sendRequest}>
-                    LOGIN
-                </button>
-                <br/><br/>
-                <Link to={"/resend"}>Forgot password?</Link>
-            </form>
+            {
+                isLogged ?
+                (
+                    <>
+                        <h3 className="title">
+                            <b>
+                                Login
+                            </b>
+                        </h3>
+                        <hr/>
+                        <form onSubmit={handleSubmit}>
+                            <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}}/>
+                            <input type="password" name="password" style={passwordInput} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
+                            <button type="submit" className="button" onClick={sendRequest}>
+                                LOGIN
+                            </button>
+                            <br/><br/>
+                            <Link to={"/resend"}>Forgot password?</Link>
+                        </form>
+                    </>
+                ) : (<h3 className="title"><b>You are logged in!</b></h3>)
+            }
             <hr/>
             <Link to="/register">
                 <button className="button">

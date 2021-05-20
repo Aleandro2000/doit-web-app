@@ -50,7 +50,7 @@ const ForgotPassword = () => {
             </h3>
             <hr/>
             <form onSubmit={handleSubmit}>
-                <input type="email" name="email" style={{emailInput}} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}}/>
+                <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}}/>
                 <button type="submit" className="button" onClick={sendRequest}>
                     SEND
                 </button>

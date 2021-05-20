@@ -12,6 +12,7 @@ function Register()
     const [repassword,setRePassword]=useState("");
     const [emailInput, setEmailInput]=useState({borderColor: "#ced4da"});
     const [passwordInput, setPasswordInput]=useState({borderColor: "#ced4da"});
+    const [registered, setRegistered] = useState('');
 
     const history=useHistory();
 
@@ -53,9 +54,13 @@ function Register()
         {
             history.push("/verificationlink");
             console.log("Registered!");
+            setRegistered(true);
         }
         else
+        {
             console.error("Couldn't register!");
+            setRegistered(false);
+        }
 
     }
 
@@ -73,12 +78,20 @@ function Register()
             </h3>
             <hr/>
             <form onSubmit={handleSubmit}>
-                <input type="email" name="email" style={{emailInput}} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}}/>
-                <input type="password" name="password" style={{passwordInput}} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
-                <input type="password" name="repassword" style={{passwordInput}} placeholder="Retype password" onChange={e => { setRePassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
+                <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}}/>
+                <input type="password" name="password" style={passwordInput} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
+                <input type="password" name="repassword" style={passwordInput} placeholder="Retype password" onChange={e => { setRePassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
                 <button type="submit" className="button" onClick={submitForm}>
                     REGISTER
                 </button>
+                {
+                registered === false ? 
+                <><br/><h5 className="text-center text-danger">Could not register!</h5></>
+                :
+                registered === true ?
+                <><br/><h5 className="text-center text-success">Registered!</h5></>
+                :<div></div>
+            }
             </form>
             <hr/>
             <Link to="/login">

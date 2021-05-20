@@ -51,8 +51,8 @@ const ResetPassword = () => {
             </h3>
             <hr/>
             <form onSubmit={handleSubmit}>
-                <input type="password" name="password" style={{passwordInput}} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
-                <input type="password" name="repassword" style={{passwordInput}} placeholder="Retype password" onChange={e => { setRePassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
+                <input type="password" name="password" style={passwordInput} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
+                <input type="password" name="repassword" style={passwordInput} placeholder="Retype password" onChange={e => { setRePassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
                 <button type="submit" className="button" onClick={sendRequest}>
                     RESET
                 </button>
