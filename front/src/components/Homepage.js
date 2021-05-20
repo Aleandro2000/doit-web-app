@@ -9,20 +9,20 @@ function Homepage()
     return(
         <div className="homepage">
             <div className="navigation">
-              <div className="container">
-                <ul className="navigation-list float-right fadeIn">
-                    <li className="navigation-item">
-                        <div class="dropdown">
-                            <div class="button-white responsive-no-button-border dropbtn">Authentificate</div>
-                            <div class="dropdown-content">
-                                <Link className="navigation-link button-white-dropdown" to="/login">Login</Link>
-                                <br/>
-                                <Link className="navigation-link button-white-dropdown" to="/register">Register</Link>
+                <div className="container">
+                    <ul className="navigation-list float-right fadeIn">
+                        <li className="navigation-item">
+                            <div class="dropdown">
+                                <div class="button-white responsive-no-button-border dropbtn">Authentificate</div>
+                                <div class="dropdown-content">
+                                    <Link className="navigation-link button-white-dropdown" to="/login">Login</Link>
+                                    <br/>
+                                    <Link className="navigation-link button-white-dropdown" to="/register">Register</Link>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
-              </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div className="header">
                 <img alt="" className="rotation fadeIn" style={{marginBottom: "20px"}} src={logo}/>
