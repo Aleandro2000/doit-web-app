@@ -15,7 +15,7 @@ const resend=require("./auth/resendLink");
 const logout=require("./auth/logout");
 const deleteAccount=require("./auth/deleteAccount");
 
-mongoose.connect('mongodb://localhost/DoIT');
+mongoose.connect('mongodb://localhost/DoIT', {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useCreateIndex', true);
 
 app.use(cors());
