@@ -41,7 +41,7 @@ const ForgotPassword = () => {
     }
 
     return (
-        <div className="login">
+        <div className="content-box">
             <img src={logo} className="logo"/>
             <h3 className="title">
                 <b>

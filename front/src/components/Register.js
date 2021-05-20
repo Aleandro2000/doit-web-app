@@ -1,7 +1,7 @@
 import logo from "../images/logo2.png";
 import {
     Link,
-    useParams
+    useHistory
 } from "react-router-dom";
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ function Register()
     const [emailInput, setEmailInput]=useState({borderColor: "#ced4da"});
     const [passwordInput, setPasswordInput]=useState({borderColor: "#ced4da"});
 
-    const token=useParams();
+    const history=useHistory();
 
     const submitForm = async() => {
         let ok = true;
@@ -38,8 +38,7 @@ function Register()
         //make the request
         const data = {
             email: email, 
-            password: password,
-            token: token.token
+            password: password
         }
 
         const req=await fetch("http://localhost:8081/register", {
@@ -51,7 +50,10 @@ function Register()
         })
 
         if(req.status===200)
+        {
+            history.push("/verificationlink");
             console.log("Registered!");
+        }
         else
             console.error("Couldn't register!");
 
@@ -62,7 +64,7 @@ function Register()
     }
 
     return(
-        <div className="register">
+        <div className="content-box">
             <img src={logo} className="logo"/>
             <h3 className="title">
                 <b>

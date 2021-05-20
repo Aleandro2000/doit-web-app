@@ -225,16 +225,7 @@ body{
     }
 }
 
-.login{
-    margin: 50px;
-    padding: 25px;
-    box-shadow: 2.5px 2.5px 2.5px 2.5px gray;
-    text-align: center;
-    border-radius: 50px 0 50px 0;
-    animation: fadeIn 0.75s linear forwards;
-}
-
-.register{
+.content-box{
     margin: 50px;
     padding: 25px;
     box-shadow: 2.5px 2.5px 2.5px 2.5px gray;

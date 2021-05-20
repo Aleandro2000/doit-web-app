@@ -42,7 +42,7 @@ function Login()
         });
         if(req.status===200)
         {
-            history.push("/");
+            history.push("/dashboard");
             console.log("Logged in!");
             setIsLogged(true);
         }
@@ -59,7 +59,7 @@ function Login()
     }
 
     return(
-        <div className="login">
+        <div className="content-box">
             <img src={logo} className="logo"/>
             <h3 className="title">
                 <b>

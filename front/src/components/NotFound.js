@@ -3,10 +3,9 @@ import logo from "../images/logo2.png";
 function NotFound()
 {
     return(
-        <center className="container">
+        <center className="content-box" style={{transform: "translate(0,50%)"}}>
             <img className="logo" src={logo}/>
-            <hr/>
-            <h3 style={{color: "#960018"}}>
+            <h3 className="title">
                 <b>
                     ERROR 404: Not Found :(
                 </b>
