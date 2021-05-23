@@ -9,7 +9,7 @@ const VerificationLink = () => {
 
     return(
         <center className="content-box" style={{transform: "translate(0,25%)"}}>
-            <img className="logo" src={logo}/>
+            <img alt="" className="logo" src={logo}/>
             <h3 className="title">
                 <b>
                     An email has been sent to verify the register!
@@ -18,7 +18,7 @@ const VerificationLink = () => {
             <hr/>
             <Link to="/login">
                 <button className="button">
-                    Back
+                    <i className="fa fa-sign-in"/> Go to LOGIN
                 </button>
             </Link>
         </center>

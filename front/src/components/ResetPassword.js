@@ -62,7 +62,7 @@ const ResetPassword = () => {
             <hr/>
             <Link to="/dashboard">
                 <button className="button">
-                    Dashboard
+                    <i className="fa fa-tachometer"/> Dashboard
                 </button>
             </Link>
             <hr/>

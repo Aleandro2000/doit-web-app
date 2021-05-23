@@ -74,7 +74,7 @@ function Register()
 
     return(
         <div className="content-box">
-            <img src={logo} className="logo"/>
+            <img alt="" src={logo} className="logo"/>
             <h3 className="title">
                 <b>
                     Register
@@ -86,7 +86,7 @@ function Register()
                 <input type="password" name="password" style={passwordInput} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
                 <input type="password" name="repassword" style={passwordInput} placeholder="Retype password" onChange={e => { setRePassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
                 <button type="submit" className="button" onClick={submitForm}>
-                    REGISTER
+                    <i className="fa fa-plus"/> REGISTER
                 </button>
                 {
                 registered === "NotSuccesful"  ? (<><br/><h5 className="text-center text-danger">Could not register!</h5></>) : ( registered === "Succesful"  ? (<><br/><h5 className="text-center text-success">Registered!</h5></>) : (<></>) )
@@ -95,12 +95,12 @@ function Register()
             <hr/>
             <Link to="/login">
                 <button className="button">
-                    LOGIN
+                    <i className="fa fa-sign-in"/> LOGIN
                 </button>
             </Link>
             <Link to="/home">
                 <button className="button">
-                    Home
+                    <i className="fa fa-home"/> Home
                 </button>
             </Link>
             <hr/>

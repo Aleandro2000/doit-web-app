@@ -21,7 +21,6 @@ body{
     background:black;
     box-shadow: 2px 2px 4px black;
     display:flex;
-    max-width:100%;
     position:fixed;
     width:100%;
     z-index:1;
@@ -155,7 +154,7 @@ body{
 
 @media only screen and (min-width: 1750px)
 {
-    .header-content{
+    .header-content, .footer{
         width: 1100px;
     }
 }
@@ -265,14 +264,14 @@ body{
 }
 
 @media only screen and (max-width: 360px){
-    .login{
+    .content-box{
         padding: 12.5px;
         margin: 12.5px;
     }
 }
 
 @media only screen and (max-width: 200px){
-    .login{
+    .content-box{
         padding: 6.25px;
         margin: 0px;
         box-shadow: none;

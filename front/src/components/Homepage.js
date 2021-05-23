@@ -6,6 +6,16 @@ import { Link } from "react-router-dom";
 
 function Homepage()
 {
+
+    function navmenu(id)
+    {
+        let element=document.getElementById(id);
+        if(element.style.display==="none")
+            element.style.display="block";
+        else
+            element.style.display="none";
+    }
+
     return(
         <div className="homepage">
             <div className="navigation">
@@ -13,11 +23,11 @@ function Homepage()
                     <ul className="navigation-list float-right fadeIn">
                         <li className="navigation-item">
                             <div class="dropdown">
-                                <div class="button-white responsive-no-button-border dropbtn">Authentificate</div>
-                                <div class="dropdown-content">
-                                    <Link className="navigation-link button-white-dropdown" to="/login">Login</Link>
+                                <div class="button-white responsive-no-button-border dropbtn" onClick={() => navmenu("dropdown-content") }><i className="fa fa-key"/> Authentificate</div>
+                                <div class="dropdown-content" id="dropdown-content">
+                                    <Link className="navigation-link button-white-dropdown" to="/login"><i className="fa fa-sign-in"/> Login</Link>
                                     <br/>
-                                    <Link className="navigation-link button-white-dropdown" to="/register">Register</Link>
+                                    <Link className="navigation-link button-white-dropdown" to="/register"><i className="fa fa-plus"/> Register</Link>
                                 </div>
                             </div>
                         </li>
@@ -36,13 +46,13 @@ function Homepage()
                             Become <b>master</b> at the <b>coding interview</b> and get your <b>dream job</b>. Learn how to write <b>clean quality code</b> that passes the technical interview. Develop your <b>problem solving skills</b> using our <b>step by step</b> interactive lessons, video content and tips&#38;tricks.
                         </p>
                         <p className="header-content-text">
-                            <a href="">
+                            <Link to="/demo">
                                 <div className="button-white" style={{padding: "7.5px"}}>
                                     <b>
                                         Try our DEMO
                                     </b>
                                 </div>
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </p>
@@ -263,22 +273,24 @@ function Homepage()
                     We provide the best digital teacher for competitive programming and coding interviews and professional experience in well-known tech companies. You may ask any question to our bot, because all questions it is kept secret.
                 </p>
             </div>
-            <div className="footer" data-aos='zoom-in'>
-                <p align="center">
-                    <b>
-                        © Powered by <i><u>Softana</u></i>, All right reserved.
-                    </b>
-                </p>
-                <hr/>
-                <p align="center">
-                    <div className="row"></div>
-                    <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
-                    <i className="fa fa-instagram social-media"/>
-                    <i className="fa fa-youtube social-media"/>
-                    <i className="fa fa-linkedin social-media"/>
-                </p>
-                <br/>
-            </div>
+            <center>
+                <div className="footer" data-aos='zoom-in'>
+                    <p>
+                        <b>
+                            © Powered by <i><u>Softana</u></i>, All right reserved.
+                        </b>
+                    </p>
+                    <hr/>
+                    <p>
+                        <div className="row"></div>
+                        <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
+                        <i className="fa fa-instagram social-media"/>
+                        <i className="fa fa-youtube social-media"/>
+                        <i className="fa fa-linkedin social-media"/>
+                    </p>
+                    <br/>
+                </div>
+            </center>
         </div>
     );
 }

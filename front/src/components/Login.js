@@ -69,7 +69,7 @@ function Login()
 
     return(
         <div className="content-box">
-            <img src={logo} className="logo"/>
+            <img alt="" src={logo} className="logo"/>
             {
                 !isLogged ?
                 (
@@ -84,7 +84,7 @@ function Login()
                             <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}}/>
                             <input type="password" name="password" style={passwordInput} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
                             <button type="submit" className="button" onClick={sendRequest}>
-                                LOGIN
+                                <i className="fa fa-sign-in"/> LOGIN
                             </button>
                             <br/>{res}<br/>
                             <Link to={"/resend"}>Forgot password?</Link>
@@ -95,12 +95,12 @@ function Login()
             <hr/>
             <Link to="/register">
                 <button className="button">
-                    REGISTER
+                    <i className="fa fa-plus"/> REGISTER
                 </button>
             </Link>
             <Link to="/home">
                 <button className="button">
-                    Home
+                    <i className="fa fa-home"/> Home
                 </button>
             </Link>
             <hr/>

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../images/logo2.png";
 
 const ForgotPassword = () => {
@@ -10,7 +10,6 @@ const ForgotPassword = () => {
     const [sent, setSent] = useState('false');
 
     const [emailInput, setEmailInput] = useState({borderColor: "#ced4da"});
-    const session=localStorage.getItem("session");
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -38,12 +37,9 @@ const ForgotPassword = () => {
             setSent("NotSent");
     }
 
-    if(!session)
-        return <Redirect to="/login" />;
-
     return (
         <div className="content-box">
-            <img src={logo} className="logo"/>
+            <img alt="" src={logo} className="logo"/>
             <h3 className="title">
                 <b>
                     Login
@@ -53,7 +49,7 @@ const ForgotPassword = () => {
             <form onSubmit={handleSubmit}>
                 <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}}/>
                 <button type="submit" className="button" onClick={sendRequest}>
-                    SEND
+                    <i className="fa fa-send"/> SEND
                 </button>
                 { 
                     sent === "NotSent" ? (<><br/><h5 className="text-center text-danger mx-3">Couldn't Reset Reset Password</h5></>) : ( <></> )
@@ -63,17 +59,17 @@ const ForgotPassword = () => {
             <hr/>
             <Link to="/login">
                 <button className="button">
-                    LOGIN
+                    <i className="fa fa-sign-in"/> LOGIN
                 </button>
             </Link>
             <Link to="/register">
                 <button className="button">
-                    REGISTER
+                    <i className="fa fa-plus"/> REGISTER
                 </button>
             </Link>
             <Link to="/home">
                 <button className="button">
-                    Home
+                    <i className="fa fa-home"/> Home
                 </button>
             </Link>
             <hr/>
