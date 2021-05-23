@@ -97,7 +97,7 @@ body{
     100% {opacity:1;}
 }
 
-.homepage{
+.homepage, .dashboard{
     background-image: url("./images/background-content.svg");
     padding-bottom: 50px;
 }

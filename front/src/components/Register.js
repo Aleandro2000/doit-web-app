@@ -89,8 +89,8 @@ function Register()
                     <i className="fa fa-plus"/> REGISTER
                 </button>
                 {
-                registered === "NotSuccesful"  ? (<><br/><h5 className="text-center text-danger">Could not register!</h5></>) : ( registered === "Succesful"  ? (<><br/><h5 className="text-center text-success">Registered!</h5></>) : (<></>) )
-            }
+                    registered === "NotSuccesful"  ? (<><br/><h5 className="text-center text-danger">Could not register!</h5></>) : ( registered === "Succesful"  ? (<><br/><h5 className="text-center text-success">Registered!</h5></>) : (<></>) )
+                }
             </form>
             <hr/>
             <Link to="/login">

@@ -11,7 +11,6 @@ function Login()
     const history=useHistory();
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
-    const [isLogged, setIsLogged]=useState(false);
     const [emailInput, setEmailInput]=useState({borderColor: "#ced4da"});
     const [passwordInput, setPasswordInput]=useState({borderColor: "#ced4da"});
     const [res,setRes]=useState("");
@@ -47,7 +46,6 @@ function Login()
         if(req.status===200)
         {
             localStorage.setItem("session",email);
-            setIsLogged(true);
             console.log("Logged in!");
             history.push("/dashboard");
         }
@@ -63,35 +61,28 @@ function Login()
     const handleSubmit = (e) => {
         e.preventDefault();
     }
-
+    
     if(session)
         return <Redirect to="/dashboard" />;
 
     return(
         <div className="content-box">
             <img alt="" src={logo} className="logo"/>
-            {
-                !isLogged ?
-                (
-                    <>
-                        <h3 className="title">
-                            <b>
-                                Login
-                            </b>
-                        </h3>
-                        <hr/>
-                        <form onSubmit={handleSubmit}>
-                            <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}}/>
-                            <input type="password" name="password" style={passwordInput} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
-                            <button type="submit" className="button" onClick={sendRequest}>
-                                <i className="fa fa-sign-in"/> LOGIN
-                            </button>
-                            <br/>{res}<br/>
-                            <Link to={"/resend"}>Forgot password?</Link>
-                        </form>
-                    </>
-                ) : (<h3 className="title"><b>You are logged in!</b></h3>)
-            }
+                <h3 className="title">
+                    <b>
+                        Login
+                    </b>
+                </h3>
+                <hr/>
+                <form onSubmit={handleSubmit}>
+                    <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}}/>
+                    <input type="password" name="password" style={passwordInput} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
+                    <button type="submit" className="button" onClick={sendRequest}>
+                        <i className="fa fa-sign-in"/> LOGIN
+                    </button>
+                    <br/>{res}<br/>
+                    <Link to={"/resend"}>Forgot password?</Link>
+                </form>
             <hr/>
             <Link to="/register">
                 <button className="button">
