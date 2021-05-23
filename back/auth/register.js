@@ -37,7 +37,7 @@ module.exports = function(req, res, next) {
                         from: 'no-reply@doit.com',
                         to: user.email,
                         subject: 'Account Verification Link',
-                        html: '<h1 style="background-color: gray;color: white;">Hello,</h1><h4>Please verify your account by clicking the link: <a href="http:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '">http:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '</a><br/>Thank you for joining!</h4>'
+                        html: '<h1 style="background-color: black;color: white;">Hello from DoIT,</h1><h4>Please verify your account by clicking the link: <a href="http:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '">http:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '</a><br/>Thank you for joining!</h4>'
                     };
 
                     transporter.sendMail(mailOptions, function (err) {
