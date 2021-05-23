@@ -12,13 +12,7 @@ module.exports = function(req, res, next) {
                 return res.status(401).send({msg:'Wrong password!'});
             else if (!user.isVerified)
                 return res.status(401).send({msg:'Your email has not been verified. Please click on resend!'});
-            else
-            {
-                delete user.password;
-
-                req.session.user=user;
                 return res.status(200).send({msg:"Succesful logged in!"});
-            }
         });
     });
 }

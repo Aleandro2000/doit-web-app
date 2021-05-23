@@ -1,7 +1,12 @@
 import logo from "../images/logo2.png";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const VerificationLink = () => {
+    const registred=localStorage.getItem("registred");
+
+    if(!registred||registred==="NotSuccesful")
+        return <Redirect to="/register" />;
+
     return(
         <center className="content-box" style={{transform: "translate(0,25%)"}}>
             <img className="logo" src={logo}/>
@@ -11,7 +16,7 @@ const VerificationLink = () => {
                 </b>
             </h3>
             <hr/>
-            <Link to="/register">
+            <Link to="/login">
                 <button className="button">
                     Back
                 </button>

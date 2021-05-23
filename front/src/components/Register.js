@@ -1,6 +1,7 @@
 import logo from "../images/logo2.png";
 import {
     Link,
+    Redirect,
     useHistory
 } from "react-router-dom";
 import { useState } from "react";
@@ -12,9 +13,10 @@ function Register()
     const [repassword,setRePassword]=useState("");
     const [emailInput, setEmailInput]=useState({borderColor: "#ced4da"});
     const [passwordInput, setPasswordInput]=useState({borderColor: "#ced4da"});
-    const [registered, setRegistered] = useState('');
+    const [registered, setRegistered] = useState(false);
 
     const history=useHistory();
+    const session=localStorage.getItem("session");
 
     const submitForm = async() => {
         let ok = true;
@@ -36,7 +38,6 @@ function Register()
         if(ok===false)
             return;
         
-        //make the request
         const data = {
             email: email, 
             password: password
@@ -52,21 +53,24 @@ function Register()
 
         if(req.status===200)
         {
-            history.push("/verificationlink");
+            localStorage.setItem("registred",registered);
+            setRegistered("Succesful");
             console.log("Registered!");
-            setRegistered(true);
+            history.push("/verificationlink");
         }
         else
         {
             console.error("Couldn't register!");
-            setRegistered(false);
+            setRegistered("NotSuccesful");
         }
-
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
     }
+
+    if(session)
+        return <Redirect to="/dashboard" />;
 
     return(
         <div className="content-box">
@@ -85,12 +89,7 @@ function Register()
                     REGISTER
                 </button>
                 {
-                registered === false ? 
-                <><br/><h5 className="text-center text-danger">Could not register!</h5></>
-                :
-                registered === true ?
-                <><br/><h5 className="text-center text-success">Registered!</h5></>
-                :<div></div>
+                registered === "NotSuccesful"  ? (<><br/><h5 className="text-center text-danger">Could not register!</h5></>) : ( registered === "Succesful"  ? (<><br/><h5 className="text-center text-success">Registered!</h5></>) : (<></>) )
             }
             </form>
             <hr/>

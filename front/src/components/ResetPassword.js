@@ -2,7 +2,7 @@ import "./ResetPassword.css";
 import logo from "../images/logo2.png";
 import {
     Link,
-    useParams
+    Redirect
 } from "react-router-dom";
 import { useState } from "react";
 
@@ -10,11 +10,11 @@ const ResetPassword = () => {
 
     const [password, setPassword] = useState('');
     const [repassword, setRePassword] = useState('');
-    const [sent, setSent] = useState('false');
 
     const [passwordInput, setPasswordInput] = useState({borderColor: "#ced4da"});
-    
-    const token = useParams();
+
+    const session=localStorage.getItem("session");
+
     const sendRequest = async() => {
         if(password !== repassword || password.length < 6){
             setPasswordInput({borderColor: "red"});
@@ -23,7 +23,7 @@ const ResetPassword = () => {
         else
             setPasswordInput({borderColor: "green"});
 
-        const data = {password, token: token.token}
+        const data = {session, password}
         const req = await fetch("http://localhost:8081/resetpass", {
             method: 'POST',
             headers: {
@@ -34,13 +34,15 @@ const ResetPassword = () => {
 
         if(req.status === 200)
             setSent(true);
-        else
-            setSent("Not Sent!");
     }
 
     function handleSubmit(event) {
         event.preventDefault();
     }
+
+    if(!session)
+        return <Redirect to="/dashboard" />;
+
     return ( 
         <div className="content-box">
             <img src={logo} className="logo"/>

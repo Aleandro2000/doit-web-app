@@ -1,6 +1,7 @@
 import logo from "../images/logo2.png";
 import {
     Link,
+    Redirect,
     useHistory
 } from "react-router-dom";
 import { useState } from "react";
@@ -13,6 +14,9 @@ function Login()
     const [isLogged, setIsLogged]=useState(false);
     const [emailInput, setEmailInput]=useState({borderColor: "#ced4da"});
     const [passwordInput, setPasswordInput]=useState({borderColor: "#ced4da"});
+    const [res,setRes]=useState("");
+
+    const session=localStorage.getItem("session");
 
     const sendRequest=async () => {
         let ok=true;
@@ -42,27 +46,32 @@ function Login()
         });
         if(req.status===200)
         {
-            history.push("/dashboard");
-            console.log("Logged in!");
+            localStorage.setItem("session",email);
             setIsLogged(true);
+            console.log("Logged in!");
+            history.push("/dashboard");
         }
         else
         {
-            setIsLogged('Loggin Failed');
+            setRes("Please verify input data. Make sure to have an account!");
             setEmailInput({borderColor: "#ced4da"});
             setPasswordInput({borderColor: "#ced4da"});
         }
+
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
     }
 
+    if(session)
+        return <Redirect to="/dashboard" />;
+
     return(
         <div className="content-box">
             <img src={logo} className="logo"/>
             {
-                isLogged ?
+                !isLogged ?
                 (
                     <>
                         <h3 className="title">
@@ -77,7 +86,7 @@ function Login()
                             <button type="submit" className="button" onClick={sendRequest}>
                                 LOGIN
                             </button>
-                            <br/><br/>
+                            <br/>{res}<br/>
                             <Link to={"/resend"}>Forgot password?</Link>
                         </form>
                     </>

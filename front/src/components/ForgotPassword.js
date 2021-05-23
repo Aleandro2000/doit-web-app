@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import logo from "../images/logo2.png";
 
 const ForgotPassword = () => {
@@ -10,11 +10,11 @@ const ForgotPassword = () => {
     const [sent, setSent] = useState('false');
 
     const [emailInput, setEmailInput] = useState({borderColor: "#ced4da"});
-    //prevent form submision
+    const session=localStorage.getItem("session");
+
     function handleSubmit(event) {
         event.preventDefault();
     }
-    //localhost/resetpass
 
     const sendRequest = async() => {
         if(email === '' || email.indexOf('@') === -1){
@@ -36,9 +36,10 @@ const ForgotPassword = () => {
         }
         else
             setSent("NotSent");
-        
-        //make request
     }
+
+    if(!session)
+        return <Redirect to="/login" />;
 
     return (
         <div className="content-box">
