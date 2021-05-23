@@ -23,7 +23,7 @@ function Homepage()
                     <ul className="navigation-list float-right fadeIn">
                         <li className="navigation-item">
                             <div class="dropdown">
-                                <div class="button-white responsive-no-button-border dropbtn" onClick={() => navmenu("dropdown-content") }><i className="fa fa-key"/> Authentificate</div>
+                                <div class="button-white responsive-no-button-border dropbtn" onClick={() => navmenu("dropdown-content") }>Authentificate</div>
                                 <div class="dropdown-content" id="dropdown-content">
                                     <Link className="navigation-link button-white-dropdown" to="/login"><i className="fa fa-sign-in"/> Login</Link>
                                     <br/>

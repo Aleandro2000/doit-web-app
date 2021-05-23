@@ -144,12 +144,35 @@ body{
     transition-duration: 0.4s;
 }
 
+.button-black, .button-black-dropdown {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.button-black:hover{
+    background-color: black;
+    color: white;
+    transition-duration: 0.4s;
+}
+
+.button-black-dropdown{
+    border: none;
+    transition-duration: 0.4s;
+}
+
 .footer{
     color: white;
     background-color: black;
     padding-top: 25px;
     margin: 25px 25px 0 25px;
     border-radius: 50px 0 50px 0;
+}
+
+.small-container{
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 @media only screen and (min-width: 1750px)
@@ -214,6 +237,10 @@ body{
     .responsive-no-button-border{
         border: none;
     }
+    .small-container{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 }
 
 @media only screen and (max-height: 550px)
@@ -231,6 +258,7 @@ body{
     text-align: center;
     border-radius: 50px 0 50px 0;
     animation: fadeIn 0.75s linear forwards;
+    background-color: white;
 }
 
 .logo{
@@ -239,8 +267,12 @@ body{
     border-radius: 100%;
 }
 
-.title{
+.title, .icon-title{
     text-shadow: 2.5px 2.5px 2.5px gray;
+}
+
+.icon-title{
+    color: black;
 }
 
 .button{
@@ -251,6 +283,12 @@ body{
 
 .button:hover{
     transition-duration: 0.4s;
+}
+
+.icon{
+    width: 75px;
+    height: 75px;
+    padding: 10px;
 }
 
 @keyframes fadeIn {
@@ -276,6 +314,11 @@ body{
         margin: 0px;
         box-shadow: none;
         border-radius: 0;
+        background-color: transparent;
+    }
+    .small-container{
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
