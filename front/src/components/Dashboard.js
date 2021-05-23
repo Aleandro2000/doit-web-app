@@ -1,4 +1,5 @@
 import { Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Dashboard(){
 
@@ -6,6 +7,13 @@ function Dashboard(){
 
     if(!session)
         return <Redirect to="/login" />;
+
+    const history = useHistory();
+
+    const logout = () => {
+        localStorage.setItem("session",null);
+        history.push("/login");
+    }
 
     return(
         <>
