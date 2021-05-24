@@ -4,7 +4,8 @@ import "ace-builds/src-noconflict/theme-tomorrow_night";
 
 import { Redirect, Link } from "react-router-dom";
 
-function onChange(newValue) {
+function onChange(newValue)
+{
     console.log("change", newValue);
 }
 
