@@ -362,10 +362,16 @@ body{
     }  
 }
 
+.ide-navigation{
+    position: relative;
+    background: #282a2e;
+    box-shadow: 2px 2px 4px #282a2e;
+    fill: #282a2e;
+}
+
 .ide-options{
     color: white;
     font-family: monospace;
-    display: flex;
     padding: 7.5px;
 }
 

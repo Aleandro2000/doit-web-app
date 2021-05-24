@@ -66,9 +66,11 @@ function Dashboard(){
                     <div className="content-box column" style={{padding: "20px"}}>
                         <img alt="" className="icon" src={ide}/>
                         <br/>
-                        <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                            Go to IDE
-                        </div>
+                        <Link to="/dashboard/IDE">
+                            <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
+                                Go to IDE
+                            </div>
+                        </Link>
                     </div>
                     <div className="content-box column" style={{padding: "20px"}}>
                         <img alt="" className="icon" src={settings}/>
