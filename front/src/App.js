@@ -16,6 +16,8 @@ import ForgotPassword from "./components/ForgotPassword";
 import VerificationLink from "./components/VerificationLink";
 import Dashboard from "./components/Dashboard";
 
+import IDE from "./components/dashboardOptions/IDE";
+
 function App() {
   AOS.init({
     duration: 1000
@@ -33,6 +35,7 @@ function App() {
           <Route exact path="/verificationlink" component={VerificationLink}/>
           <Route exact path="/resend" component={ForgotPassword}/>
           <Route exact path="/dashboard" component={Dashboard}/>
+          <Route exact path="/dashboard/IDE" component={IDE}/>
           <Route component={NotFound}/>
         </Switch>
       </Router>
