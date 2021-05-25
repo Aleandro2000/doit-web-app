@@ -387,7 +387,7 @@ body{
 /*Alert Window*/
 
 .alert-button{
-    background-color: grey;
+    background-color: #999999;
     width: 50px;
     height: 40px;
     margin: 0 auto;
