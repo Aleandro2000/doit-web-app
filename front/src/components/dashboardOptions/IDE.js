@@ -16,7 +16,6 @@ function IDE()
     const [filename,setFileName]=useState("code.c");
     const [language,setLanguage]=useState("c_cpp");
     const [output, setOutput]=useState("");
-    const [input, setInput]=useState("");
     const session=localStorage.getItem("session");
     const aceEditorRef=createRef();
 
@@ -95,8 +94,9 @@ function IDE()
     }
 
     const submitToCompile = async (lang,code) =>{
+        const input=document.getElementById("input").value;
         const data={code,input};
-        const req=await fetch("http://localhost:8081/"+lang,{
+        await fetch("http://localhost:8081/"+lang,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -106,9 +106,15 @@ function IDE()
             .then(response => response.json())
             .then(data => {
                 if(data.stderr)
+                {
+                    document.getElementById("status").style.backgroundColor="#ff3b47";
                     setOutput(data.stderr);
+                }
                 else
+                {
+                    document.getElementById("status").style.backgroundColor="#00d742";
                     setOutput(data.stdout);
+                }
             });
     }
 
@@ -128,6 +134,7 @@ function IDE()
                     break;
                 case "Python 2":
                     submitToCompile("python",code);
+                    break;
                 case "Python 3":
                     submitToCompile("python",code);
                     break;
@@ -189,9 +196,20 @@ function IDE()
                         </button>
                     </p>
                     <p>
-                        <b>
-                           {output}<span className="prompt-cursor"/>
-                        </b>
+                        <div className="output">
+                            <b style={{marginLeft: "5px"}}>Input</b>
+                            <div className="screen" style={{padding: "0"}}>
+                                <textarea className="input" id="input"/>
+                            </div>
+                        </div>
+                    </p>
+                    <p>
+                        <div className="output">
+                            <div className="status" id="status"/>
+                            <div className="screen">
+                                <p>-&#62; Output:<b>{output}</b><span className="prompt-cursor"/></p>
+                            </div>
+                        </div>
                     </p>
                 </div>
             </div>

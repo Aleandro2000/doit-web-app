@@ -121,7 +121,7 @@ function Homepage()
                         </h3>
                         <p align="center">
                             <b>
-                                C, C++, Java, Python
+                                C, C++, Java, Python, NodeJS
                             </b>
                         </p>
                     </div>
