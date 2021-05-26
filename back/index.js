@@ -1,9 +1,11 @@
 const express=require("express");
 const app=express();
 const bodyparser=require("body-parser");
-const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 const cors=require("cors");
+const {c, cpp, node, python, java}=require('compile-run');
+
+//auth
 
 const login=require("./auth/login");
 const register=require("./auth/register");
@@ -11,12 +13,20 @@ const confirmation=require("./auth/confirmEmail");
 const resend=require("./auth/resendLink");
 const deleteAccount=require("./auth/deleteAccount");
 
+//compilers
+
+const compiler=require("./compiler/compiler");
+
+//
 mongoose.connect('mongodb://localhost/DoIT', {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useCreateIndex', true);
 
 app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: false}));
+//
+
+//auth
 
 app.post("/login",(req,res)=>{
     if(req.body)
@@ -46,12 +56,50 @@ app.post("/resend",(req,res)=>{
         res.status(400).send("Request failed!");
 });
 
-app.get("/logout",(req, res)=>{
-    logout(req,res);
+app.get("/delete",(req, res)=>{
+    if(req.body)
+        deleteAccount(req,res);
+    else
+        res.status(400).send("Request failed!");
 });
 
-app.get("/delete",(req, res)=>{
-    deleteAccount(req,res);
+//compilers
+
+app.post("/c",(req,res)=>{
+    if(req.body)
+        compiler(req,res,c);
+    else
+        res.status(400).send("Request failed!");
 });
+
+app.post("/cpp",(req,res)=>{
+    if(req.body)
+        compiler(req,res,cpp);
+    else
+        res.status(400).send("Request failed!");
+});
+
+app.post("/java",(req,res)=>{
+    if(req.body)
+        compiler(req,res,java);
+    else
+        res.status(400).send("Request failed!");
+});
+
+app.post("/python",(req,res)=>{
+    if(req.body)
+        compiler(req,res,python);
+    else
+        res.status(400).send("Request failed!");
+});
+
+app.post("/node",(req,res)=>{
+    if(req.body)
+        compiler(req,res,node);
+    else
+        res.status(400).send("Request failed!");
+});
+
+//port listener
 
 app.listen(8081);

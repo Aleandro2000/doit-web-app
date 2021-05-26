@@ -108,7 +108,7 @@ body{
 }
 
 .header-content-title{
-    font-size: 30px;
+    font-size: 26px;
 }
 
 .social-media{
@@ -380,7 +380,6 @@ body{
     width: 3px;
     background: white;
     display: inline-block;
-    margin-left: 8px;
     animation: 500ms ease infinite alternate blink;
 }
 
