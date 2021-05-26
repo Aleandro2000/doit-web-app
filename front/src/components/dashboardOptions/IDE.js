@@ -38,10 +38,10 @@ function IDE()
         setFileName("code"+selectedOption.value);
         switch(selectedOption.label)
         {
-            case "C++":
+            case "C":
                 setLanguage("c_cpp")
                 break;
-            case "C":
+            case "C++":
                 setLanguage("c_cpp")
                 break;
             case "Java":
