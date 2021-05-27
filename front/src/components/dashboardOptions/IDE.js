@@ -11,6 +11,8 @@ import { createRef, useState } from "react";
 import Select from 'react-select';
 import swal from 'sweetalert';
 
+import logo from "../../images/logo2.png";
+
 function IDE()
 {
     const [filename,setFileName]=useState("code.c");
@@ -155,6 +157,31 @@ function IDE()
             });
     }
 
+    const Open = (event) =>{
+        const fileName=document.getElementById('open').value.toLowerCase();
+        if(!fileName.endsWith('.txt')&&!fileName.endsWith('.c')&&!fileName.endsWith('.cpp')&&!fileName.endsWith('.java')&&!fileName.endsWith('.py')&&!fileName.endsWith('.js'))
+        {
+            swal({
+                title: "OOPS!",
+                text: "Please upload a compatible file!",
+                icon: "error",
+                buttons: {
+                    confirm: {text:'OK',className:'alert-button'}
+                }
+            });
+        }
+        else
+        {
+            const reader=new FileReader();
+            reader.onload=(() => {
+                return function(e) {
+                    aceEditorRef.current.editor.setValue(e.target.result);
+                };
+            })(event.target.files[0]);
+            reader.readAsText(event.target.files[0]);
+        }
+    }
+
     return(
         <>
             <div style={{backgroundColor: "#282a2e"}}>
@@ -167,6 +194,14 @@ function IDE()
                         </ul>
                     </div>
                 </div>
+                <center>
+                    <button className="button-white responsive-no-button-border" style={{borderRadius: "0",marginTop: "10px"}}>
+                        <label style={{cursor: "pointer"}} for="open">
+                            <i className="fa fa-file"/>|OPEN
+                        </label>
+                    </button>
+                    <input onChange={Open} type="file" id="open" name="open" accept=".txt,.c,.cpp,.java,.py,.js" style={{display: "none"}}/>
+                </center>
                 <div style={{paddingTop: "15px"}}>
                     <AceEditor
                         mode={language}
@@ -213,13 +248,17 @@ function IDE()
                     </p>
                 </div>
             </div>
-            <br/>
-            <p className="container" align="center">
-                <b>
-                    © Powered by <i><u>Softana</u></i>, All right reserved.
-                </b>
-            </p>
-            <br/>
+            <div className="content-box">
+                <center>
+                    <img alt="" src={logo} className="logo"/>
+                    <hr/>
+                    <p>
+                        <b>
+                            © Powered by <i><u>Softana</u></i>, All right reserved.
+                        </b>
+                    </p>
+                </center>
+            </div>
         </>
     );
 }

@@ -136,7 +136,7 @@ function Homepage()
                         </h3>
                         <p align="center">
                             <b>
-                                Full Courses in Algorithms, DS and OOP
+                                Full Courses in Algorithms, DS, OOP and Machine Learning
                             </b>
                         </p>
                     </div>
@@ -282,11 +282,18 @@ function Homepage()
                     </p>
                     <hr/>
                     <p>
-                        <div className="row"></div>
-                        <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
-                        <i className="fa fa-instagram social-media"/>
-                        <i className="fa fa-youtube social-media"/>
-                        <i className="fa fa-linkedin social-media"/>
+                        <a href="#">
+                            <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
+                        </a>
+                        <a href="#">
+                            <i className="fa fa-instagram social-media"/>
+                        </a>
+                        <a href="#">
+                            <i className="fa fa-youtube social-media"/>
+                        </a>
+                        <a href="#">
+                            <i className="fa fa-linkedin social-media"/>
+                        </a>
                     </p>
                     <br/>
                 </div>
