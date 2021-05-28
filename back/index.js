@@ -67,35 +67,35 @@ app.get("/delete",(req, res)=>{
 
 app.post("/c",(req,res)=>{
     if(req.body)
-        compiler(req,res,c);
+        compiler(req,res,c,"c");
     else
         res.status(400).send("Request failed!");
 });
 
 app.post("/cpp",(req,res)=>{
     if(req.body)
-        compiler(req,res,cpp);
+        compiler(req,res,cpp,"cpp");
     else
         res.status(400).send("Request failed!");
 });
 
 app.post("/java",(req,res)=>{
     if(req.body)
-        compiler(req,res,java);
+        compiler(req,res,java,"java");
     else
         res.status(400).send("Request failed!");
 });
 
 app.post("/python",(req,res)=>{
     if(req.body)
-        compiler(req,res,python);
+        compiler(req,res,python,"python");
     else
         res.status(400).send("Request failed!");
 });
 
 app.post("/node",(req,res)=>{
     if(req.body)
-        compiler(req,res,node);
+        compiler(req,res,node,"node");
     else
         res.status(400).send("Request failed!");
 });

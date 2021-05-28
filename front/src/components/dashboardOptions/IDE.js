@@ -195,11 +195,9 @@ function IDE()
                     </div>
                 </div>
                 <center>
-                    <button className="button-white responsive-no-button-border" style={{borderRadius: "0",marginTop: "10px"}}>
-                        <label style={{cursor: "pointer"}} for="open">
-                            <i className="fa fa-file"/>|OPEN
-                        </label>
-                    </button>
+                    <label style={{cursor: "pointer",color: "white"}} for="open">
+                        <i className="fa fa-file"/>|OPEN
+                    </label>
                     <input onChange={Open} type="file" id="open" name="open" accept=".txt,.c,.cpp,.java,.py,.js" style={{display: "none"}}/>
                 </center>
                 <div style={{paddingTop: "15px"}}>
