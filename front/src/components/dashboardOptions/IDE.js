@@ -195,7 +195,7 @@ function IDE()
                     </div>
                 </div>
                 <center>
-                    <label style={{cursor: "pointer",color: "white"}} for="open">
+                    <label style={{cursor: "pointer",color: "white"}} htmlFor="open">
                         <i className="fa fa-file"/>|OPEN
                     </label>
                     <input onChange={Open} type="file" id="open" name="open" accept=".txt,.c,.cpp,.java,.py,.js" style={{display: "none"}}/>
@@ -228,22 +228,19 @@ function IDE()
                             <i className="fa fa-cog"/>|RUN
                         </button>
                     </p>
-                    <p>
-                        <div className="output">
-                            <b style={{marginLeft: "5px"}}>Input</b>
-                            <div className="screen" style={{padding: "0"}}>
-                                <textarea className="input" id="input"/>
-                            </div>
+                    <div className="output">
+                        <b style={{marginLeft: "5px"}}>Input</b>
+                        <div className="screen" style={{padding: "0"}}>
+                            <textarea className="input" id="input"/>
                         </div>
-                    </p>
-                    <p>
-                        <div className="output">
-                            <div className="status" id="status"/>
-                            <div className="screen">
-                                <p>-&#62; Output:<b>{output}</b><span className="prompt-cursor"/></p>
-                            </div>
+                    </div>
+                    <br/>
+                    <div className="output">
+                        <div className="status" id="status"/>
+                        <div className="screen">
+                            <p>-&#62; Output:<b>{output}</b><span className="prompt-cursor"/></p>
                         </div>
-                    </p>
+                    </div>
                 </div>
             </div>
             <div className="content-box">

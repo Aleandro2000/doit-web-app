@@ -22,9 +22,9 @@ function Homepage()
                 <div className="container">
                     <ul className="navigation-list float-right fadeIn">
                         <li className="navigation-item">
-                            <div class="dropdown">
-                                <div class="button-white responsive-no-button-border dropbtn" onClick={() => navmenu("dropdown-content") }>Authentificate</div>
-                                <div class="dropdown-content" id="dropdown-content">
+                            <div className="dropdown">
+                                <div className="button-white responsive-no-button-border dropbtn" onClick={() => navmenu("dropdown-content") }>Authentificate</div>
+                                <div className="dropdown-content" id="dropdown-content">
                                     <Link className="navigation-link button-white-dropdown" to="/login"><i className="fa fa-sign-in"/> Login</Link>
                                     <br/>
                                     <Link className="navigation-link button-white-dropdown" to="/register"><i className="fa fa-plus"/> Register</Link>
@@ -40,20 +40,19 @@ function Homepage()
                     <div className="header-content fadeIn">
                         <b className="header-content-title">
                             Become the Super Software Engineer!
-                            <hr/>
                         </b>
+                        <hr/>
                         <p className="header-content-text">
                             Become <b>master</b> at the <b>coding interview</b> and get your <b>dream job</b>. Learn how to write <b>clean quality code</b> that passes the technical interview. Develop your <b>problem solving skills</b> using our <b>step by step</b> interactive lessons, video content and tips&#38;tricks.
                         </p>
-                        <p className="header-content-text">
-                            <Link to="/demo">
-                                <div className="button-white" style={{padding: "7.5px"}}>
-                                    <b>
-                                        Try our DEMO
-                                    </b>
-                                </div>
-                            </Link>
-                        </p>
+                        <Link className="header-content-text" to="/demo">
+                            <div className="button-white" style={{padding: "7.5px"}}>
+                                <b>
+                                    Try our DEMO
+                                </b>
+                            </div>
+                        </Link>
+                        <br/>
                     </div>
                 </p>
             </div>
