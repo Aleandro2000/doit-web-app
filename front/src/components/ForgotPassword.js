@@ -42,7 +42,7 @@ const ForgotPassword = () => {
             <img alt="" src={logo} className="logo"/>
             <h3 className="title">
                 <b>
-                    Login
+                    Forgot Password Screen
                 </b>
             </h3>
             <hr/>
