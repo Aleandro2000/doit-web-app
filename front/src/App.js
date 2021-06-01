@@ -17,6 +17,8 @@ import VerificationLink from "./components/VerificationLink";
 import Dashboard from "./components/Dashboard";
 
 import IDE from "./components/dashboardOptions/IDE";
+import Settings from "./components/dashboardOptions/Settings";
+import ResetPassword from "./components/dashboardOptions/settingsOptions/ResetPassword";
 
 function App() {
   AOS.init({
@@ -36,6 +38,8 @@ function App() {
           <Route exact path="/resend" component={ForgotPassword}/>
           <Route exact path="/dashboard" component={Dashboard}/>
           <Route exact path="/dashboard/IDE" component={IDE}/>
+          <Route exact path="/dashboard/settings" component={Settings}/>
+          <Route exact path="/dashboard/resetpass" component={ResetPassword}/>
           <Route component={NotFound}/>
         </Switch>
       </Router>

@@ -7,11 +7,12 @@ module.exports = function(req, res, next) {
             return res.status(500).send({msg: err.message});
         else if (!user)
             return res.status(401).send({ msg:'The email address ' + req.body.email + ' is not associated with any account. please check and try again!'});
-        Bcrypt.compare(Bcrypt.hashSync(req.body.password, Bcrypt.genSaltSync(10)), user.password, (err,result)=>{
-            if(result)
+        Bcrypt.compare(req.body.password, user.password, (err,result)=>{
+            if(err)
                 return res.status(401).send({msg:'Wrong password!'});
-            else if (!user.isVerified)
+            if(!result)
                 return res.status(401).send({msg:'Your email has not been verified. Please click on resend!'});
+            else
                 return res.status(200).send({msg:"Succesful logged in!"});
         });
     });

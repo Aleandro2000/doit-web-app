@@ -12,6 +12,7 @@ const register=require("./auth/register");
 const confirmation=require("./auth/confirmEmail");
 const resend=require("./auth/resendLink");
 const deleteAccount=require("./auth/deleteAccount");
+const resetPassword=require("./auth/resetPassword");
 
 //compilers
 
@@ -55,6 +56,14 @@ app.post("/resend",(req,res)=>{
     else
         res.status(400).send("Request failed!");
 });
+
+app.post("/resetpass",(req,res) => {
+    if(req.body)
+        resetPassword(req,res);
+    else
+        res.status(400).send("Request failed!");
+});
+
 
 app.get("/delete",(req, res)=>{
     if(req.body)

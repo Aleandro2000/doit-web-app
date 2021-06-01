@@ -1,5 +1,4 @@
-import "./ResetPassword.css";
-import logo from "../images/logo2.png";
+import logo from "../../../images/logo2.png";
 import {
     Link,
     Redirect
@@ -10,10 +9,13 @@ const ResetPassword = () => {
 
     const [password, setPassword] = useState('');
     const [repassword, setRePassword] = useState('');
-
+    const [res, setRes] = useState("");
     const [passwordInput, setPasswordInput] = useState({borderColor: "#ced4da"});
 
     const session=localStorage.getItem("session");
+
+    if(!session)
+        return <Redirect to="/login" />;
 
     const sendRequest = async() => {
         if(password !== repassword || password.length < 6){
@@ -34,7 +36,7 @@ const ResetPassword = () => {
         })
 
         if(req.status === 200)
-            setSent(true);
+            setRes("Action done succesfully!");
         
         document.getElementById("loading").style.display="none";
     }
@@ -63,11 +65,13 @@ const ResetPassword = () => {
                 </button>
                 <br/>
                 <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                <br/>
+                {res}
             </form>
             <hr/>
-            <Link to="/dashboard">
+            <Link to="/dashboard/settings">
                 <button className="button">
-                    <i className="fa fa-tachometer"/> Dashboard
+                    <i className="fa fa-arrow-left"/> Back
                 </button>
             </Link>
             <hr/>
