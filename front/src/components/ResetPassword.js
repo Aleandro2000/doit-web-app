@@ -23,6 +23,7 @@ const ResetPassword = () => {
         else
             setPasswordInput({borderColor: "green"});
 
+        document.getElementById("loading").style.display="inline-block";
         const data = {session, password}
         const req = await fetch("http://localhost:8081/resetpass", {
             method: 'POST',
@@ -34,6 +35,8 @@ const ResetPassword = () => {
 
         if(req.status === 200)
             setSent(true);
+        
+        document.getElementById("loading").style.display="none";
     }
 
     function handleSubmit(event) {
@@ -58,6 +61,8 @@ const ResetPassword = () => {
                 <button type="submit" className="button" onClick={sendRequest}>
                     RESET
                 </button>
+                <br/>
+                <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
             </form>
             <hr/>
             <Link to="/dashboard">

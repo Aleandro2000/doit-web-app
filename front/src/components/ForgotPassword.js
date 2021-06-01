@@ -20,6 +20,7 @@ const ForgotPassword = () => {
             setEmailInput({borderColor: "red"});
             return;
         }
+        document.getElementById("loading").style.display="inline-block";
         const data = {email}
         const req = await fetch("http://localhost:8081/forgotpass", {
             method: 'POST',
@@ -30,11 +31,15 @@ const ForgotPassword = () => {
         })
 
         if(req.status === 200){
+            document.getElementById("loading").style.display="none";
             setSent(true);
             history.push("/");
         }
         else
+        {
+            document.getElementById("loading").style.display="none";
             setSent("NotSent");
+        }
     }
 
     return (
@@ -51,6 +56,8 @@ const ForgotPassword = () => {
                 <button type="submit" className="button" onClick={sendRequest}>
                     <i className="fa fa-send"/> SEND
                 </button>
+                <br/>
+                <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 { 
                     sent === "NotSent" ? (<><br/><h5 className="text-center text-danger mx-3">Couldn't Reset Reset Password</h5></>) : ( <></> )
                 }

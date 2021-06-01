@@ -37,6 +37,8 @@ function Register()
         
         if(ok===false)
             return;
+
+        document.getElementById("loading").style.display="inline-block";
         
         const data = {
             email: email, 
@@ -56,10 +58,12 @@ function Register()
             localStorage.setItem("registred",registered);
             setRegistered("Succesful");
             console.log("Registered!");
+            document.getElementById("loading").style.display="none";
             history.push("/verificationlink");
         }
         else
         {
+            document.getElementById("loading").style.display="none";
             console.error("Couldn't register!");
             setRegistered("NotSuccesful");
         }
@@ -88,6 +92,8 @@ function Register()
                 <button type="submit" className="button" onClick={submitForm}>
                     <i className="fa fa-plus"/> REGISTER
                 </button>
+                <br/>
+                <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 {
                     registered === "NotSuccesful"  ? (<><br/><h5 className="text-center text-danger">Could not register!</h5></>) : ( registered === "Succesful"  ? (<><br/><h5 className="text-center text-success">Registered!</h5></>) : (<></>) )
                 }

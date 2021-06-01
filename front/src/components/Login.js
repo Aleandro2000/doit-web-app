@@ -35,6 +35,7 @@ function Login()
             setPasswordInput({borderColor: "green"});
         if(!ok)
             return;
+        document.getElementById("loading").style.display="inline-block";
         const data={email, password};
         const req=await fetch("http://localhost:8081/login", {
             method: 'POST',
@@ -47,15 +48,16 @@ function Login()
         {
             localStorage.setItem("session",email);
             console.log("Logged in!");
+            document.getElementById("loading").style.display="none";
             history.push("/dashboard");
         }
         else
         {
-            setRes("Please verify input data. Make sure to have a valid account!");
+            document.getElementById("loading").style.display="none";
+            setRes("Please verify input data. Make sure you have a valid account!");
             setEmailInput({borderColor: "#ced4da"});
             setPasswordInput({borderColor: "#ced4da"});
         }
-
     }
 
     const handleSubmit = (e) => {
@@ -80,6 +82,8 @@ function Login()
                 <button type="submit" className="button" onClick={sendRequest}>
                     <i className="fa fa-sign-in"/> LOGIN
                 </button>
+                <br/>
+                <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 <br/>{res}<br/>
                 <Link to={"/resend"}>Forgot password?</Link>
             </form>

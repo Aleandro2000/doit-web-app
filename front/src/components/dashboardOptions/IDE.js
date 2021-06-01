@@ -96,6 +96,7 @@ function IDE()
     }
 
     const submitToCompile = async (lang,code) =>{
+        document.getElementById("loading").style.display="inline-block";
         const input=document.getElementById("input").value;
         const data={code,input};
         await fetch("http://localhost:8081/"+lang,{
@@ -109,11 +110,13 @@ function IDE()
             .then(data => {
                 if(data.stderr)
                 {
+                    document.getElementById("loading").style.display="none";
                     document.getElementById("status").style.backgroundColor="#ff3b47";
                     setOutput(data.stderr);
                 }
                 else
                 {
+                    document.getElementById("loading").style.display="none";
                     document.getElementById("status").style.backgroundColor="#00d742";
                     setOutput(data.stdout);
                 }
@@ -228,6 +231,9 @@ function IDE()
                             <i className="fa fa-cog"/>|RUN
                         </button>
                     </p>
+                    <center>
+                        <div className="lds-ellipsis" style={{background: "transparent"}} id="loading"><div style={{background: "white"}}></div><div style={{background: "white"}}></div><div style={{background: "white"}}></div><div style={{background: "white"}}></div></div>
+                    </center>
                     <div className="output">
                         <b style={{marginLeft: "5px"}}>Input</b>
                         <div className="screen" style={{padding: "0"}}>
