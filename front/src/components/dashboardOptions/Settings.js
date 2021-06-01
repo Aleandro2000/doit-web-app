@@ -40,7 +40,7 @@ function Settings(){
                     <div className="content-box column" style={{padding: "20px"}}>
                         <img alt="" className="icon" src={reset}/>
                         <br/>
-                        <Link to="/dashboard/resetpass">
+                        <Link to="/dashboard/settings/profile/resetpass">
                             <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
                                 Reset Password
                             </div>
@@ -49,9 +49,11 @@ function Settings(){
                     <div className="content-box column" style={{padding: "20px"}}>
                         <img alt="" className="icon" src={del}/>
                         <br/>
-                        <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                            Delete Account
-                        </div>
+                        <Link to="/dashboard/settings/profile/delete">
+                            <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
+                                Delete Account
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>

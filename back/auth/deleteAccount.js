@@ -1,7 +1,7 @@
 const User = require('./models/user');
 
 module.exports = function(req, res, next) {
-    User.findByIdAndDelete(req.body.session, (err,result)=>{
+    User.deleteOne({email: req.body.session}, (err,result)=>{
         if(err)
             return res.sendStatus(500).send({msg:"Failed deleting account!"});
         else

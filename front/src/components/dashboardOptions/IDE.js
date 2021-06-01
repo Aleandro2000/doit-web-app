@@ -187,7 +187,7 @@ function IDE()
 
     return(
         <>
-            <div style={{backgroundColor: "#282a2e"}}>
+            <div style={{backgroundColor: "#282a2e"}} className="fadeIn">
                 <div className="navigation ide-navigation">
                     <div className="container">
                         <ul className="navigation-list float-right">

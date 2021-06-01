@@ -65,7 +65,7 @@ app.post("/resetpass",(req,res) => {
 });
 
 
-app.get("/delete",(req, res)=>{
+app.post("/delete",(req, res)=>{
     if(req.body)
         deleteAccount(req,res);
     else

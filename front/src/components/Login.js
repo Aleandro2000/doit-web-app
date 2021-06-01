@@ -85,7 +85,7 @@ function Login()
                 <br/>
                 <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 <br/>{res}<br/>
-                <Link to={"/resend"}>Forgot password?</Link>
+                <Link to={"/forgotpass"}>Forgot password?</Link>
             </form>
             <hr/>
             <Link to="/register">
