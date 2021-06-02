@@ -246,7 +246,15 @@ function Homepage()
                             <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
-                            <td>Bot assistant as digital teacher during the studying</td>
+                            <td>Bot assistant based on AI as digital teacher during the studying</td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                        </tr>
+                        <tr>
+                            <td>Teaching Machine Learning to bost your DATA SCIENCE skills</td>
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
@@ -263,6 +271,46 @@ function Homepage()
                 <p align="center">
                     We provide the best digital teacher for competitive programming and coding interviews and professional experience in well-known tech companies. You may ask any question to our bot, because all questions it is kept secret.
                 </p>
+            </div>
+            <div className="container content" data-aos='fade-up'>
+                <div className="content-box" style={{backgroundColor: "black", color: "white"}}>
+                    <div className="circle"/>
+                    <h2 align="center">
+                        Pricing
+                    </h2>
+                    <h5 style={{backgroundColor: "white", color: "gray", borderRadius: "10px 0 10px 0", padding: "10px"}}>
+                        <b style={{fontSize: "24px", color: "#c21808"}}>
+                            $ 20 / month
+                        </b>
+                        <hr/>
+                        <ul style={{textAlign: "justify"}}>
+                            <li className="price">
+                                <b>100+ handpicked Coding Questions</b>
+                            </li>
+                            <li className="price">
+                                <b>Step by Step coding tutorials</b>
+                            </li>
+                            <li className="price">
+                                <b>Amazing video explanations</b>
+                            </li>
+                            <li className="price">
+                                <b>Code Quality tests</b>
+                            </li>
+                            <li className="price">
+                                <b>Optimized for fast Learning Curve</b>
+                            </li>
+                            <li className="price">
+                                <b>Quality validation</b>
+                            </li>
+                            <li className="price">
+                                <b>Write code in 4 different languages</b>
+                            </li>
+                            <li className="price">
+                                <b>Exploring every solution to a given problem</b>
+                            </li>
+                        </ul>
+                    </h5>
+                </div>
             </div>
             <div className="container content" data-aos='fade-up'>
                 <h1 align="center">

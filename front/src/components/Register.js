@@ -14,6 +14,7 @@ function Register()
     const [emailInput, setEmailInput]=useState({borderColor: "#ced4da"});
     const [passwordInput, setPasswordInput]=useState({borderColor: "#ced4da"});
     const [registered, setRegistered] = useState(false);
+    const [res,setRes]=useState("");
 
     const history=useHistory();
     const session=localStorage.getItem("session");
@@ -28,8 +29,11 @@ function Register()
         else
             setEmailInput({borderColor: "green"});
 
-        if(password!==repassword||password.length<8){
+        const passwordTest=new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})");
+        
+        if(password!==repassword||!passwordTest.test(password)){
             setPasswordInput({borderColor: "red"});
+            setRes("This password is unsafe! Try another password!");
             ok=false;
         }
         else
@@ -93,6 +97,7 @@ function Register()
                     <i className="fa fa-plus"/> REGISTER
                 </button>
                 <br/>
+                {res}
                 <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 {
                     registered === "NotSuccesful"  ? (<><br/><h5 className="text-center text-danger">Could not register!</h5></>) : ( registered === "Succesful"  ? (<><br/><h5 className="text-center text-success">Registered!</h5></>) : (<></>) )
