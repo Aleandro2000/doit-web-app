@@ -273,15 +273,17 @@ function Homepage()
                 </p>
             </div>
             <div className="container content" data-aos='fade-up'>
+                <h1 align="center">
+                    Pricing
+                </h1>
                 <div className="content-box" style={{backgroundColor: "black", color: "white"}}>
                     <div className="circle"/>
                     <h2 align="center">
-                        Pricing
-                    </h2>
-                    <h5 style={{backgroundColor: "white", color: "gray", borderRadius: "10px 0 10px 0", padding: "10px"}}>
-                        <b style={{fontSize: "24px", color: "#c21808"}}>
+                        <b>
                             $ 20 / month
                         </b>
+                    </h2>
+                    <h5 style={{backgroundColor: "white", color: "gray", borderRadius: "10px 0 10px 0", padding: "10px"}}>
                         <hr/>
                         <ul style={{textAlign: "justify"}}>
                             <li className="price">
@@ -303,10 +305,13 @@ function Homepage()
                                 <b>Quality validation</b>
                             </li>
                             <li className="price">
-                                <b>Write code in 4 different languages</b>
+                                <b>Write code in 5 different languages</b>
                             </li>
                             <li className="price">
                                 <b>Exploring every solution to a given problem</b>
+                            </li>
+                            <li className="price">
+                                <b>Unlimited access to the our AI mentor.</b>
                             </li>
                         </ul>
                     </h5>
