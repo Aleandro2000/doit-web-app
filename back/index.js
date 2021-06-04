@@ -4,6 +4,7 @@ const bodyparser=require("body-parser");
 const mongoose=require('mongoose');
 const cors=require("cors");
 const {c, cpp, node, python, java}=require('compile-run');
+const passport=require("passport");
 
 //auth
 
@@ -13,6 +14,7 @@ const confirmation=require("./auth/confirmEmail");
 const resend=require("./auth/resendLink");
 const deleteAccount=require("./auth/deleteAccount");
 const resetPassword=require("./auth/resetPassword");
+const googleAuth=require("./auth/googleAuth");
 
 //compilers
 
@@ -25,6 +27,8 @@ mongoose.set('useCreateIndex', true);
 app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: false}));
+app.use(passport.initialize());
+app.use(passport.session());
 //
 
 //auth
@@ -108,6 +112,12 @@ app.post("/node",(req,res)=>{
     else
         res.status(400).send("Request failed!");
 });
+
+//google oauth2
+
+googleAuth(passport);
+
+app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 
 //port listener
 

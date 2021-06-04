@@ -5,6 +5,8 @@ import {
     useHistory
 } from "react-router-dom";
 import { useState } from "react";
+import { GoogleLogin } from 'react-google-login';
+import swal from "sweetalert";
 
 function Login()
 {
@@ -60,6 +62,26 @@ function Login()
         }
     }
 
+    const googleAuth = async () => {
+        await fetch("http://localhost:8081/auth/google")
+            .then(response => response.json())
+            .then(data => {
+                localStorage.setItem("session",data);
+                history.push("/dashboard");
+            });
+    }
+
+    const googleAuthError = async () => {
+        swal({
+            title: "OOPS!",
+            text: "This seems to be an error with Google Auth! Tyr again later!",
+            icon: "error",
+            buttons: {
+                confirm: {text:'OK',className:'alert-button'}
+            }
+        });
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
     }
@@ -82,11 +104,20 @@ function Login()
                 <button type="submit" className="button" onClick={sendRequest}>
                     <i className="fa fa-sign-in"/> LOGIN
                 </button>
-                <br/>
-                <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
-                <br/>{res}<br/>
+                <center>
+                    <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                </center>
+                {res}<br/>
                 <Link to={"/forgotpass"}>Forgot password?</Link>
             </form>
+            <GoogleLogin
+                clientId="926330184095-c8ej0ig4v1midq5cbh8ot6tbkbfi7p3t.apps.googleusercontent.com"
+                buttonText="Login with Google"
+                onSuccess={googleAuth}
+                onFailure={googleAuthError}
+                cookiePolicy={'single_host_origin'}
+                icon={false}
+            />
             <hr/>
             <Link to="/register">
                 <button className="button">
