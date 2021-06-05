@@ -115,9 +115,22 @@ app.post("/node",(req,res)=>{
 
 //google oauth2
 
-googleAuth(passport);
+googleAuth();
 
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+app.get("/auth/google/success",(req,res)=>{
+    console.log(googleUser);
+    res.status(200).send(googleUser);
+});
+
+app.get("/auth/google/error",(req,res)=>{
+    res.status(400).send("Cannot log in with Google!");
+});
+
+app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: '/error' }),(req,res)=>{
+    res.redirect("/auth/google/success");
+});
 
 //port listener
 
