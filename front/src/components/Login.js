@@ -112,7 +112,9 @@ function Login()
             </form>
             <GoogleLogin
                 clientId="926330184095-c8ej0ig4v1midq5cbh8ot6tbkbfi7p3t.apps.googleusercontent.com"
-                buttonText="Login with Google"
+                render={renderProps => (
+                    <button className="button" onClick={renderProps.onClick} disabled={renderProps.disabled}><i className="fa fa-google"/> Login with Google</button>
+                )}
                 onSuccess={googleAuth}
                 onFailure={googleAuthError}
                 cookiePolicy={'single_host_origin'}

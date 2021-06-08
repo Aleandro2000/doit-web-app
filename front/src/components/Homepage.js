@@ -56,6 +56,7 @@ function Homepage()
                     </div>
                 </p>
             </div>
+            <div className="model"/>
             <div className="container content" data-aos='fade-up'>
                 <div className="row">
                     <div className="column">
@@ -285,7 +286,7 @@ function Homepage()
                     </h2>
                     <h5 style={{backgroundColor: "white", color: "gray", borderRadius: "10px 0 10px 0", padding: "10px"}}>
                         <hr/>
-                        <ul style={{textAlign: "justify"}}>
+                        <ul style={{textAlign: "left"}}>
                             <li className="price">
                                 <b>100+ handpicked Coding Questions</b>
                             </li>

@@ -18,6 +18,18 @@ li.price:before{
     margin-right: 4px;
 }
 
+.model {
+    position: relative;
+    height: 150px;
+    background-image: linear-gradient(black, #4d4d4d);
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        0 calc(100% - 5vw)
+    );
+}
+
 @keyframes a{
     0%{
         fill-opacity:0;
