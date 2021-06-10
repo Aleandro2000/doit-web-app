@@ -34,10 +34,10 @@ function Homepage()
                     </ul>
                 </div>
             </div>
-            <div className="header">
-                <img alt="" className="rotation fadeIn" style={{marginBottom: "20px"}} src={logo}/>
+            <div className="header fadeIn">
+                <img alt="" className="rotation" style={{marginBottom: "20px"}} src={logo}/>
                 <p align="center">
-                    <div className="header-content fadeIn">
+                    <div className="header-content">
                         <b className="header-content-title">
                             Become the Super Software Engineer!
                         </b>
@@ -56,7 +56,6 @@ function Homepage()
                     </div>
                 </p>
             </div>
-            <div className="model"/>
             <div className="container content" data-aos='fade-up'>
                 <div className="row">
                     <div className="column">
@@ -277,16 +276,10 @@ function Homepage()
                 <h1 align="center">
                     Pricing
                 </h1>
-                <div className="content-box" style={{backgroundColor: "black", color: "white"}}>
-                    <div className="circle"/>
-                    <h2 align="center">
-                        <b>
-                            $ 20 / month
-                        </b>
-                    </h2>
-                    <h5 style={{backgroundColor: "white", color: "gray", borderRadius: "10px 0 10px 0", padding: "10px"}}>
-                        <hr/>
-                        <ul style={{textAlign: "left"}}>
+                <div className="row">
+                    <div className="column" style={{marginTop: "25px"}}>
+                        <ul class="price">
+                            <li className="price-detail"><b>Basic</b><br/>$ 20 / month</li>
                             <li className="price">
                                 <b>100+ handpicked Coding Questions</b>
                             </li>
@@ -314,19 +307,87 @@ function Homepage()
                             <li className="price">
                                 <b>Unlimited access to the our AI mentor.</b>
                             </li>
+                            <li className="grey price"><Link to="/register" className="button">BUY</Link></li>
                         </ul>
-                    </h5>
+                    </div>
+                    <div className="column" style={{marginTop: "25px"}}>
+                        <ul class="price">
+                            <li className="price-detail"><b>Basic</b><br/>$ 20 / month</li>
+                            <li className="price">
+                                <b>100+ handpicked Coding Questions</b>
+                            </li>
+                            <li className="price">
+                                <b>Step by Step coding tutorials</b>
+                            </li>
+                            <li className="price">
+                                <b>Amazing video explanations</b>
+                            </li>
+                            <li className="price">
+                                <b>Code Quality tests</b>
+                            </li>
+                            <li className="price">
+                                <b>Optimized for fast Learning Curve</b>
+                            </li>
+                            <li className="price">
+                                <b>Quality validation</b>
+                            </li>
+                            <li className="price">
+                                <b>Write code in 5 different languages</b>
+                            </li>
+                            <li className="price">
+                                <b>Exploring every solution to a given problem</b>
+                            </li>
+                            <li className="price">
+                                <b>Unlimited access to the our AI mentor.</b>
+                            </li>
+                            <li className="grey price"><Link to="/register" className="button">BUY</Link></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div className="container content" data-aos='fade-up'>
-                <h1 align="center">
-                    Testimonial
-                </h1>
-                <p align="center">
-                    We provide the best digital teacher for competitive programming and coding interviews and professional experience in well-known tech companies. You may ask any question to our bot, because all questions it is kept secret.
-                </p>
-            </div>
-            <center>
+            <h1 align="center" data-aos='fade-up'>
+                Testimonial
+            </h1>
+            <center className="container" data-aos='fade-up'>
+                <div className="testimonial-card">
+                    <div className="text">
+                        <h3>Jane Doe</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur elit. Ipsa voluptatum ipsum, laudantium minima aliquam porro? Iste,  Et, esta ah.
+                        </p>
+                    </div>
+                    <div className="card-footer">
+                        <img alt="" src="" className="image"/>
+                    </div>
+                </div>
+            </center>
+            <center className="container" data-aos='fade-up'>
+                <div className="testimonial-card">
+                    <div className="text">
+                        <h3>Jane Doe</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur elit. Ipsa voluptatum ipsum, laudantium minima aliquam porro? Iste,  Et, esta ah.
+                        </p>
+                    </div>
+                    <div className="card-footer">
+                        <img alt="" src="" className="image"/>
+                    </div>
+                </div>
+            </center>
+            <center className="container" data-aos='fade-up'>
+                <div className="testimonial-card">
+                    <div className="text">
+                        <h3>Jane Doe</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur elit. Ipsa voluptatum ipsum, laudantium minima aliquam porro? Iste,  Et, esta ah.
+                        </p>
+                    </div>
+                    <div className="card-footer">
+                        <img alt="" src="" className="image"/>
+                    </div>
+                </div>
+            </center>
+            <center style={{marginTop: "100px"}}>
                 <div className="footer" data-aos='zoom-in'>
                     <p>
                         <b>

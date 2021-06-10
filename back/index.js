@@ -14,7 +14,6 @@ const confirmation=require("./auth/confirmEmail");
 const resend=require("./auth/resendLink");
 const deleteAccount=require("./auth/deleteAccount");
 const resetPassword=require("./auth/resetPassword");
-const googleAuth=require("./auth/googleAuth");
 
 //compilers
 
@@ -111,25 +110,6 @@ app.post("/node",(req,res)=>{
         compiler(req,res,node,"node");
     else
         res.status(400).send("Request failed!");
-});
-
-//google oauth2
-
-googleAuth();
-
-app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
-
-app.get("/auth/google/success",(req,res)=>{
-    console.log(googleUser);
-    res.status(200).send(googleUser);
-});
-
-app.get("/auth/google/error",(req,res)=>{
-    res.status(400).send("Cannot log in with Google!");
-});
-
-app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: '/error' }),(req,res)=>{
-    res.redirect("/auth/google/success");
 });
 
 //port listener
