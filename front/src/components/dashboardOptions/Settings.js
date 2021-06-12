@@ -8,10 +8,6 @@ function Settings(){
 
     const session=localStorage.getItem("session");
 
-    const logout = () => {
-        localStorage.clear();
-    }
-
     if(!session)
         return <Redirect to="/login" />;
 

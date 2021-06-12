@@ -128,7 +128,9 @@ ul{
     font-size: 26px;
 }
 
-.social-media{
+.social-media, .social-media-founder{
+    width: 55px;
+    height: 55px;
     font-size: 24px;
     padding: 15px;
     margin: 10px;
@@ -136,6 +138,18 @@ ul{
     color: black;
     border-radius: 100%;
 }
+
+.social-media-founder{
+    background-color: black;
+    color: white;
+}
+
+.social-media-founder:hover{
+    background-color: transparent;
+    color: black;
+    transition-duration: 0.4s;
+}
+
 
 .social-media:hover{
     background-color: transparent;
@@ -578,7 +592,7 @@ ul{
 .testimonial-card{
     margin-top: 50px;
     min-height: 400px;
-    width: 350px;
+    width: 100%;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 8px 30px rgba(0,0,0,.3);
@@ -595,13 +609,12 @@ ul{
     font-size: 18px;
 }
 
-.image{
+.image-1,.image-2,.image-3,.image-founder{
     height: 120px;
     width: 120px;
-    border-radius: 50%;
+    border-radius: 100%;
     border: 5px solid white;
     background-color: white;
-    background:no-repeat center/cover url(https://images.unsplash.com/photo-1563715992566-7ad5cf5b71d3?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
     position: absolute;
     top: 10px;
     left: 50%;
@@ -609,16 +622,30 @@ ul{
     display:flex;
     justify-content:center;
 }
+
+.image-founder{
+    background:no-repeat center/cover url("./images/founder.jpg");
+}
+
+.image-1{
+
+    background:no-repeat center/cover url(https://images.unsplash.com/photo-1563715992566-7ad5cf5b71d3?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
   
+
+.image-2{
+
+    background:no-repeat center/cover url(https://images.unsplash.com/photo-1563715992566-7ad5cf5b71d3?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
+
+.image-3{
+
+    background:no-repeat center/cover url(https://images.unsplash.com/photo-1563715992566-7ad5cf5b71d3?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
+
 .card-footer{
     background: linear-gradient(90deg, black 0%, gray 100%);
     height: 140px;
     border-radius: 0 0 10px 10px;
     position:relative;    
-}
-
-@media only screen and (max-width: 450px){
-    .testimonial-card{
-        width: 100%;
-    }
 }

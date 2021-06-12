@@ -17,10 +17,10 @@ function Homepage()
     }
 
     return(
-        <div className="homepage">
+        <div className="homepage fadeIn">
             <div className="navigation">
                 <div className="container">
-                    <ul className="navigation-list float-right fadeIn">
+                    <ul className="navigation-list float-right">
                         <li className="navigation-item">
                             <div className="dropdown">
                                 <div className="button-white responsive-no-button-border dropbtn" onClick={() => navmenu("dropdown-content") }>Authentificate</div>
@@ -34,7 +34,7 @@ function Homepage()
                     </ul>
                 </div>
             </div>
-            <div className="header fadeIn">
+            <div className="header">
                 <img alt="" className="rotation" style={{marginBottom: "20px"}} src={logo}/>
                 <p align="center">
                     <div className="header-content">
@@ -357,7 +357,7 @@ function Homepage()
                         </p>
                     </div>
                     <div className="card-footer">
-                        <img alt="" src="" className="image"/>
+                        <img alt="" src="" className="image-1"/>
                     </div>
                 </div>
             </center>
@@ -370,7 +370,7 @@ function Homepage()
                         </p>
                     </div>
                     <div className="card-footer">
-                        <img alt="" src="" className="image"/>
+                        <img alt="" src="" className="image-2"/>
                     </div>
                 </div>
             </center>
@@ -383,7 +383,30 @@ function Homepage()
                         </p>
                     </div>
                     <div className="card-footer">
-                        <img alt="" src="" className="image"/>
+                        <img alt="" src="" className="image-3"/>
+                    </div>
+                </div>
+            </center>
+            <h1 align="center" style={{marginTop: "100px"}} data-aos='fade-up'>
+                Meet the Founder
+            </h1>
+            <center className="container" data-aos='fade-up'>
+                <div className="testimonial-card">
+                    <div className="text">
+                        <h3><b>Alexandru Camrici</b></h3>
+                        <h4><i>Founder</i></h4>
+                        <a href="https://ro.linkedin.com/in/alexandru-andrei-carmici-8978b21b3">
+                            <i className="fa fa-linkedin social-media-founder" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
+                        </a>
+                        <a href="https://github.com/Aleandro2000">
+                            <i className="fa fa-github social-media-founder"/>
+                        </a>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur elit. Ipsa voluptatum ipsum, laudantium minima aliquam porro? Iste,  Et, esta ah.
+                        </p>
+                    </div>
+                    <div className="card-footer">
+                        <img alt="" src="" className="image-founder"/>
                     </div>
                 </div>
             </center>

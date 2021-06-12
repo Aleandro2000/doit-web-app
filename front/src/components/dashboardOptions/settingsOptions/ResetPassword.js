@@ -50,7 +50,7 @@ const ResetPassword = () => {
 
     return ( 
         <div className="content-box">
-            <img src={logo} className="logo"/>
+            <img alt="" src={logo} className="logo"/>
             <h3 className="title">
                 <b>
                     Register
