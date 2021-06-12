@@ -558,6 +558,8 @@ ul{
     }
 }
 
+/*Price Table*/
+
 .price {
     list-style-type: none;
     border: 1px solid #eee;
@@ -572,7 +574,7 @@ ul{
 }
 
 .price .price-detail {
-    background-color: #111;
+    background: linear-gradient(90deg, black 0%, gray 100%);
     color: white;
     font-size: 25px;
 }

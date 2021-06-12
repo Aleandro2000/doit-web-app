@@ -276,74 +276,37 @@ function Homepage()
                 <h1 align="center">
                     Pricing
                 </h1>
-                <div className="row">
-                    <div className="column" style={{marginTop: "25px"}}>
-                        <ul class="price">
-                            <li className="price-detail"><b>Basic</b><br/>$ 20 / month</li>
-                            <li className="price">
-                                <b>100+ handpicked Coding Questions</b>
-                            </li>
-                            <li className="price">
-                                <b>Step by Step coding tutorials</b>
-                            </li>
-                            <li className="price">
-                                <b>Amazing video explanations</b>
-                            </li>
-                            <li className="price">
-                                <b>Code Quality tests</b>
-                            </li>
-                            <li className="price">
-                                <b>Optimized for fast Learning Curve</b>
-                            </li>
-                            <li className="price">
-                                <b>Quality validation</b>
-                            </li>
-                            <li className="price">
-                                <b>Write code in 5 different languages</b>
-                            </li>
-                            <li className="price">
-                                <b>Exploring every solution to a given problem</b>
-                            </li>
-                            <li className="price">
-                                <b>Unlimited access to the our AI mentor.</b>
-                            </li>
-                            <li className="grey price"><Link to="/register" className="button">BUY</Link></li>
-                        </ul>
-                    </div>
-                    <div className="column" style={{marginTop: "25px"}}>
-                        <ul class="price">
-                            <li className="price-detail"><b>Basic</b><br/>$ 20 / month</li>
-                            <li className="price">
-                                <b>100+ handpicked Coding Questions</b>
-                            </li>
-                            <li className="price">
-                                <b>Step by Step coding tutorials</b>
-                            </li>
-                            <li className="price">
-                                <b>Amazing video explanations</b>
-                            </li>
-                            <li className="price">
-                                <b>Code Quality tests</b>
-                            </li>
-                            <li className="price">
-                                <b>Optimized for fast Learning Curve</b>
-                            </li>
-                            <li className="price">
-                                <b>Quality validation</b>
-                            </li>
-                            <li className="price">
-                                <b>Write code in 5 different languages</b>
-                            </li>
-                            <li className="price">
-                                <b>Exploring every solution to a given problem</b>
-                            </li>
-                            <li className="price">
-                                <b>Unlimited access to the our AI mentor.</b>
-                            </li>
-                            <li className="grey price"><Link to="/register" className="button">BUY</Link></li>
-                        </ul>
-                    </div>
-                </div>
+                <ul class="price">
+                    <li className="price-detail"><b>Basic</b><br/>$ 20 / month</li>
+                    <li className="price">
+                        <b>100+ handpicked Coding Questions</b>
+                    </li>
+                    <li className="price">
+                        <b>Step by Step coding tutorials</b>
+                    </li>
+                    <li className="price">
+                        <b>Amazing video explanations</b>
+                    </li>
+                    <li className="price">
+                        <b>Code Quality tests</b>
+                    </li>
+                    <li className="price">
+                        <b>Optimized for fast Learning Curve</b>
+                    </li>
+                    <li className="price">
+                        <b>Quality validation</b>
+                    </li>
+                    <li className="price">
+                        <b>Write code in 5 different languages</b>
+                    </li>
+                    <li className="price">
+                        <b>Exploring every solution to a given problem</b>
+                    </li>
+                    <li className="price">
+                        <b>Unlimited access to the our AI mentor.</b>
+                    </li>
+                    <li className="grey price"><Link to="/register" className="button">BUY</Link></li>
+                </ul>
             </div>
             <h1 align="center" data-aos='fade-up'>
                 Testimonial
@@ -357,7 +320,7 @@ function Homepage()
                         </p>
                     </div>
                     <div className="card-footer">
-                        <img alt="" src="" className="image-1"/>
+                        <div src="" className="image-1"/>
                     </div>
                 </div>
             </center>
@@ -370,7 +333,7 @@ function Homepage()
                         </p>
                     </div>
                     <div className="card-footer">
-                        <img alt="" src="" className="image-2"/>
+                        <div src="" className="image-2"/>
                     </div>
                 </div>
             </center>
@@ -383,7 +346,7 @@ function Homepage()
                         </p>
                     </div>
                     <div className="card-footer">
-                        <img alt="" src="" className="image-3"/>
+                        <div src="" className="image-3"/>
                     </div>
                 </div>
             </center>
@@ -406,7 +369,7 @@ function Homepage()
                         </p>
                     </div>
                     <div className="card-footer">
-                        <img alt="" src="" className="image-founder"/>
+                        <div src="" className="image-founder"/>
                     </div>
                 </div>
             </center>
