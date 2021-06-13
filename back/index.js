@@ -5,6 +5,7 @@ const mongoose=require('mongoose');
 const cors=require("cors");
 const {c, cpp, node, python, java}=require('compile-run');
 const passport=require("passport");
+require('dotenv').config();
 
 //auth
 
@@ -20,7 +21,7 @@ const resetPassword=require("./auth/resetPassword");
 const compiler=require("./compiler/compiler");
 
 //
-mongoose.connect('mongodb://localhost/DoIT', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb://"+process.env.DB_HOST+"/"+process.env.DB_NAME, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useCreateIndex', true);
 
 app.use(cors());
@@ -114,4 +115,4 @@ app.post("/node",(req,res)=>{
 
 //port listener
 
-app.listen(8081);
+app.listen(process.env.PORT);

@@ -135,18 +135,18 @@ ul{
     padding: 15px;
     margin: 10px;
     background-color: white;
-    color: black;
+    color: #4d4d4d;
     border-radius: 100%;
 }
 
 .social-media-founder{
-    background-color: black;
+    background: linear-gradient(90deg, black 0%, gray 100%);
     color: white;
 }
 
 .social-media-founder:hover{
-    background-color: transparent;
-    color: black;
+    background: transparent;
+    color: gray;
     transition-duration: 0.4s;
 }
 
@@ -195,7 +195,7 @@ ul{
 
 .footer{
     color: white;
-    background-color: black;
+    background: linear-gradient(90deg, black 0%, gray 100%);
     padding-top: 25px;
     margin: 25px 25px 0 25px;
     border-radius: 50px 0 50px 0;
@@ -396,6 +396,7 @@ ul{
 }
 
 /*IDE*/
+
 @keyframes blink {
     0% {
       opacity: 0;

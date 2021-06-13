@@ -3,6 +3,7 @@ const User = require('./models/user');
 const Token = require("./models/tokenSchema");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
+require('dotenv').config();
 
 module.exports = function(req, res, next) {
     User.findOne({ email: req.body.email }, function (err, user) {
@@ -25,11 +26,11 @@ module.exports = function(req, res, next) {
   
                     let testAccount = nodemailer.createTestAccount();
                     let transporter = nodemailer.createTransport({
-                        host: 'smtp.mailtrap.io',
-                        port: 2525,
+                        host: process.env.MAIL_HOST,
+                        port: process.env.MAIL_PORT,
                         auth: {
-                            user: '3fc0545eeb1a18',
-                            pass: 'e126b17b9313eb'
+                            user: process.env.MAIL_USER,
+                            pass: process.env.MAIL_PASS
                         }
                     });
 
