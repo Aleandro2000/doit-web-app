@@ -14,7 +14,6 @@
     "react": "^17.0.2",
     "react-ace": "^9.4.0",
     "react-dom": "^17.0.2",
-    "react-dotenv": "^0.1.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-select": "^4.3.1",
@@ -44,5 +43,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "react-dotenv": {
+    "whitelist": [
+      "PUBLIC_PAYMENT_KEY",
+      "SECRET_PAYMENT_KEY"
+    ]
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }

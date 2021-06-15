@@ -57,7 +57,9 @@ const ForgotPassword = () => {
                     <i className="fa fa-send"/> SEND
                 </button>
                 <br/>
-                <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                <center>
+                    <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                </center>
                 { 
                     sent === "NotSent" ? (<><br/><h5 className="text-center text-danger mx-3">Couldn't Reset Reset Password</h5></>) : ( <></> )
                 }

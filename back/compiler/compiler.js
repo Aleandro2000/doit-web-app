@@ -12,7 +12,7 @@ module.exports = function(req,res,lang,type){
             safe=!req.body.code.toLowerCase().includes("runtime")&&!req.body.code.toLowerCase().includes("exec")&&!req.body.code.toLowerCase().includes("process")&&!req.body.code.toLowerCase().includes("socket")&&!req.body.code.toLowerCase().includes("tempfile")&&!req.body.code.toLowerCase().includes("thread");
             break;
         case "python":
-            safe=!req.body.code.toLowerCase().includes("os")&&!req.body.code.toLowerCase().includes("exec")&&!req.body.code.toLowerCase().includes("process")&&!req.body.code.toLowerCase().includes("socket")&&!req.body.code.toLowerCase().includes("tempfile")&&!req.body.code.toLowerCase().includes("sys")&&!req.body.code.toLowerCase().includes("thread");
+            safe=!req.body.code.toLowerCase().includes("os")&&!req.body.code.toLowerCase().includes("exec")&&!req.body.code.toLowerCase().includes("process")&&!req.body.code.toLowerCase().includes("socket")&&!req.body.code.toLowerCase().includes("tempfile")&&!req.body.code.toLowerCase().includes("sys")&&!req.body.code.toLowerCase().includes("thread")&&!req.body.code.toLowerCase().includes("matplotlib");
             break;
         case "node":
             safe=!req.body.code.toLowerCase().includes("process")&&!req.body.code.toLowerCase().includes("socket")&&!req.body.code.toLowerCase().includes("tempfile")&&!req.body.code.toLowerCase().includes("thread");

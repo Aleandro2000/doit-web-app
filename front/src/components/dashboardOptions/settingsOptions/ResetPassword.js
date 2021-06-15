@@ -18,12 +18,13 @@ const ResetPassword = () => {
         return <Redirect to="/login" />;
 
     const sendRequest = async() => {
-        if(password !== repassword || password.length < 6){
+        const passwordTest=new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})");
+        
+        if(password!==repassword||!passwordTest.test(password)){
             setPasswordInput({borderColor: "red"});
+            setRes("This password is unsafe! Try another password!");
             return;
         }
-        else
-            setPasswordInput({borderColor: "green"});
 
         document.getElementById("loading").style.display="inline-block";
         const data = {session, password}

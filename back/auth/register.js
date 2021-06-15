@@ -3,7 +3,6 @@ const User = require('./models/user');
 const Token = require("./models/tokenSchema");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
-require('dotenv').config();
 
 module.exports = function(req, res, next) {
     User.findOne({ email: req.body.email }, function (err, user) {

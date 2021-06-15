@@ -13,7 +13,7 @@ export const CheckoutForm = () => {
         event.preventDefault();
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: "card",
-            card: elements.getElement(CardElement),
+            card: elements.getElement(CardElement)
         });
       
         if(error)
