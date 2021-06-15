@@ -45,7 +45,7 @@ function Dashboard(){
                         <br/>
                         <Link to="/dashboard/payment">
                             <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                                Payment Status
+                                Payment
                             </div>
                         </Link>
                     </div>

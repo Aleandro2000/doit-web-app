@@ -53,7 +53,7 @@ const ResetPassword = () => {
             <img alt="" src={logo} className="logo"/>
             <h3 className="title">
                 <b>
-                    Register
+                    Reset Password
                 </b>
             </h3>
             <hr/>
