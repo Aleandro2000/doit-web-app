@@ -11,16 +11,16 @@ function Dashboard(){
 
     const session=localStorage.getItem("session");
 
+    if(!session)
+        return <Redirect to="/login" />;
+
     const logout = () => {
         localStorage.clear();
     }
 
-    if(!session)
-        return <Redirect to="/login" />;
-
     return(
-        <div className="dashboard">
-            <div className="navigation fadeIn">
+        <div className="dashboard fadeIn">
+            <div className="navigation">
                 <div className="container">
                     <ul className="navigation-list float-right">
                         <li className="navigation-item">
@@ -30,10 +30,10 @@ function Dashboard(){
                 </div>
             </div>
             <br/>
-            <p className="fadeIn" align="center" style={{marginTop: "50px"}}>
+            <p align="center" style={{marginTop: "50px"}}>
                 <img alt="" src={logo} className="logo"/>
             </p>
-            <h3 align="center" className="title fadeIn">
+            <h3 align="center" className="title">
                 <b>
                     Dashboard
                 </b>
@@ -43,9 +43,11 @@ function Dashboard(){
                     <div className="content-box column" style={{padding: "20px"}}>
                         <img alt="" className="icon" src={payment}/>
                         <br/>
-                        <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                            Payment Status
-                        </div>
+                        <Link to="/dashboard/payment">
+                            <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
+                                Payment Status
+                            </div>
+                        </Link>
                     </div>
                     <div className="content-box column" style={{padding: "20px"}}>
                         <img alt="" className="icon" src={lesson}/>
@@ -84,11 +86,30 @@ function Dashboard(){
                 </div>
             </div>
             <br/>
-            <p className="container fadeIn" align="center">
-                <b>
-                    © Powered by <i><u>Softana</u></i>, All right reserved.
-                </b>
-            </p>
+            <center>
+                <div className="footer">
+                    <p>
+                        <b>
+                            © Powered by <i><u>Softana</u></i>, All right reserved.
+                        </b>
+                    </p>
+                    <p>
+                        <a href="#">
+                            <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
+                        </a>
+                        <a href="#">
+                            <i className="fa fa-instagram social-media"/>
+                        </a>
+                        <a href="#">
+                            <i className="fa fa-youtube social-media"/>
+                        </a>
+                        <a href="#">
+                            <i className="fa fa-linkedin social-media"/>
+                        </a>
+                    </p>
+                    <br/>
+                </div>
+            </center>
         </div>
     );
 }

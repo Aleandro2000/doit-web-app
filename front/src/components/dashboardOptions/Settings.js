@@ -12,8 +12,8 @@ function Settings(){
         return <Redirect to="/login" />;
 
     return(
-        <div className="settings">
-            <div className="navigation fadeIn">
+        <div className="settings fadeIn">
+            <div className="navigation">
                 <div className="container">
                     <ul className="navigation-list float-right">
                         <li className="navigation-item">
@@ -23,10 +23,10 @@ function Settings(){
                 </div>
             </div>
             <br/>
-            <p className="fadeIn" align="center" style={{marginTop: "50px"}}>
+            <p align="center" style={{marginTop: "50px"}}>
                 <img alt="" src={logo} className="logo"/>
             </p>
-            <h3 align="center" className="title fadeIn">
+            <h3 align="center" className="title">
                 <b>
                     Settings
                 </b>
@@ -53,12 +53,30 @@ function Settings(){
                     </div>
                 </div>
             </div>
-            <br/>
-            <p className="container fadeIn" align="center">
-                <b>
-                    © Powered by <i><u>Softana</u></i>, All right reserved.
-                </b>
-            </p>
+            <center>
+                <div className="footer" style={{marginTop: "100px"}}>
+                    <p>
+                        <b>
+                            © Powered by <i><u>Softana</u></i>, All right reserved.
+                        </b>
+                    </p>
+                    <p>
+                        <a href="#">
+                            <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
+                        </a>
+                        <a href="#">
+                            <i className="fa fa-instagram social-media"/>
+                        </a>
+                        <a href="#">
+                            <i className="fa fa-youtube social-media"/>
+                        </a>
+                        <a href="#">
+                            <i className="fa fa-linkedin social-media"/>
+                        </a>
+                    </p>
+                    <br/>
+                </div>
+            </center>
         </div>
     );
 }

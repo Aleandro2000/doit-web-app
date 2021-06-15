@@ -380,7 +380,6 @@ function Homepage()
                             © Powered by <i><u>Softana</u></i>, All right reserved.
                         </b>
                     </p>
-                    <hr/>
                     <p>
                         <a href="#">
                             <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
