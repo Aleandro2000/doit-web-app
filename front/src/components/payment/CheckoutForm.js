@@ -11,6 +11,7 @@ export const CheckoutForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        document.getElementById("loading").style.display="block";
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: "card",
             card: elements.getElement(CardElement)
@@ -25,6 +26,25 @@ export const CheckoutForm = () => {
                     confirm: {text:'OK',className:'alert-button'}
                 }
             });
+        else
+            await fetch("http://localhost:8081/payment",{
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(result => {
+                    swal({
+                        title: result.title,
+                        text: result.message,
+                        icon: result.icon,
+                        buttons: {
+                            confirm: {text:'OK',className:'alert-button'}
+                        }
+                    });
+                });
+        document.getElementById("loading").style.display="none";
     };
 
     return (
@@ -43,6 +63,7 @@ export const CheckoutForm = () => {
                     <button className="button">
                         <i className="fa fa-credit-card"/> Pay
                     </button>
+                    <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 </form>
             </center>
             <hr/>

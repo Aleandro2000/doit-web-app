@@ -1,21 +1,13 @@
 module.exports = function(req,res){
-    const stripe = require('stripe')(process.env.PUBLIC_PAYMENT_KEY);
-    // get the product details
+    const stripe = require('stripe')(process.env.SECRET_PAYMENT_KEY);
     
-    const product = getTheProduct(productId);
     stripe.charges.create({
-    
-        amount: product.price,
-        currency: 'usd',
-        source: cardToken.id,
-        description: `Payment for ${product.title}`,
-        metadta: {
-            productId: product.id
-        }
-    }, (err, charge) => {
-        if(err)
-            console.log("Payment Success");    
-        else
-            console.log("Payment Success");
-    });
+        amount: process.env.SUBSCRIPTION_PRICE*100,
+        currency: process.env.SUBSCRIPTION_CURRENCY,
+        source: process.env.SUBSCRIPTION_SOURCE,
+        description: "DoIT Subscription"
+    })
+        .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
+
+    res.status(500).send({title: "CONGRATULATIONS!", message: "Payment request failed!", icon: "success"});
 }

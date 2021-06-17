@@ -20,6 +20,10 @@ const resetPassword=require("./auth/resetPassword");
 
 const compiler=require("./compiler/compiler");
 
+//payment
+
+const payment=require("./payment/payment");
+
 //
 mongoose.connect("mongodb://"+process.env.DB_HOST+"/"+process.env.DB_NAME, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useCreateIndex', true);
@@ -109,6 +113,15 @@ app.post("/python",(req,res)=>{
 app.post("/node",(req,res)=>{
     if(req.body)
         compiler(req,res,node,"node");
+    else
+        res.status(400).send("Request failed!");
+});
+
+//payment
+
+app.post("/payment",(req,res)=>{
+    if(req.body)
+        payment(req,res);
     else
         res.status(400).send("Request failed!");
 });
