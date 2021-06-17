@@ -4,6 +4,7 @@ import logo from "../images/logo2.png";
 import payment from "../images/payment.png";
 import lesson from "../images/lesson.png";
 import ide from "../images/ide.png";
+import mentor from "../images/mentor.png";
 import settings from "../images/settings.png";
 import solving from "../images/solving.png";
 
@@ -71,6 +72,15 @@ function Dashboard(){
                         <Link to="/dashboard/IDE">
                             <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
                                 Go to IDE
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="content-box column" style={{padding: "20px"}}>
+                        <img alt="" className="icon" src={mentor}/>
+                        <br/>
+                        <Link to="/dashboard/mentor">
+                            <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
+                                Our AI Mentor
                             </div>
                         </Link>
                     </div>

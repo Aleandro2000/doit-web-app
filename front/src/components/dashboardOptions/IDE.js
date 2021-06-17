@@ -25,8 +25,7 @@ function IDE()
         { value: '.c', label: 'C' },
         { value: '.cpp', label: 'C++' },
         { value: '.java', label: 'Java' },
-        { value: '.py', label: 'Python 2' },
-        { value: '.py', label: 'Python 3' },
+        { value: '.py', label: 'Python' },
         { value: '.js', label: 'NodeJS' }
     ];
 
@@ -48,10 +47,7 @@ function IDE()
             case "Java":
                 setLanguage("java")
                 break;
-            case "Python 2":
-                setLanguage("python")
-                break;
-            case "Python 3":
+            case "Python":
                 setLanguage("python")
                 break;
             case "NodeJS":
@@ -137,10 +133,7 @@ function IDE()
                 case "Java":
                     submitToCompile("java",code);
                     break;
-                case "Python 2":
-                    submitToCompile("python",code);
-                    break;
-                case "Python 3":
+                case "Python":
                     submitToCompile("python",code);
                     break;
                 case "NodeJS":
