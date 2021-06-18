@@ -31,8 +31,8 @@ function Settings(){
                     Settings
                 </b>
             </h3>
-            <div className="small-container">
-                <div className="row" style={{marginTop: "50px"}}>
+            <div className="container content">
+                <div className="row">
                     <div className="content-box column" style={{padding: "20px"}}>
                         <img alt="" className="icon" src={reset}/>
                         <br/>
@@ -54,7 +54,7 @@ function Settings(){
                 </div>
             </div>
             <center>
-                <div className="footer" style={{marginTop: "100px"}}>
+                <div className="footer">
                     <p>
                         <b>
                             © Powered by <i><u>Softana</u></i>, All right reserved.

@@ -201,11 +201,6 @@ ul{
     border-radius: 50px 0 50px 0;
 }
 
-.small-container{
-    margin-left: 25px;
-    margin-right: 25px;
-}
-
 @media only screen and (min-width: 1750px)
 {
     .header-content, .footer{
@@ -271,10 +266,6 @@ ul{
     }
     .responsive-no-button-border{
         border: none;
-    }
-    .small-container{
-        margin-left: 5px;
-        margin-right: 5px;
     }
 }
 
@@ -350,10 +341,6 @@ ul{
         box-shadow: none;
         border-radius: 0;
         background-color: transparent;
-    }
-    .small-container{
-        margin-left: 0;
-        margin-right: 0;
     }
 }
 
