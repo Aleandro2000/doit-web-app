@@ -9,6 +9,8 @@ export const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
 
+    const session=JSON.parse(localStorage.getItem("session"));
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         document.getElementById("loading").style.display="block";
@@ -27,11 +29,14 @@ export const CheckoutForm = () => {
                 }
             });
         else
+        {
+            const data={_id: session["_id"]};
             await fetch("http://localhost:8081/payment",{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                body: JSON.stringify(data)
             })
                 .then(response => response.json())
                 .then(result => {
@@ -44,6 +49,7 @@ export const CheckoutForm = () => {
                         }
                     });
                 });
+        }
         document.getElementById("loading").style.display="none";
     };
 

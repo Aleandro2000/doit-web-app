@@ -7,7 +7,7 @@ function NotFound()
             <img alt="" className="logo" src={logo}/>
             <h3 className="title">
                 <b>
-                    ERROR 404: Not Found :(
+                    PAGE NOT FOUND! :(
                 </b>
             </h3>
             <hr/>

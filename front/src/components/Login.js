@@ -43,21 +43,23 @@ function Login()
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        });
-        if(req.status===200)
-        {
-            localStorage.setItem("session",email);
-            console.log("Logged in!");
-            document.getElementById("loading").style.display="none";
-            history.push("/dashboard");
-        }
-        else
-        {
-            document.getElementById("loading").style.display="none";
-            setRes("Please verify input data. Make sure you have a valid account!");
-            setEmailInput({borderColor: "#ced4da"});
-            setPasswordInput({borderColor: "#ced4da"});
-        }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status===200)
+                {
+                    localStorage.setItem("session",JSON.stringify(data.result));
+                    document.getElementById("loading").style.display="none";
+                    history.push("/dashboard");
+                }
+                else
+                {
+                    document.getElementById("loading").style.display="none";
+                    setRes("Please verify input data. Make sure you have a valid account!");
+                    setEmailInput({borderColor: "#ced4da"});
+                    setPasswordInput({borderColor: "#ced4da"});
+                }
+            });
     }
 
     const handleSubmit = (e) => {

@@ -1,6 +1,7 @@
 const Bcrypt = require('bcrypt-nodejs');
-const User = require('./models/user');
-const Token = require("./models/tokenSchema");
+const User = require('../models/user');
+const Payments = require("../models/paymentsSchema");
+const Token = require("../models/tokenSchema");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 
@@ -19,6 +20,11 @@ module.exports = function(req, res, next) {
                     return res.status(500).send({msg:err.message});
               
                 let token = new Token({ _userId: user._id, token: crypto.randomBytes(16).toString('hex') });
+                let paymentsSchema = new Payments({_userId: user.id});
+                paymentsSchema.save(function (err) {
+                    if(err)
+                        return res.status(500).send({msg:err.message});
+                });
                 token.save(function (err) {
                     if(err)
                         return res.status(500).send({msg:err.message});

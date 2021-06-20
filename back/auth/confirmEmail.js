@@ -1,5 +1,5 @@
-const User = require('./models/user');
-const Token = require("./models/tokenSchema");
+const User = require('../models/user');
+const Token = require("../models/tokenSchema");
 
 module.exports = function (req, res, next) {
     Token.findOne({ token: req.params.token }, function (err, token) {
@@ -20,7 +20,10 @@ module.exports = function (req, res, next) {
                             return res.status(500).send({msg: err.message});
                         else
                         {
-                            Token.findOneAndRemove({ token: req.params.token });
+                            Token.deleteMany({ _userId: user._id },(err)=>{
+                                if(err)
+                                    return res.status(200).send('Tokens may not be deleted, but your account has been successfully verified!');
+                            });
                             return res.status(200).send('Your account has been successfully verified!');
                         }
                     });

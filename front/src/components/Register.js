@@ -55,20 +55,18 @@ function Register()
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        })
+        });
 
         if(req.status===200)
         {
             localStorage.setItem("registred",registered);
             setRegistered("Succesful");
-            console.log("Registered!");
             document.getElementById("loading").style.display="none";
             history.push("/verificationlink");
         }
         else
         {
             document.getElementById("loading").style.display="none";
-            console.error("Couldn't register!");
             setRegistered("NotSuccesful");
         }
     }

@@ -7,7 +7,7 @@ import {
 
 function DeleteAccount()
 {
-    const session=localStorage.getItem("session");
+    const session=JSON.parse(localStorage.getItem("session"));
     const history=useHistory();
 
     if(!session)
@@ -15,7 +15,7 @@ function DeleteAccount()
 
     const deleteAccount=async () => {
         document.getElementById("loading").style.display="inline-block";
-        const data={session};
+        const data={email: session["email"], _id: session["_id"]};
         const req=await fetch("http://localhost:8081/delete", {
             method: 'POST',
             headers: {

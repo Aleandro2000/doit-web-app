@@ -12,7 +12,7 @@ const ResetPassword = () => {
     const [res, setRes] = useState("");
     const [passwordInput, setPasswordInput] = useState({borderColor: "#ced4da"});
 
-    const session=localStorage.getItem("session");
+    const session=JSON.parse(localStorage.getItem("session"));
 
     if(!session)
         return <Redirect to="/login" />;
@@ -27,7 +27,7 @@ const ResetPassword = () => {
         }
 
         document.getElementById("loading").style.display="inline-block";
-        const data = {session, password}
+        const data = {email: session["email"], password}
         const req = await fetch("http://localhost:8081/resetpass", {
             method: 'POST',
             headers: {
