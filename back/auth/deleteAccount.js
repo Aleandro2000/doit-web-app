@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const Payments = require('../models/paymentsSchema');
+const Payment = require('../models/paymentSchema');
 const Token = require('../models/tokenSchema');
 
 module.exports = function(req, res, next) {
@@ -7,7 +7,7 @@ module.exports = function(req, res, next) {
         if(err)
             return res.status(200).send({msg: "Error to delete user!"});
     });
-    Payments.deleteMany({_userId: req.body._id},(err)=>{
+    Payment.deleteOne({_userId: req.body._id},(err)=>{
         if(err)
             return res.status(200).send({msg: "Error to delete payments!"});
     });

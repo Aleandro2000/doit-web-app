@@ -6,7 +6,7 @@ module.exports = function(req, res, next) {
         if(err)
             return res.status(500).send({msg: err.message});
         else if (!user||!user.isVerified)
-            return res.status(401).send({ msg:'The email address ' + req.body.email + ' is not associated with any account. please check and try again!'});
+            return res.status(401).send({ msg:'The email address ' + req.body.email + ' is not associated with any account or it is not valid. please check and try again!'});
         Bcrypt.compare(req.body.password, user.password, (err,result)=>{
             if(err)
                 return res.status(401).send({msg:'Wrong password!'});

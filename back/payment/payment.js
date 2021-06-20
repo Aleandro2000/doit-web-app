@@ -1,8 +1,8 @@
 const stripe = require('stripe')(process.env.SECRET_PAYMENT_KEY);
-const Payments = require('../models/paymentsSchema');
+const Payment = require('../models/paymentSchema');
 
 module.exports = function(req,res){
-    Payments.findOne({ _userId: req.body._id }, function(err, result) {
+    Payment.findOne({ _userId: req.body._id }, function(err, result) {
         if(err)
             res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"})
         else
