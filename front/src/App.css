@@ -327,7 +327,7 @@ ul{
     }
 }
 
-@media only screen and (max-width: 360px){
+@media only screen and (max-width: 639px){
     .content-box{
         padding: 12.5px;
         margin: 12.5px;
