@@ -37,7 +37,7 @@ function Login()
             return;
         document.getElementById("loading").style.display="inline-block";
         const data={email, password};
-        const req=await fetch("http://localhost:8081/login", {
+        const req=await fetch("/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

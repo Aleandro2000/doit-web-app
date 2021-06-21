@@ -49,7 +49,7 @@ function Register()
             password: password
         }
 
-        const req=await fetch("http://localhost:8081/register", {
+        const req=await fetch("/register", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -31,7 +31,7 @@ export const CheckoutForm = () => {
         else
         {
             const data={_id: session["_id"]};
-            await fetch("http://localhost:8081/payment",{
+            await fetch("/payment",{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

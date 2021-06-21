@@ -95,7 +95,7 @@ function IDE()
         document.getElementById("loading").style.display="inline-block";
         const input=document.getElementById("input").value;
         const data={code,input};
-        await fetch("http://localhost:8081/"+lang,{
+        await fetch("/"+lang,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

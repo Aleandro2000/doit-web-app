@@ -27,7 +27,7 @@ const ForgotPassword = () => {
         }
         document.getElementById("loading").style.display="inline-block";
         const data = {email}
-        const req = await fetch("http://localhost:8081/forgotpass", {
+        const req = await fetch("/forgotpass", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

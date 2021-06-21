@@ -12,8 +12,10 @@ module.exports = function(req, res, next) {
                 return res.status(401).send({msg:'Wrong password!'});
             if(!result)
                 return res.status(401).send({msg:'Your email has not been verified. Please click on resend!'});
-            else
+            else {
+                user.password="";    
                 return res.send({status: 200, result: user});
+            }
         });
     });
 }

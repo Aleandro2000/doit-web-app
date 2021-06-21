@@ -1,8 +1,8 @@
 const stripe = require('stripe')(process.env.SECRET_PAYMENT_KEY);
-const Payment = require('../models/paymentSchema');
+const User = require('../models/user');
 
 module.exports = function(req,res){
-    Payment.findOne({ _userId: req.body._id }, function(err, result) {
+    User.findOne({ _id: req.body._id }, function(err, user) {
         if(err)
             res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"})
         else
@@ -14,13 +14,11 @@ module.exports = function(req,res){
                 description: "DoIT Subscription"
             })
                 .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
-            if(!result.validation)
-                result.validation=true;
-            if(result.paidAt.getMonth()==11)
-                result.paidAt=new Date(result.paidAt.getFullYear()+1, 0, 1);
+            if(user.paidAt.getMonth()==11)
+                user.paidAt=new Date(user.paidAt.getFullYear()+1, 0, 1);
             else
-                result.paidAt=new Date(result.paidAt.getFullYear(), result.paidAt.getMonth()+1, 1);
-            result.save();
+                user.paidAt=new Date(user.paidAt.getFullYear(), user.paidAt.getMonth()+1, 1);
+            user.save();
             res.status(500).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success"});
         }
     });

@@ -28,7 +28,7 @@ const ResetPassword = () => {
 
         document.getElementById("loading").style.display="inline-block";
         const data = {email: session["email"], password}
-        const req = await fetch("http://localhost:8081/resetpass", {
+        const req = await fetch("/resetpass", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
