@@ -277,7 +277,7 @@ function Homepage()
                     Pricing
                 </h1>
                 <ul class="price">
-                    <li className="price-detail"><b>Basic</b><br/>$ 20 / month</li>
+                    <li className="price-detail"><b>Basic</b><br/>$ {process.env.REACT_APP_SUBSCRIPTION_PRICE} / month</li>
                     <li className="price">
                         <b>100+ handpicked Coding Questions</b>
                     </li>
@@ -358,10 +358,10 @@ function Homepage()
                     <div className="text">
                         <h3><b>Alexandru Camrici</b></h3>
                         <h4><i>Founder</i></h4>
-                        <a href="https://ro.linkedin.com/in/alexandru-andrei-carmici-8978b21b3">
+                        <a href={process.env.REACT_APP_FOUNDER_LINKEDIN}>
                             <i className="fa fa-linkedin social-media-founder" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
                         </a>
-                        <a href="https://github.com/Aleandro2000">
+                        <a href={process.env.REACT_APP_FOUNDER_GITHUB}>
                             <i className="fa fa-github social-media-founder"/>
                         </a>
                         <p>
@@ -381,16 +381,16 @@ function Homepage()
                         </b>
                     </p>
                     <p>
-                        <a href="#">
+                        <a href={process.env.REACT_APP_DOIT_FACEBOOK}>
                             <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
                         </a>
-                        <a href="#">
+                        <a href={process.env.REACT_APP_DOIT_INSTAGRAM}>
                             <i className="fa fa-instagram social-media"/>
                         </a>
-                        <a href="#">
+                        <a href={process.env.REACT_APP_DOIT_YOUTUBE}>
                             <i className="fa fa-youtube social-media"/>
                         </a>
-                        <a href="#">
+                        <a href={process.env.REACT_APP_DOIT_LINKEDIN}>
                             <i className="fa fa-linkedin social-media"/>
                         </a>
                     </p>

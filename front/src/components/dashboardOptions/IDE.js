@@ -156,7 +156,6 @@ function IDE()
     const Open = (event) =>{
         const fileName=document.getElementById('open').value.toLowerCase();
         if(!fileName.endsWith('.txt')&&!fileName.endsWith('.c')&&!fileName.endsWith('.cpp')&&!fileName.endsWith('.java')&&!fileName.endsWith('.py')&&!fileName.endsWith('.js'))
-        {
             swal({
                 title: "OOPS!",
                 text: "Please upload a compatible file!",
@@ -165,7 +164,6 @@ function IDE()
                     confirm: {text:'OK',className:'alert-button'}
                 }
             });
-        }
         else
         {
             const reader=new FileReader();
