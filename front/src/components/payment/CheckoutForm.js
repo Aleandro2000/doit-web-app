@@ -30,7 +30,7 @@ export const CheckoutForm = () => {
             });
         else
         {
-            const data={_id: session["_id"]};
+            const data={_id: session["_id"], payment_method: paymentMethod, subscriptionType: session["subscriptionType"]};
             await fetch("/payment",{
                 method: "POST",
                 headers: {

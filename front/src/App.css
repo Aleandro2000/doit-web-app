@@ -540,6 +540,7 @@ ul{
 
 .price {
     list-style-type: none;
+    background-color: white;
     border: 1px solid #eee;
     margin: 0;
     padding: 0;

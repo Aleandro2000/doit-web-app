@@ -7,17 +7,41 @@ module.exports = function(req,res){
             res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"})
         else
         {
-            stripe.charges.create({
-                amount: process.env.SUBSCRIPTION_PRICE*100,
-                currency: process.env.SUBSCRIPTION_CURRENCY,
-                source: process.env.SUBSCRIPTION_SOURCE,
-                description: "DoIT Subscription"
+            let subscriptionPrice;
+            switch(req.body.subscriptionType)
+            {
+                case "monthly":
+                    subscriptionPrice=process.env.DO_IT_MONTHLY_SUBSCRIPTION;
+                    break;
+                case "yearly":
+                    subscriptionPrice=process.env.DO_IT_YEARLY_SUBSCRIPTION;
+                    break;
+                default:
+                    res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"});
+            }
+            stripe.customers.create({
+                payment_method: req.body.payment_method,
+                invoice_settings: {
+                    default_payment_method: req.body.payment_method
+                },
+                email: user.email,
+                description: "DoIT "+user.subscriptionType+" subscription"
             })
+                .then(customer => {
+                    console.log(customer.id)
+                    stripe.subscriptions.create({
+                        customer: customer.id,
+                        items: [
+                            { price: subscriptionPrice }
+                        ]
+                    })
+                        .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
+                    
+                })
                 .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
-            if(user.paidAt.getMonth()==11)
-                user.paidAt=new Date(user.paidAt.getFullYear()+1, 0, 1);
-            else
-                user.paidAt=new Date(user.paidAt.getFullYear(), user.paidAt.getMonth()+1, 1);
+
+            user.hasSubscription=true;
+            user.paidAt=Date.now();
             user.save();
             res.status(500).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success"});
         }

@@ -11,13 +11,21 @@ const userSchema = new Schema({
         type: Boolean,
         default: false
     },
+    hasSubscription: {
+        type: Boolean,
+        default: false
+    },
+    subscriptionType: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true
     },
     paidAt: {
         type: Date,
-        default: Date.now
+        default: null
     }
 })
 

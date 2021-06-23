@@ -13,7 +13,7 @@ module.exports = function(req, res, next) {
         else
         {
             req.body.password = Bcrypt.hashSync(req.body.password, Bcrypt.genSaltSync(10));
-            user = new User({ email: req.body.email, password: req.body.password });
+            user = new User({ email: req.body.email, password: req.body.password, subscriptionType: req.body.subscriptionType});
             user.save(function (err){
                 if (err) 
                     return res.status(500).send({msg:err.message});

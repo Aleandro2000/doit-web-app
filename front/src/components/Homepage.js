@@ -2,6 +2,8 @@ import logo from "../images/logo.png";
 import code from "../images/code.svg";
 import tick from "../images/tick.png";
 import redX from "../images/red-x.png";
+import bestPrice from "../images/best-price.png";
+import price from "../images/price.png";
 import { Link } from "react-router-dom";
 
 function Homepage()
@@ -276,37 +278,80 @@ function Homepage()
                 <h1 align="center">
                     Pricing
                 </h1>
-                <ul class="price">
-                    <li className="price-detail"><b>Basic</b><br/>$ {process.env.REACT_APP_SUBSCRIPTION_PRICE} / month</li>
-                    <li className="price">
-                        <b>100+ handpicked Coding Questions</b>
-                    </li>
-                    <li className="price">
-                        <b>Step by Step coding tutorials</b>
-                    </li>
-                    <li className="price">
-                        <b>Amazing video explanations</b>
-                    </li>
-                    <li className="price">
-                        <b>Code Quality tests</b>
-                    </li>
-                    <li className="price">
-                        <b>Optimized for fast Learning Curve</b>
-                    </li>
-                    <li className="price">
-                        <b>Quality validation</b>
-                    </li>
-                    <li className="price">
-                        <b>Write code in 5 different languages</b>
-                    </li>
-                    <li className="price">
-                        <b>Exploring every solution to a given problem</b>
-                    </li>
-                    <li className="price">
-                        <b>Unlimited access to the our AI mentor.</b>
-                    </li>
-                    <li className="grey price"><Link to="/register" className="button">BUY</Link></li>
-                </ul>
+                <div className="row">
+                    <div className="column">
+                        <ul class="price" style={{marginTop: "50px"}}>
+                            <li className="price-detail"><img width="75px" heigh="75px" alt="" src={price}/><br/><b>Monthly Subscription</b><br/>$ {process.env.REACT_APP_SUBSCRIPTION_MONTHLY_PRICE} USD / month</li>
+                            <li className="price">
+                                <b>100+ handpicked Coding Questions</b>
+                            </li>
+                            <li className="price">
+                                <b>Step by Step coding tutorials</b>
+                            </li>
+                            <li className="price">
+                                <b>Amazing video explanations</b>
+                            </li>
+                            <li className="price">
+                                <b>Code Quality tests</b>
+                            </li>
+                            <li className="price">
+                                <b>Optimized for fast Learning Curve</b>
+                            </li>
+                            <li className="price">
+                                <b>Quality validation</b>
+                            </li>
+                            <li className="price">
+                                <b>Write code in 5 different languages</b>
+                            </li>
+                            <li className="price">
+                                <b>Exploring every solution to a given problem</b>
+                            </li>
+                            <li className="price">
+                                <b>Unlimited access to the our AI mentor.</b>
+                            </li>
+                            <li className="price">
+                                <b>Unlimited access to the our online IDE.</b>
+                            </li>
+                            <li className="grey price"><Link to="/register" className="button">BUY</Link></li>
+                        </ul>
+                    </div>
+                    <div className="column">
+                        <ul class="price" style={{marginTop: "50px"}}>
+                            <li className="price-detail"><img width="75px" heigh="75px" alt="" src={bestPrice}/><br/><b>Yearly Subscription</b><br/>$ {process.env.REACT_APP_SUBSCRIPTION_YEARLY_PRICE} USD / year</li>
+                            <li className="price">
+                                <b>100+ handpicked Coding Questions</b>
+                            </li>
+                            <li className="price">
+                                <b>Step by Step coding tutorials</b>
+                            </li>
+                            <li className="price">
+                                <b>Amazing video explanations</b>
+                            </li>
+                            <li className="price">
+                                <b>Code Quality tests</b>
+                            </li>
+                            <li className="price">
+                                <b>Optimized for fast Learning Curve</b>
+                            </li>
+                            <li className="price">
+                                <b>Quality validation</b>
+                            </li>
+                            <li className="price">
+                                <b>Write code in 5 different languages</b>
+                            </li>
+                            <li className="price">
+                                <b>Exploring every solution to a given problem</b>
+                            </li>
+                            <li className="price">
+                                <b>Unlimited access to the our AI mentor.</b>
+                            </li>
+                            <li className="price">
+                                <b>Unlimited access to the our online IDE.</b>
+                            </li>
+                            <li className="grey price"><Link to="/register" className="button">BUY</Link></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <h1 align="center" data-aos='fade-up'>
                 Testimonial
