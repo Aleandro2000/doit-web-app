@@ -23,7 +23,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    paidAt: {
+    subscribedAt: {
         type: Date,
         default: null
     }

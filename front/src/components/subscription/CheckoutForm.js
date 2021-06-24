@@ -2,6 +2,7 @@ import React from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
+import Session from "react-session-api";
 
 import logo from "../../images/logo2.png";
 
@@ -9,7 +10,7 @@ export const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
 
-    const session=JSON.parse(localStorage.getItem("session"));
+    const session=JSON.parse(Session.get("session"));
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -31,7 +32,7 @@ export const CheckoutForm = () => {
         else
         {
             const data={_id: session["_id"], payment_method: paymentMethod, subscriptionType: session["subscriptionType"]};
-            await fetch("/payment",{
+            await fetch("/subscription",{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -58,7 +59,7 @@ export const CheckoutForm = () => {
             <img alt="" src={logo} className="logo"/>
             <h3 className="title">
                 <b>
-                    Payment
+                    Subscription
                 </b>
             </h3>
             <hr/>
@@ -67,7 +68,7 @@ export const CheckoutForm = () => {
                     <CardElement />
                     <br/>
                     <button className="button">
-                        <i className="fa fa-credit-card"/> Pay
+                        <i className="fa fa-credit-card"/>|Subscribe
                     </button>
                     <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 </form>

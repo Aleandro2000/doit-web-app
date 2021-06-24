@@ -10,6 +10,7 @@ import { Redirect, Link } from "react-router-dom";
 import { createRef, useState } from "react";
 import Select from 'react-select';
 import swal from 'sweetalert';
+import Session from "react-session-api";
 
 import logo from "../../images/logo2.png";
 
@@ -18,7 +19,7 @@ function IDE()
     const [filename,setFileName]=useState("code.c");
     const [language,setLanguage]=useState("c_cpp");
     const [output, setOutput]=useState("");
-    const session=localStorage.getItem("session");
+    const session=Session.get("session");
     const aceEditorRef=createRef();
 
     const options = [

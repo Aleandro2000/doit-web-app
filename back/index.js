@@ -20,9 +20,9 @@ const resetPassword=require("./auth/resetPassword");
 
 const compiler=require("./compiler/compiler");
 
-//payment
+//subscription
 
-const payment=require("./payment/payment");
+const subscription=require("./subscription/subscription");
 
 //
 mongoose.connect("mongodb://"+process.env.DB_HOST+"/"+process.env.DB_NAME, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -117,11 +117,11 @@ app.post("/node",(req,res)=>{
         res.status(400).send("Request failed!");
 });
 
-//payment
+//subscription
 
-app.post("/payment",(req,res)=>{
+app.post("/subscription",(req,res)=>{
     if(req.body)
-        payment(req,res);
+        subscription(req,res);
     else
         res.status(400).send("Request failed!");
 });

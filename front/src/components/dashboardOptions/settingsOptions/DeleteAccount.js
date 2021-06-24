@@ -4,10 +4,11 @@ import {
     Redirect,
     useHistory
 } from "react-router-dom";
+import Session from "react-session-api";
 
 function DeleteAccount()
 {
-    const session=JSON.parse(localStorage.getItem("session"));
+    const session=JSON.parse(Session.get("session"));
     const history=useHistory();
 
     if(!session)
@@ -25,7 +26,7 @@ function DeleteAccount()
         });
         if(req.status===200)
         {
-            localStorage.clear();
+            Session.clear();
             document.getElementById("loading").style.display="none";
             history.push("/login");
         }

@@ -11,28 +11,35 @@ module.exports = function(req,res){
             switch(req.body.subscriptionType)
             {
                 case "monthly":
-                    subscriptionPrice=process.env.DO_IT_MONTHLY_SUBSCRIPTION;
+                    subscriptionPrice=process.env.DOIT_MONTHLY_SUBSCRIPTION;
                     break;
                 case "yearly":
-                    subscriptionPrice=process.env.DO_IT_YEARLY_SUBSCRIPTION;
+                    subscriptionPrice=process.env.DOIT_YEARLY_SUBSCRIPTION;
                     break;
                 default:
                     res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"});
             }
             stripe.customers.create({
-                payment_method: req.body.payment_method,
-                invoice_settings: {
-                    default_payment_method: req.body.payment_method
-                },
                 email: user.email,
-                description: "DoIT "+user.subscriptionType+" subscription"
+                description: "DoIT "+user.subscriptionType+" subscription",
+                payment_method: req.body.payment_method
             })
                 .then(customer => {
-                    console.log(customer.id)
                     stripe.subscriptions.create({
                         customer: customer.id,
-                        items: [
-                            { price: subscriptionPrice }
+                        phases: [
+                            {
+                                items: [
+                                    {
+                                        price: subscriptionPrice
+                                    }
+                                ],
+                                add_invoice_items:[
+                                    {
+                                        price: subscriptionPrice
+                                    }
+                                ]
+                            }
                         ]
                     })
                         .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
@@ -41,7 +48,7 @@ module.exports = function(req,res){
                 .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
 
             user.hasSubscription=true;
-            user.paidAt=Date.now();
+            user.subscribedAt=Date.now();
             user.save();
             res.status(500).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success"});
         }

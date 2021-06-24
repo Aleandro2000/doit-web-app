@@ -20,7 +20,7 @@ import IDE from "./components/dashboardOptions/IDE";
 import Settings from "./components/dashboardOptions/Settings";
 import ResetPassword from "./components/dashboardOptions/settingsOptions/ResetPassword";
 import DeleteAccount from "./components/dashboardOptions/settingsOptions/DeleteAccount";
-import Payment from "./components/dashboardOptions/Payment";
+import Subscription from "./components/dashboardOptions/Subscription";
 
 function App() {
   AOS.init({
@@ -43,7 +43,7 @@ function App() {
           <Route exact path="/dashboard/settings" component={Settings}/>
           <Route exact path="/dashboard/settings/profile/resetpass" component={ResetPassword}/>
           <Route exact path="/dashboard/settings/profile/delete" component={DeleteAccount}/>
-          <Route exact path="/dashboard/payment" component={Payment}/>
+          <Route exact path="/dashboard/subscription" component={Subscription}/>
           <Route component={NotFound}/>
         </Switch>
       </Router>

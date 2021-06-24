@@ -1,5 +1,6 @@
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Session from "react-session-api";
 import logo from "../images/logo2.png";
 import payment from "../images/payment.png";
 import lesson from "../images/lesson.png";
@@ -10,13 +11,13 @@ import solving from "../images/solving.png";
 
 function Dashboard(){
 
-    const session=localStorage.getItem("session");
+    const session=Session.get("session");
 
     if(!session)
         return <Redirect to="/login" />;
 
     const logout = () => {
-        localStorage.clear();
+        Session.clear();
     }
 
     return(
@@ -44,7 +45,7 @@ function Dashboard(){
                     <div className="content-box column" style={{padding: "20px"}}>
                         <img alt="" className="icon" src={payment}/>
                         <br/>
-                        <Link to="/dashboard/payment">
+                        <Link to="/dashboard/subscription">
                             <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
                                 Payment
                             </div>

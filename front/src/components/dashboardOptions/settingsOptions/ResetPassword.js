@@ -4,6 +4,7 @@ import {
     Redirect
 } from "react-router-dom";
 import { useState } from "react";
+import Session from "react-session-api";
 
 const ResetPassword = () => {
 
@@ -12,7 +13,7 @@ const ResetPassword = () => {
     const [res, setRes] = useState("");
     const [passwordInput, setPasswordInput] = useState({borderColor: "#ced4da"});
 
-    const session=JSON.parse(localStorage.getItem("session"));
+    const session=JSON.parse(Session.get("session"));
 
     if(!session)
         return <Redirect to="/login" />;

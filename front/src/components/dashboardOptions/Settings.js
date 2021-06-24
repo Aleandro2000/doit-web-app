@@ -1,12 +1,13 @@
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Session from "react-session-api";
 import logo from "../../images/logo2.png";
 import reset from "../../images/password-reset.png";
 import del from "../../images/delete-account.png";
 
 function Settings(){
 
-    const session=localStorage.getItem("session");
+    const session=Session.get("session");
 
     if(!session)
         return <Redirect to="/login" />;

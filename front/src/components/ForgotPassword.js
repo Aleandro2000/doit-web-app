@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import { Link, Redirect } from "react-router-dom";
 import logo from "../images/logo2.png";
+import Session from "react-session-api";
 
 const ForgotPassword = () => {
 
@@ -11,7 +12,7 @@ const ForgotPassword = () => {
 
     const [emailInput, setEmailInput] = useState({borderColor: "#ced4da"});
 
-    const session = localStorage.getItem("session");
+    const session = Session.get("session");
 
     if(session)
         return <Redirect to="/dashboard" />;

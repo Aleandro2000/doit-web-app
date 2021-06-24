@@ -307,10 +307,10 @@ function Homepage()
                                 <b>Exploring every solution to a given problem</b>
                             </li>
                             <li className="price">
-                                <b>Unlimited access to the our AI mentor.</b>
+                                <b>Unlimited access to our AI mentor.</b>
                             </li>
                             <li className="price">
-                                <b>Unlimited access to the our online IDE.</b>
+                                <b>Unlimited access to our online IDE.</b>
                             </li>
                             <li className="grey price"><Link to="/register" className="button">BUY</Link></li>
                         </ul>
@@ -343,10 +343,10 @@ function Homepage()
                                 <b>Exploring every solution to a given problem</b>
                             </li>
                             <li className="price">
-                                <b>Unlimited access to the our AI mentor.</b>
+                                <b>Unlimited access to our AI mentor.</b>
                             </li>
                             <li className="price">
-                                <b>Unlimited access to the our online IDE.</b>
+                                <b>Unlimited access to our online IDE.</b>
                             </li>
                             <li className="grey price"><Link to="/register" className="button">BUY</Link></li>
                         </ul>

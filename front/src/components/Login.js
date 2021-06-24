@@ -5,6 +5,7 @@ import {
     useHistory
 } from "react-router-dom";
 import { useState } from "react";
+import Session from "react-session-api";
 
 function Login()
 {
@@ -15,7 +16,7 @@ function Login()
     const [passwordInput, setPasswordInput]=useState({borderColor: "#ced4da"});
     const [res,setRes]=useState("");
 
-    const session=localStorage.getItem("session");
+    const session=Session.get("session");
 
     const sendRequest=async () => {
         let ok=true;
@@ -37,7 +38,7 @@ function Login()
             return;
         document.getElementById("loading").style.display="inline-block";
         const data={email, password};
-        const req=await fetch("/login", {
+        await fetch("/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -48,7 +49,7 @@ function Login()
             .then(data => {
                 if(data.status===200)
                 {
-                    localStorage.setItem("session",JSON.stringify(data.result));
+                    Session.set("session",JSON.stringify(data.result));
                     document.getElementById("loading").style.display="none";
                     history.push("/dashboard");
                 }

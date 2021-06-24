@@ -1,8 +1,9 @@
 import logo from "../images/logo2.png";
 import { Link, Redirect } from "react-router-dom";
+import Session from "react-session-api";
 
 const VerificationLink = () => {
-    const registred=localStorage.getItem("registred");
+    const registred=Session.get("registred");
 
     if(!registred||registred==="NotSuccesful")
         return <Redirect to="/register" />;
