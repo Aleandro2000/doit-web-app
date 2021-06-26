@@ -22,6 +22,9 @@ module.exports = function(req,res){
             stripe.customers.create({
                 email: user.email,
                 description: "DoIT "+user.subscriptionType+" subscription",
+                invoice_settings: {
+                    default_payment_method: req.body.payment_method,
+                },
                 payment_method: req.body.payment_method
             })
                 .then(customer => {
