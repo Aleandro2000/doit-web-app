@@ -263,6 +263,14 @@ function Homepage()
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
                             <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
+                        <tr>
+                            <td>Logic tests and quizzes to prepare for the real interview</td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
+                            <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

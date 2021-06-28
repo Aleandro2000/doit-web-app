@@ -30,26 +30,15 @@ module.exports = function(req,res){
                 .then(customer => {
                     stripe.subscriptions.create({
                         customer: customer.id,
-                        phases: [
-                            {
-                                items: [
-                                    {
-                                        price: subscriptionPrice
-                                    }
-                                ],
-                                add_invoice_items:[
-                                    {
-                                        price: subscriptionPrice
-                                    }
-                                ]
-                            }
+                        items: [
+                            { price: subscriptionPrice }
                         ]
                     })
                         .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
                     
                 })
                 .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
-
+            
             user.hasSubscription=true;
             user.subscribedAt=Date.now();
             user.save();
