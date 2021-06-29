@@ -34,14 +34,17 @@ module.exports = function(req,res){
                             { price: subscriptionPrice }
                         ]
                     })
+                        .then(subscription => {
+                            user.subscribedAt=Date.now();
+                            user.customerId=customer.id;
+                            user.subscriptionId=subscription.id;
+                            user.save();
+                        })
                         .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
                     
                 })
                 .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
-            
-            user.hasSubscription=true;
-            user.subscribedAt=Date.now();
-            user.save();
+
             res.status(500).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success"});
         }
     });

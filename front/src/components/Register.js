@@ -73,7 +73,7 @@ function Register()
 
         if(req.status===200)
         {
-            Session.set("registred",registered);
+            Session.set("registered",registered);
             setRegistered("Succesful");
             document.getElementById("loading").style.display="none";
             history.push("/verificationlink");

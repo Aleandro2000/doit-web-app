@@ -3,9 +3,9 @@ import { Link, Redirect } from "react-router-dom";
 import Session from "react-session-api";
 
 const VerificationLink = () => {
-    const registred=Session.get("registred");
+    const registered=Session.get("registered");
 
-    if(!registred||registred==="NotSuccesful")
+    if(!registered||registered==="NotSuccesful")
         return <Redirect to="/register" />;
 
     return(

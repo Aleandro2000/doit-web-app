@@ -1,10 +1,16 @@
+const stripe = require('stripe')(process.env.SECRET_PAYMENT_KEY);
 const User = require('../models/user');
 const Token = require('../models/tokenSchema');
 
 module.exports = function(req, res, next) {
-    User.deleteOne({email: req.body.email},(err)=>{
+    User.findOneAndDelete({_id: req.body._id}, (err,user)=>{
         if(err)
-            return res.status(200).send({msg: "Error to delete user!"});
+            return res.status(200).send({msg: "Error to delete tokens!"});
+        else
+        {
+            stripe.subscriptions.del(user.subscriptionId);
+            stripe.customers.del(user.customerId);
+        }
     });
     Token.deleteMany({_userId: req.body._id},(err)=>{
         if(err)

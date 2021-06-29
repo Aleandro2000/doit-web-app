@@ -16,7 +16,7 @@ function DeleteAccount()
 
     const deleteAccount=async () => {
         document.getElementById("loading").style.display="inline-block";
-        const data={email: session["email"], _id: session["_id"]};
+        const data={_id: session["_id"]};
         const req=await fetch("/delete", {
             method: 'POST',
             headers: {
