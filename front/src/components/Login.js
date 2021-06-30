@@ -5,7 +5,6 @@ import {
     useHistory
 } from "react-router-dom";
 import { useState } from "react";
-import Session from "react-session-api";
 
 function Login()
 {
@@ -16,7 +15,7 @@ function Login()
     const [passwordInput, setPasswordInput]=useState({borderColor: "#ced4da"});
     const [res,setRes]=useState("");
 
-    const session=Session.get("session");
+    const session=localStorage.getItem("session");
 
     const sendRequest=async () => {
         let ok=true;
@@ -49,7 +48,7 @@ function Login()
             .then(data => {
                 if(data.status===200)
                 {
-                    Session.set("session",JSON.stringify(data.result));
+                    localStorage.setItem("session",JSON.stringify(data.result));
                     document.getElementById("loading").style.display="none";
                     history.push("/dashboard");
                 }
@@ -88,8 +87,11 @@ function Login()
                 <center>
                     <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 </center>
-                {res}<br/>
+                {res}
+                <br/>
                 <Link to={"/forgotpass"}>Forgot password?</Link>
+                <br/>
+                <Link to={"/resendlink"}>Problem with verification link?</Link>
             </form>
             <hr/>
             <Link to="/register">

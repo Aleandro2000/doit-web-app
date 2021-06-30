@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 import Select from "react-select";
-import Session from "react-session-api";
 
 function Register()
 {
@@ -19,7 +18,7 @@ function Register()
     const [res,setRes]=useState("");
 
     const history=useHistory();
-    const session=Session.get("session");
+    const session=localStorage.getItem("session");
 
     const options = [
         { value: 'monthly', label: "$ "+process.env.REACT_APP_SUBSCRIPTION_MONTHLY_PRICE+" USD / month" },
@@ -73,7 +72,7 @@ function Register()
 
         if(req.status===200)
         {
-            Session.set("registered",registered);
+            localStorage.setItem("registered",registered);
             setRegistered("Succesful");
             document.getElementById("loading").style.display="none";
             history.push("/verificationlink");

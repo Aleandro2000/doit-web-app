@@ -15,6 +15,7 @@ import NotFound from "./components/NotFound";
 import ForgotPassword from "./components/ForgotPassword";
 import VerificationLink from "./components/VerificationLink";
 import Dashboard from "./components/Dashboard";
+import ResendLink from "./components/ResendLink";
 
 import IDE from "./components/dashboardOptions/IDE";
 import Settings from "./components/dashboardOptions/Settings";
@@ -37,13 +38,14 @@ function App() {
           <Route exact path="/login" component={Login}/>
           <Route exact path="/register" component={Register}/>
           <Route exact path="/verificationlink" component={VerificationLink}/>
+          <Route exact path="/resendlink" component={ResendLink}/>
           <Route exact path="/forgotpass" component={ForgotPassword}/>
           <Route exact path="/dashboard" component={Dashboard}/>
           <Route exact path="/dashboard/IDE" component={IDE}/>
           <Route exact path="/dashboard/settings" component={Settings}/>
           <Route exact path="/dashboard/settings/profile/resetpass" component={ResetPassword}/>
           <Route exact path="/dashboard/settings/profile/delete" component={DeleteAccount}/>
-          <Route exact path="/dashboard/subscription" component={Subscription}/>
+          <Route exact path="/subscription" component={Subscription}/>
           <Route component={NotFound}/>
         </Switch>
       </Router>

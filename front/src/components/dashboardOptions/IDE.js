@@ -10,7 +10,6 @@ import { Redirect, Link } from "react-router-dom";
 import { createRef, useState } from "react";
 import Select from 'react-select';
 import swal from 'sweetalert';
-import Session from "react-session-api";
 
 import logo from "../../images/logo2.png";
 
@@ -19,7 +18,6 @@ function IDE()
     const [filename,setFileName]=useState("code.c");
     const [language,setLanguage]=useState("c_cpp");
     const [output, setOutput]=useState("");
-    const session=Session.get("session");
     const aceEditorRef=createRef();
 
     const options = [
@@ -32,8 +30,12 @@ function IDE()
 
     const [selectedOption, setSelectedOption] = useState(options[0]);
 
+    const session=JSON.parse(localStorage.getItem("session"));
+
     if(!session)
         return <Redirect to="/login" />;
+    else if(!session["customerId"]||!session["subscriptionId"])
+        return <Redirect to="/subscription" />;
     
     const handleChange = (selectedOption) => {
         setFileName("code"+selectedOption.value);

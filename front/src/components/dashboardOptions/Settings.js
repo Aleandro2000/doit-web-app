@@ -1,16 +1,17 @@
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Session from "react-session-api";
 import logo from "../../images/logo2.png";
 import reset from "../../images/password-reset.png";
 import del from "../../images/delete-account.png";
 
 function Settings(){
 
-    const session=Session.get("session");
+    const session=JSON.parse(localStorage.getItem("session"));
 
     if(!session)
         return <Redirect to="/login" />;
+    else if(!session["customerId"]||!session["subscriptionId"])
+        return <Redirect to="/subscription" />;
 
     return(
         <div className="settings fadeIn">

@@ -4,7 +4,6 @@ import {
     Redirect
 } from "react-router-dom";
 import { useState } from "react";
-import Session from "react-session-api";
 
 const ResetPassword = () => {
 
@@ -13,10 +12,12 @@ const ResetPassword = () => {
     const [res, setRes] = useState("");
     const [passwordInput, setPasswordInput] = useState({borderColor: "#ced4da"});
 
-    const session=JSON.parse(Session.get("session"));
+    const session=JSON.parse(localStorage.getItem("session"));
 
     if(!session)
         return <Redirect to="/login" />;
+    else if(!session["customerId"]||!session["subscriptionId"])
+        return <Redirect to="/subscription" />;
 
     const sendRequest = async() => {
         const passwordTest=new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})");
@@ -28,7 +29,7 @@ const ResetPassword = () => {
         }
 
         document.getElementById("loading").style.display="inline-block";
-        const data = {email: session["email"], password}
+        const data = {_id: session["_id"], password}
         const req = await fetch("/resetpass", {
             method: 'POST',
             headers: {

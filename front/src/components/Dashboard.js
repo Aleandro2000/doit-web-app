@@ -1,8 +1,7 @@
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Session from "react-session-api";
 import logo from "../images/logo2.png";
-import payment from "../images/payment.png";
+import logicthinking from "../images/logic-thinking.png";
 import lesson from "../images/lesson.png";
 import ide from "../images/ide.png";
 import mentor from "../images/mentor.png";
@@ -11,13 +10,15 @@ import solving from "../images/solving.png";
 
 function Dashboard(){
 
-    const session=Session.get("session");
+    const session=JSON.parse(localStorage.getItem("session"));
 
     if(!session)
         return <Redirect to="/login" />;
+    else if(!session["customerId"]||!session["subscriptionId"])
+        return <Redirect to="/subscription" />;
 
     const logout = () => {
-        Session.clear();
+        localStorage.clear();
     }
 
     return(
@@ -43,11 +44,11 @@ function Dashboard(){
             <div className="container content">
                 <div className="row">
                     <div className="content-box column" style={{padding: "20px"}}>
-                        <img alt="" className="icon" src={payment}/>
+                        <img alt="" className="icon" src={logicthinking}/>
                         <br/>
-                        <Link to="/dashboard/subscription">
+                        <Link to="/dashboard/logictests">
                             <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                                Payment
+                                Logical Reasoning Tests
                             </div>
                         </Link>
                     </div>

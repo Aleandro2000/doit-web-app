@@ -4,15 +4,16 @@ import {
     Redirect,
     useHistory
 } from "react-router-dom";
-import Session from "react-session-api";
 
 function DeleteAccount()
 {
-    const session=JSON.parse(Session.get("session"));
     const history=useHistory();
+    const session=JSON.parse(localStorage.getItem("session"));
 
     if(!session)
         return <Redirect to="/login" />;
+    else if(!session["customerId"]||!session["subscriptionId"])
+        return <Redirect to="/subscription" />;
 
     const deleteAccount=async () => {
         document.getElementById("loading").style.display="inline-block";
@@ -26,7 +27,7 @@ function DeleteAccount()
         });
         if(req.status===200)
         {
-            Session.clear();
+            localStorage.clear();
             document.getElementById("loading").style.display="none";
             history.push("/login");
         }

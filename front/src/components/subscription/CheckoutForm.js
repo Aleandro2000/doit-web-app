@@ -1,16 +1,16 @@
 import React from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import swal from "sweetalert";
-import { Link } from "react-router-dom";
-import Session from "react-session-api";
+import { useHistory } from "react-router-dom";
 
 import logo from "../../images/logo2.png";
 
 export const CheckoutForm = () => {
+    const history = useHistory();
     const stripe = useStripe();
     const elements = useElements();
 
-    const session=JSON.parse(Session.get("session"));
+    const session=JSON.parse(localStorage.getItem("session"));
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -40,19 +40,45 @@ export const CheckoutForm = () => {
                 body: JSON.stringify(data)
             })
                 .then(response => response.json())
-                .then(result => {
+                .then(data => {
                     swal({
-                        title: result.title,
-                        text: result.message,
-                        icon: result.icon,
+                        title: data.title,
+                        text: data.message,
+                        icon: data.icon,
                         buttons: {
                             confirm: {text:'OK',className:'alert-button'}
                         }
                     });
+                    if(data.icon==="success")
+                    {
+                        localStorage.setItem("session",JSON.stringify(data.result));
+                        document.getElementById("loading").style.display="none";
+                        history.push("/dashboard");
+                    }
                 });
         }
         document.getElementById("loading").style.display="none";
     };
+
+    const handleCancellation = async () => {
+        document.getElementById("loading").style.display="inline-block";
+        const data={_id: session["_id"]};
+        const req=await fetch("/delete", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        if(req.status===200)
+        {
+            localStorage.clear();
+            document.getElementById("loading").style.display="none";
+            history.push("/register");
+        }
+        else
+            document.getElementById("loading").style.display="none";
+    }
 
     return (
         <div className="content-box">
@@ -70,15 +96,14 @@ export const CheckoutForm = () => {
                     <button className="button">
                         <i className="fa fa-credit-card"/>|Subscribe
                     </button>
+                    <br/>
                     <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 </form>
             </center>
             <hr/>
-            <Link to="/dashboard">
-                <button className="button">
-                    <i className="fa fa-arrow-left"/> Back
-                </button>
-            </Link>
+            <button className="button" onClick={handleCancellation}>
+                <i className="fa fa-times"/> Cancel
+            </button>
             <hr/>
             <p>
                 <b>

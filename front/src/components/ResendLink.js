@@ -3,11 +3,11 @@ import { useHistory } from "react-router-dom";
 import { Link, Redirect } from "react-router-dom";
 import logo from "../images/logo2.png";
 
-const ForgotPassword = () => {
+const ResendLink = () => {
 
     const history = useHistory();
     const [email, setEmail] = useState('');
-    const [sent, setSent] = useState('false');
+    const [message, setMessage] = useState("");
 
     const [emailInput, setEmailInput] = useState({borderColor: "#ced4da"});
 
@@ -27,24 +27,27 @@ const ForgotPassword = () => {
         }
         document.getElementById("loading").style.display="inline-block";
         const data = {email}
-        const req = await fetch("/forgotpass", {
+        await fetch("/resend", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
-
-        if(req.status === 200){
-            document.getElementById("loading").style.display="none";
-            setSent(true);
-            history.push("/");
-        }
-        else
-        {
-            document.getElementById("loading").style.display="none";
-            setSent("NotSent");
-        }
+            .then(response => response.json())
+            .then(data => {
+                if(data.status===200)
+                {
+                    document.getElementById("loading").style.display="none";
+                    setMessage(data.msg);
+                    history.push("/verificationlink");
+                }
+                else
+                {
+                    document.getElementById("loading").style.display="none";
+                    setMessage(data.msg);
+                }
+            });
     }
 
     return (
@@ -52,7 +55,7 @@ const ForgotPassword = () => {
             <img alt="" src={logo} className="logo"/>
             <h3 className="title">
                 <b>
-                    Forgot Password Screen
+                    Resend Verification Link
                 </b>
             </h3>
             <hr/>
@@ -65,9 +68,8 @@ const ForgotPassword = () => {
                 <center>
                     <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 </center>
-                { 
-                    sent === "NotSent" ? (<><br/><h5 className="text-center text-danger mx-3">Couldn't Reset Reset Password</h5></>) : ( <></> )
-                }
+                <br/>
+                {message}
                 <br/><br/>
             </form>
             <hr/>
@@ -96,4 +98,4 @@ const ForgotPassword = () => {
     );
 }
  
-export default ForgotPassword;
+export default ResendLink;
