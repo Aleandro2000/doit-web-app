@@ -1,7 +1,7 @@
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "../images/logo2.png";
-import logicthinking from "../images/logic-thinking.png";
+import quiz from "../images/quiz.png";
 import lesson from "../images/lesson.png";
 import ide from "../images/ide.png";
 import mentor from "../images/mentor.png";
@@ -22,7 +22,7 @@ function Dashboard(){
     }
 
     return(
-        <div className="dashboard fadeIn">
+        <div className="options fadeIn">
             <div className="navigation">
                 <div className="container">
                     <ul className="navigation-list float-right">
@@ -44,27 +44,31 @@ function Dashboard(){
             <div className="container content">
                 <div className="row">
                     <div className="content-box column" style={{padding: "20px"}}>
-                        <img alt="" className="icon" src={logicthinking}/>
+                        <img alt="" className="icon" src={lesson}/>
                         <br/>
-                        <Link to="/dashboard/logictests">
+                        <Link to="/dashboard/learning">
                             <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                                Logical Reasoning Tests
+                                Start Learning
                             </div>
                         </Link>
                     </div>
                     <div className="content-box column" style={{padding: "20px"}}>
-                        <img alt="" className="icon" src={lesson}/>
-                        <br/>
-                        <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                            Start Learning
-                        </div>
-                    </div>
-                    <div className="content-box column" style={{padding: "20px"}}>
                         <img alt="" className="icon" src={solving}/>
                         <br/>
-                        <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                            Start Solving
-                        </div>
+                        <Link to="/dashboard/solving">
+                            <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
+                                Start Solving
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="content-box column" style={{padding: "20px"}}>
+                        <img alt="" className="icon" src={quiz}/>
+                        <br/>
+                        <Link to="/dashboard/quiz">
+                            <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
+                                Select and Start a Quiz Type
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <div className="row" style={{marginBottom: "50px"}}>

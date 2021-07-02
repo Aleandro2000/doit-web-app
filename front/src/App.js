@@ -22,6 +22,7 @@ import Settings from "./components/dashboardOptions/Settings";
 import ResetPassword from "./components/dashboardOptions/settingsOptions/ResetPassword";
 import DeleteAccount from "./components/dashboardOptions/settingsOptions/DeleteAccount";
 import Subscription from "./components/dashboardOptions/Subscription";
+import Quiz from "./components/dashboardOptions/Quiz";
 
 function App() {
   AOS.init({
@@ -41,6 +42,7 @@ function App() {
           <Route exact path="/resendlink" component={ResendLink}/>
           <Route exact path="/forgotpass" component={ForgotPassword}/>
           <Route exact path="/dashboard" component={Dashboard}/>
+          <Route exact path="/dashboard/quiz" component={Quiz}/>
           <Route exact path="/dashboard/IDE" component={IDE}/>
           <Route exact path="/dashboard/settings" component={Settings}/>
           <Route exact path="/dashboard/settings/profile/resetpass" component={ResetPassword}/>

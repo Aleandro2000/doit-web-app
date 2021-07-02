@@ -52,7 +52,6 @@ export const CheckoutForm = () => {
                     if(data.icon==="success")
                     {
                         localStorage.setItem("session",JSON.stringify(data.result));
-                        document.getElementById("loading").style.display="none";
                         history.push("/dashboard");
                     }
                 });

@@ -1,10 +1,10 @@
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo2.png";
-import reset from "../../images/password-reset.png";
-import del from "../../images/delete-account.png";
+import logicthinking from "../../images/logic-thinking.png";
+import interview from "../../images/interview.png";
 
-function Settings(){
+function Quiz(){
 
     const session=JSON.parse(localStorage.getItem("session"));
 
@@ -30,26 +30,26 @@ function Settings(){
             </p>
             <h3 align="center" className="title">
                 <b>
-                    Settings
+                    Quiz
                 </b>
             </h3>
             <div className="container content">
                 <div className="row">
                     <div className="content-box column" style={{padding: "20px"}}>
-                        <img alt="" className="icon" src={reset}/>
+                        <img alt="" className="icon" src={logicthinking}/>
                         <br/>
-                        <Link to="/dashboard/settings/profile/resetpass">
+                        <Link to="/dashboard/quiz/logic-thinking">
                             <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                                Reset Password
+                                Logical Reasoning Quiz
                             </div>
                         </Link>
                     </div>
                     <div className="content-box column" style={{padding: "20px"}}>
-                        <img alt="" className="icon" src={del}/>
+                        <img alt="" className="icon" src={interview}/>
                         <br/>
-                        <Link to="/dashboard/settings/profile/delete">
+                        <Link to="/dashboard/quiz/interview">
                             <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                                Delete Account
+                                Interview Questions Quiz
                             </div>
                         </Link>
                     </div>
@@ -83,4 +83,4 @@ function Settings(){
     );
 }
 
-export default Settings;
+export default Quiz;
