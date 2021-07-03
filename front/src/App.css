@@ -7,18 +7,6 @@ ul{
     list-style: none;
 }
 
-.model {
-    position: relative;
-    height: 150px;
-    background-image: linear-gradient(black, #4d4d4d);
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        100% 100%,
-        0 calc(100% - 5vw)
-    );
-}
-
 @keyframes a{
     0%{
         fill-opacity:0;
@@ -106,6 +94,28 @@ ul{
     border-radius: 50px 0 50px 0;
 }
 
+.dashboard-header{
+    position: relative;
+    background-image: url("./images/dashboard-background.svg");
+    background-position: center;
+    background-size: cover;
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.dashboard-title{
+    background-color: #dddd;
+    color: #333333;
+    padding: 10px;
+    border-radius: 10px;
+    border: 3px solid white;
+    font-weight: bold;
+    font-size: 24px;
+}
+
 .fadeIn{
     animation: fadeIn 1s;
 }
@@ -116,6 +126,7 @@ ul{
 }
 
 .options{
+    animation: fadeIn 0.75s linear forwards;
     padding-bottom: 50px;
 }
 

@@ -1,6 +1,6 @@
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import logo from "../images/logo2.png";
+import logo from "../images/logo.png";
 import quiz from "../images/quiz.png";
 import lesson from "../images/lesson.png";
 import ide from "../images/ide.png";
@@ -22,7 +22,7 @@ function Dashboard(){
     }
 
     return(
-        <div className="options fadeIn">
+        <div className="options">
             <div className="navigation">
                 <div className="container">
                     <ul className="navigation-list float-right">
@@ -33,14 +33,14 @@ function Dashboard(){
                 </div>
             </div>
             <br/>
-            <p align="center" style={{marginTop: "50px"}}>
-                <img alt="" src={logo} className="logo"/>
-            </p>
-            <h3 align="center" className="title">
-                <b>
+            <div className="dashboard-header">
+                <p>
+                    <img alt="" className="rotation" style={{marginBottom: "20px"}} src={logo}/>
+                </p>
+                <span className="dashboard-title">
                     Dashboard
-                </b>
-            </h3>
+                </span>
+            </div>
             <div className="container content">
                 <div className="row">
                     <div className="content-box column" style={{padding: "20px"}}>
@@ -66,7 +66,7 @@ function Dashboard(){
                         <br/>
                         <Link to="/dashboard/quiz">
                             <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                                Select and Start a Quiz Type
+                                Select and Start a Quiz
                             </div>
                         </Link>
                     </div>

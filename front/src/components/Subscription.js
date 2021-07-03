@@ -1,5 +1,5 @@
 import React from "react";
-import StripeContainer from "../subscription/StripeContainer";
+import StripeContainer from "./subscription/StripeContainer";
 import { Redirect } from "react-router-dom";
 
 const Subscription = () => {

@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     isVerified: {
         type: Boolean,
@@ -17,11 +18,13 @@ const userSchema = new Schema({
     },
     customerId: {
         type: String,
-        default: ""
+        default: "",
+        index: true
     },
     subscriptionId: {
         type: String,
-        default: ""
+        default: "",
+        index: true
     },
     password: {
         type: String,
@@ -30,11 +33,9 @@ const userSchema = new Schema({
     verificationKey: {
         type: String,
         default: ""
-    },
-    subscribedAt: {
-        type: Date,
-        default: null
     }
 })
+
+userSchema.index({createdAt: 1},{expireAfterSeconds: 24*60*60,partialFilterExpression : {customerId: "", subscriptionId: ""}});
 
 module.exports = mongoose.model('user', userSchema);

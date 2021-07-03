@@ -1,6 +1,6 @@
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import logo from "../../images/logo2.png";
+import logo from "../../images/logo.png";
 import logicthinking from "../../images/logic-thinking.png";
 import interview from "../../images/interview.png";
 
@@ -14,7 +14,7 @@ function Quiz(){
         return <Redirect to="/subscription" />;
 
     return(
-        <div className="options fadeIn">
+        <div className="options">
             <div className="navigation">
                 <div className="container">
                     <ul className="navigation-list float-right">
@@ -25,14 +25,14 @@ function Quiz(){
                 </div>
             </div>
             <br/>
-            <p align="center" style={{marginTop: "50px"}}>
-                <img alt="" src={logo} className="logo"/>
-            </p>
-            <h3 align="center" className="title">
-                <b>
+            <div className="dashboard-header">
+                <p>
+                    <img alt="" className="rotation" style={{marginBottom: "20px"}} src={logo}/>
+                </p>
+                <span className="dashboard-title">
                     Quiz
-                </b>
-            </h3>
+                </span>
+            </div>
             <div className="container content">
                 <div className="row">
                     <div className="content-box column" style={{padding: "20px"}}>

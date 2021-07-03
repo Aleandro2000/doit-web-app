@@ -48,6 +48,7 @@ function Login()
             .then(data => {
                 if(data.status===200)
                 {
+                    localStorage.removeItem("registered");
                     localStorage.setItem("session",JSON.stringify(data.result));
                     document.getElementById("loading").style.display="none";
                     history.push("/dashboard");

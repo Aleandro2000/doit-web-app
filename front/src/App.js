@@ -13,7 +13,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import NotFound from "./components/NotFound";
 import ForgotPassword from "./components/ForgotPassword";
-import VerificationKey from "./components/forgotPassword/VerificationKey";
+import VerificationKey from "./components/forgotpassComponent/VerificationKey";
 import VerificationLink from "./components/VerificationLink";
 import Dashboard from "./components/Dashboard";
 import ResendLink from "./components/ResendLink";
@@ -22,7 +22,7 @@ import IDE from "./components/dashboardOptions/IDE";
 import Settings from "./components/dashboardOptions/Settings";
 import ResetPassword from "./components/dashboardOptions/settingsOptions/ResetPassword";
 import DeleteAccount from "./components/dashboardOptions/settingsOptions/DeleteAccount";
-import Subscription from "./components/dashboardOptions/Subscription";
+import Subscription from "./components/Subscription";
 import Quiz from "./components/dashboardOptions/Quiz";
 
 function App() {

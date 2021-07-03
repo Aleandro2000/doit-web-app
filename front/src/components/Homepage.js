@@ -19,7 +19,7 @@ function Homepage()
     }
 
     return(
-        <div className="homepage fadeIn">
+        <div className="fadeIn">
             <div className="navigation">
                 <div className="container">
                     <ul className="navigation-list float-right">
@@ -450,6 +450,7 @@ function Homepage()
                     <br/>
                 </div>
             </center>
+            <br/>
         </div>
     );
 }
