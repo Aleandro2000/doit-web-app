@@ -27,6 +27,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    verificationKey: {
+        type: String,
+        default: ""
+    },
     subscribedAt: {
         type: Date,
         default: null

@@ -13,6 +13,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import NotFound from "./components/NotFound";
 import ForgotPassword from "./components/ForgotPassword";
+import VerificationKey from "./components/forgotPassword/VerificationKey";
 import VerificationLink from "./components/VerificationLink";
 import Dashboard from "./components/Dashboard";
 import ResendLink from "./components/ResendLink";
@@ -41,6 +42,7 @@ function App() {
           <Route exact path="/verificationlink" component={VerificationLink}/>
           <Route exact path="/resendlink" component={ResendLink}/>
           <Route exact path="/forgotpass" component={ForgotPassword}/>
+          <Route exact path="/forgotpass/verificationkey" component={VerificationKey}/>
           <Route exact path="/dashboard" component={Dashboard}/>
           <Route exact path="/dashboard/quiz" component={Quiz}/>
           <Route exact path="/dashboard/IDE" component={IDE}/>

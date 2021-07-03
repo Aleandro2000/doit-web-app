@@ -1,33 +1,36 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import { Link, Redirect } from "react-router-dom";
-import logo from "../images/logo2.png";
+import logo from "../../images/logo2.png";
 
-const ResendLink = () => {
+const VerificationKey = () => {
 
     const history = useHistory();
-    const [email, setEmail] = useState('');
+    const [key, setKey] = useState('');
     const [message, setMessage] = useState("");
 
-    const [emailInput, setEmailInput] = useState({borderColor: "#ced4da"});
+    const [keyInput, setKeyInput] = useState({borderColor: "#ced4da"});
 
     const session = localStorage.getItem("session");
+    const forgotPassEmail = localStorage.getItem("forgotPassEmail");
 
     if(session)
         return <Redirect to="/dashboard" />;
+    else if(!forgotPassEmail)
+        return <Redirect to="/forgotpass" />;
 
     function handleSubmit(event) {
         event.preventDefault();
     }
 
     const sendRequest = async() => {
-        if(email === '' || email.indexOf('@') === -1){
-            setEmailInput({borderColor: "red"});
+        if(!key){
+            setKeyInput({borderColor: "red"});
             return;
         }
         document.getElementById("loading").style.display="inline-block";
-        const data = {email}
-        await fetch("/resend", {
+        const data = {email: forgotPassEmail, key: key.replaceAll(" ","")}
+        await fetch("/verificationkey", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -38,14 +41,16 @@ const ResendLink = () => {
             .then(data => {
                 if(data.status===200)
                 {
+                    localStorage.removeItem("forgotPassEmail");
+                    localStorage.setItem("session",JSON.stringify(data.result));
                     document.getElementById("loading").style.display="none";
-                    setMessage(data.msg);
-                    history.push("/verificationlink");
+                    history.push("/dashboard");
                 }
                 else
                 {
                     document.getElementById("loading").style.display="none";
-                    setMessage(data.msg);
+                    setMessage("Invalid verification key!");
+                    setKeyInput({borderColor: "#ced4da"});
                 }
             });
     }
@@ -55,12 +60,12 @@ const ResendLink = () => {
             <img alt="" src={logo} className="logo"/>
             <h3 className="title">
                 <b>
-                    Resend Verification Link
+                    Verification Key
                 </b>
             </h3>
             <hr/>
             <form onSubmit={handleSubmit}>
-                <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}}/>
+                <input type="text" name="key" style={keyInput} placeholder="Enter verification key" onChange={e => { setKey(e.target.value); setKeyInput({borderColor: "#ced4da"})}}/>
                 <button type="submit" className="button" onClick={sendRequest}>
                     <i className="fa fa-send"/> SEND
                 </button>
@@ -72,19 +77,9 @@ const ResendLink = () => {
                 {message}
             </form>
             <hr/>
-            <Link to="/login">
+            <Link to="/forgotpass">
                 <button className="button">
-                    <i className="fa fa-sign-in"/> LOGIN
-                </button>
-            </Link>
-            <Link to="/register">
-                <button className="button">
-                    <i className="fa fa-plus"/> REGISTER
-                </button>
-            </Link>
-            <Link to="/home">
-                <button className="button">
-                    <i className="fa fa-home"/> Home
+                    <i className="fa fa-arrow-left"/> Back
                 </button>
             </Link>
             <hr/>
@@ -97,4 +92,4 @@ const ResendLink = () => {
     );
 }
  
-export default ResendLink;
+export default VerificationKey;

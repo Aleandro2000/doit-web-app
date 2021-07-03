@@ -36,9 +36,10 @@ const ForgotPassword = () => {
         })
 
         if(req.status === 200){
+            localStorage.setItem("forgotPassEmail",email);
             document.getElementById("loading").style.display="none";
             setSent(true);
-            history.push("/");
+            history.push("/forgotpass/verificationkey");
         }
         else
         {
@@ -52,7 +53,7 @@ const ForgotPassword = () => {
             <img alt="" src={logo} className="logo"/>
             <h3 className="title">
                 <b>
-                    Forgot Password Screen
+                    Forgot Password
                 </b>
             </h3>
             <hr/>
@@ -66,9 +67,8 @@ const ForgotPassword = () => {
                     <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 </center>
                 { 
-                    sent === "NotSent" ? (<><br/><h5 className="text-center text-danger mx-3">Couldn't Reset Reset Password</h5></>) : ( <></> )
+                    sent === "NotSent" ? (<><br/><h5 className="text-center text-danger mx-3">Couldn't Send Email</h5></>) : ( <></> )
                 }
-                <br/><br/>
             </form>
             <hr/>
             <Link to="/login">

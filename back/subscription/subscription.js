@@ -39,8 +39,7 @@ module.exports = function(req,res){
                             user.customerId=customer.id;
                             user.subscriptionId=subscription.id;
                             user.save();
-                            user.password="";
-                            res.status(500).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: user});
+                            res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: user});
                         })
                         .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
                     

@@ -15,6 +15,8 @@ const confirmation=require("./auth/confirmEmail");
 const resend=require("./auth/resendLink");
 const deleteAccount=require("./auth/deleteAccount");
 const resetPassword=require("./auth/resetPassword");
+const forgotPassword=require("./auth/forgotPassword");
+const verificationKey=require("./auth/verificationKey");
 
 //compilers
 
@@ -61,6 +63,20 @@ app.get('/confirmation/:email/:token',(req,res)=>{
 app.post("/resend",(req,res)=>{
     if(req.body)
         resend(req,res);
+    else
+        res.status(400).send("Request failed!");
+});
+
+app.post("/forgotpass",(req,res) => {
+    if(req.body)
+        forgotPassword(req,res);
+    else
+        res.status(400).send("Request failed!");
+});
+
+app.post("/verificationkey",(req,res) => {
+    if(req.body)
+        verificationKey(req,res);
     else
         res.status(400).send("Request failed!");
 });

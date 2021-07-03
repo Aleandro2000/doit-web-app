@@ -21,6 +21,7 @@ export const CheckoutForm = () => {
         });
       
         if(error)
+        {
             swal({
                 title: "ERROR!",
                 text: error.message,
@@ -29,6 +30,8 @@ export const CheckoutForm = () => {
                     confirm: {text:'OK',className:'alert-button'}
                 }
             });
+            document.getElementById("loading").style.display="none";
+        }
         else
         {
             const data={_id: session["_id"], payment_method: paymentMethod.id, subscriptionType: session["subscriptionType"]};
@@ -51,12 +54,12 @@ export const CheckoutForm = () => {
                     });
                     if(data.icon==="success")
                     {
+                        data.result.password="";
                         localStorage.setItem("session",JSON.stringify(data.result));
                         history.push("/dashboard");
                     }
                 });
         }
-        document.getElementById("loading").style.display="none";
     };
 
     const handleCancellation = async () => {

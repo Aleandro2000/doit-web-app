@@ -6,7 +6,7 @@ const nodemailer = require("nodemailer");
 module.exports = function (req, res, next) {
     User.findOne({ email: req.body.email }, function (err, user) {
         if(!user)
-            return res.status(400).send({msg:'We were unable to find a user with that email. Make sure your Email is correct!'});
+            return res.status(400).send({msg:'We were unable to find a user with that email. Make sure your email is correct!'});
         else if(user.isVerified)
             return res.status(400).send({msg: 'This account has been already verified. Please login!'});
         else
@@ -36,8 +36,8 @@ module.exports = function (req, res, next) {
 
                 transporter.sendMail(mailOptions, function (err) {
                     if (err)
-                        return res.status(500).send({msg: 'Technical Issue!, Please click on resend for verify your Email.'});
-                    return res.status(200).send({msg: 'A verification email has been sent to ' + user.email + '. It will be expire after one day. If you not get verification email, resend token!'});
+                        return res.status(500).send({msg: 'Technical Issue! Please click on resend for verify your email!'});
+                    return res.status(200).send({msg: 'A verification email has been sent to ' + user.email + '. It will be expire after one hour. If you not get verification email, resend token!'});
                 });
             });
         }
