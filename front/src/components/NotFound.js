@@ -1,7 +1,10 @@
 import logo from "../images/logo2.png";
+import { useHistory } from "react-router-dom";
 
 function NotFound()
 {
+    const history=useHistory();
+
     return(
         <center className="content-box">
             <img alt="" className="logo" src={logo}/>
@@ -10,6 +13,9 @@ function NotFound()
                     PAGE NOT FOUND! :(
                 </b>
             </h3>
+            <button className="button" onClick={history.goBack}>
+                <i className="fa fa-arrow-left"/> Back
+            </button>
             <hr/>
             <p>
                 <b>
