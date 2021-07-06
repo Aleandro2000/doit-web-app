@@ -38,25 +38,23 @@ function Homepage()
             </div>
             <div className="header">
                 <img alt="" className="rotation" style={{marginBottom: "20px"}} src={logo}/>
-                <p align="center">
-                    <div className="header-content">
-                        <b className="header-content-title">
-                            Become the Super Software Engineer!
-                        </b>
-                        <hr/>
-                        <p className="header-content-text">
-                            Become <b>master</b> at the <b>coding interview</b> and get your <b>dream job</b>. Learn how to write <b>clean quality code</b> that passes the technical interview. Develop your <b>problem solving skills</b> using our <b>step by step</b> interactive lessons, video content and tips&#38;tricks.
-                        </p>
-                        <Link className="header-content-text" to="/demo">
-                            <div className="button-white" style={{padding: "7.5px"}}>
-                                <b>
-                                    Try our DEMO
-                                </b>
-                            </div>
-                        </Link>
-                        <br/>
-                    </div>
-                </p>
+                <div className="header-content">
+                    <b className="header-content-title">
+                        Become the Super Software Engineer!
+                    </b>
+                    <hr/>
+                    <p className="header-content-text">
+                        Become <b>master</b> at the <b>coding interview</b> and get your <b>dream job</b>. Learn how to write <b>clean quality code</b> that passes the technical interview. Develop your <b>problem solving skills</b> using our <b>step by step</b> interactive lessons, video content and tips&#38;tricks.
+                    </p>
+                    <Link className="header-content-text" to="/demo">
+                        <div className="button-white" style={{padding: "7.5px"}}>
+                            <b>
+                                Try our DEMO
+                            </b>
+                        </div>
+                    </Link>
+                    <br/>
+                </div>
             </div>
             <div className="container content" data-aos='fade-up'>
                 <div className="row">
@@ -288,7 +286,7 @@ function Homepage()
                 </h1>
                 <div className="row">
                     <div className="column">
-                        <ul class="price" style={{marginTop: "50px"}}>
+                        <ul className="price" style={{marginTop: "50px"}}>
                             <li className="price-detail"><img width="75px" heigh="75px" alt="" src={price}/><br/><b>Monthly Subscription</b><br/>$ {process.env.REACT_APP_SUBSCRIPTION_MONTHLY_PRICE} USD / month</li>
                             <li className="price">
                                 <b>100+ handpicked Coding Questions</b>
@@ -324,7 +322,7 @@ function Homepage()
                         </ul>
                     </div>
                     <div className="column">
-                        <ul class="price" style={{marginTop: "50px"}}>
+                        <ul className="price" style={{marginTop: "50px"}}>
                             <li className="price-detail"><img width="75px" heigh="75px" alt="" src={bestPrice}/><br/><b>Yearly Subscription</b><br/>$ {process.env.REACT_APP_SUBSCRIPTION_YEARLY_PRICE} USD / year</li>
                             <li className="price">
                                 <b>100+ handpicked Coding Questions</b>
