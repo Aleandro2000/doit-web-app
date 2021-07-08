@@ -54,7 +54,7 @@ export const CheckoutForm = () => {
                     });
                     if(data.icon==="success")
                     {
-                        data.result.password="";
+                        data.result.password=data.result.verificationKey="";
                         localStorage.setItem("session",JSON.stringify(data.result));
                         history.push("/dashboard");
                     }

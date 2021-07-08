@@ -13,7 +13,7 @@ module.exports = function(req, res, next) {
             if(!result)
                 return res.status(401).send({msg:'Your email has not been verified. Please click on resend!'});
             else {
-                user.password="";    
+                user.password=user.verificationKey="";
                 return res.send({status: 200, result: user});
             }
         });

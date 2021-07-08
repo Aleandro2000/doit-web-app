@@ -42,6 +42,7 @@ const VerificationKey = () => {
                 if(data.status===200)
                 {
                     localStorage.removeItem("forgotPassEmail");
+                    data.result.password="";
                     localStorage.setItem("session",JSON.stringify(data.result));
                     document.getElementById("loading").style.display="none";
                     history.push("/dashboard");
