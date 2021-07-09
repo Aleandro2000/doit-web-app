@@ -58,6 +58,8 @@ export const CheckoutForm = () => {
                         localStorage.setItem("session",JSON.stringify(data.result));
                         history.push("/dashboard");
                     }
+                    else
+                        document.getElementById("loading").style.display="none";
                 });
         }
     };
