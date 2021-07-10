@@ -10,6 +10,7 @@ import { Redirect, Link } from "react-router-dom";
 import { createRef, useState } from "react";
 import Select from 'react-select';
 import swal from 'sweetalert';
+import beautify from "js-beautify";
 
 import logo from "../../images/logo2.png";
 
@@ -179,6 +180,21 @@ function IDE()
         }
     }
 
+    const Format = () => {
+        const code=aceEditorRef.current.editor.getValue();
+        if(code)
+            aceEditorRef.current.editor.setValue(beautify(code, { indent_size: 4, space_in_empty_paren: true }));
+        else
+            swal({
+                title: "OOPS!",
+                text: "IDE Editor may not be empty!",
+                icon: "error",
+                buttons: {
+                    confirm: {text:'OK',className:'alert-button'}
+                }
+            });
+    }
+
     return(
         <>
             <div style={{backgroundColor: "#282a2e"}} className="fadeIn">
@@ -196,6 +212,10 @@ function IDE()
                         <i className="fa fa-file"/>|OPEN
                     </label>
                     <input onChange={Open} type="file" id="open" name="open" accept=".txt,.c,.cpp,.java,.py,.js" style={{display: "none"}}/>
+                    <br/>
+                    <button onClick={Format} className="button-white responsive-no-button-border" style={{borderRadius: "0"}}>
+                        <i className="fa fa-edit"/>|Beautify
+                    </button>
                 </center>
                 <div style={{paddingTop: "15px"}}>
                     <AceEditor
