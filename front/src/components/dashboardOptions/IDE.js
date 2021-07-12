@@ -181,18 +181,7 @@ function IDE()
     }
 
     const Format = () => {
-        const code=aceEditorRef.current.editor.getValue();
-        if(code)
-            aceEditorRef.current.editor.setValue(beautify(code, { indent_size: 4, space_in_empty_paren: true }));
-        else
-            swal({
-                title: "OOPS!",
-                text: "IDE Editor may not be empty!",
-                icon: "error",
-                buttons: {
-                    confirm: {text:'OK',className:'alert-button'}
-                }
-            });
+        aceEditorRef.current.editor.setValue(beautify(aceEditorRef.current.editor.getValue(), { indent_size: 4, space_in_empty_paren: true }));
     }
 
     return(

@@ -8,17 +8,25 @@ module.exports = function(req,res){
         else
         {
             let subscriptionPrice;
+            //let price;
             switch(req.body.subscriptionType)
             {
                 case "monthly":
                     subscriptionPrice=process.env.DOIT_MONTHLY_SUBSCRIPTION;
+                    //price=5999;
                     break;
                 case "yearly":
                     subscriptionPrice=process.env.DOIT_YEARLY_SUBSCRIPTION;
+                    //price=29999;
                     break;
                 default:
                     res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"});
             }
+            /*stripe.paymentIntents.create({
+                amount: pice,
+                currency: "usd",
+                payment_method_types: ['card']
+            });*/
             stripe.customers.create({
                 email: user.email,
                 description: "DoIT "+user.subscriptionType+" subscription",
