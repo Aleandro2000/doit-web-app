@@ -24,37 +24,89 @@ module.exports = function(req,res){
             stripe.paymentIntents.create({
                 amount: price*100,
                 currency: "usd",
-                payment_method_types: ['card']
+                confirm: true,
+                confirmation_method: 'automatic',
+                payment_method: req.body.payment_method,
+                payment_method_types: ['card'],
+                setup_future_usage: 'off_session'
             })
                 .then(paymentIntent => {
-                    stripe.customers.create({
-                        email: user.email,
-                        description: "DoIT "+user.subscriptionType+" subscription",
-                        invoice_settings: {
-                            default_payment_method: req.body.payment_method,
-                        },
-                        payment_method: req.body.payment_method
-                    })
-                        .then(customer => {
-                            stripe.subscriptions.create({
-                                customer: customer.id,
-                                items: [
-                                    { price: subscriptionPrice }
-                                ]
-                            })
-                                .then(subscription => {
-                                    user.subscribedAt=Date.now();
-                                    user.customerId=customer.id;
-                                    user.subscriptionId=subscription.id;
-                                    user.save();
-                                    res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: user});
-                                })
-                                .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
-                            
+                    if(paymentIntent.status==="succeeded")
+                        stripe.customers.create({
+                            email: user.email,
+                            description: "DoIT "+user.subscriptionType+" subscription",
+                            invoice_settings: {
+                                default_payment_method: req.body.payment_method,
+                            },
+                            payment_method: req.body.payment_method
                         })
-                        .catch(err => res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"}));
+                            .then(customer => {
+                                stripe.subscriptions.create({
+                                    customer: customer.id,
+                                    items: [
+                                        { price: subscriptionPrice }
+                                    ]
+                                })
+                                    .then(subscription => {
+                                        user.customerId=customer.id;
+                                        user.subscriptionId=subscription.id;
+                                        user.paymentIntentId=paymentIntent.id;
+                                        user.save();
+                                        res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: user});
+                                    })
+                                    .catch(err => res.send({title: "ERROR!", message: err.message, icon: "error"}));
+                                
+                            })
+                            .catch(err => res.send({title: "ERROR!", message: err.message, icon: "error"}));
+                    else if(paymentIntent.status==="requires_action")
+                        stripe.paymentIntents.handleCardPayment(paymentIntent.client_secret, {
+                            payment_method: req.body.payment_method
+                        })
+                            .then(result => {
+                                stripe.customers.create({
+                                    email: user.email,
+                                    description: "DoIT "+user.subscriptionType+" subscription",
+                                    invoice_settings: {
+                                        default_payment_method: req.body.payment_method,
+                                    },
+                                    payment_method: req.body.payment_method
+                                })
+                                    .then(customer => {
+                                        stripe.subscriptions.create({
+                                            customer: customer.id,
+                                            items: [
+                                                { price: subscriptionPrice }
+                                            ]
+                                        })
+                                            .then(subscription => {
+                                                user.customerId=customer.id;
+                                                user.subscriptionId=subscription.id;
+                                                user.paymentIntentId=paymentIntent.id;
+                                                user.save();
+                                                res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: user});
+                                            })
+                                            .catch(err => {
+                                                stripe.paymentIntents.cancel(paymentIntent.id);
+                                                res.send({title: "ERROR!", message: err.message, icon: "error"});
+                                            });
+                                        
+                                    })
+                                    .catch(err => {
+                                        stripe.paymentIntents.cancel(paymentIntent.id);
+                                        res.send({title: "ERROR!", message: err.message, icon: "error"});
+                                    });
+                            })
+                            .catch(err => {
+                                stripe.paymentIntents.cancel(paymentIntent.id);
+                                res.send({title: "ERROR!", message: err.message, icon: "error"});
+                            });
+                    else
+                    {
+                        stripe.paymentIntents.cancel(paymentIntent.id);
+                        res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"});
+                    }
                 })
-                .catch(err => res.send({title: "ERROR!", message: err.code, icon: "error"}));
+                .catch(err => res.send({title: "ERROR!", message: err.message, icon: "error"}));
         }
     });
 }

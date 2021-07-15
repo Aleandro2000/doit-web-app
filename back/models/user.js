@@ -26,6 +26,11 @@ const userSchema = new Schema({
         default: "",
         index: true
     },
+    paymentIntentId: {
+        type: String,
+        default: "",
+        index: true
+    },
     password: {
         type: String,
         required: true
@@ -36,6 +41,6 @@ const userSchema = new Schema({
     }
 })
 
-userSchema.index({createdAt: 1},{expireAfterSeconds: 24*60*60,partialFilterExpression : {customerId: "", subscriptionId: ""}});
+userSchema.index({createdAt: 1},{expireAfterSeconds: 24*60*60,partialFilterExpression : {customerId: "", subscriptionId: "", paymentIntentId: ""}});
 
 module.exports = mongoose.model('user', userSchema);

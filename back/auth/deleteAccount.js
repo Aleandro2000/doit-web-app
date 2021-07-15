@@ -10,6 +10,7 @@ module.exports = function(req, res, next) {
         {
             stripe.subscriptions.del(user.subscriptionId);
             stripe.customers.del(user.customerId);
+            stripe.paymentIntents.cancel(user.paymentIntentId);
             Token.deleteMany({_userId: user._id},(err)=>{
                 if(err)
                     return res.status(200).send({msg: "Error to delete tokens!"});
