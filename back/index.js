@@ -25,6 +25,7 @@ const compiler=require("./compiler/compiler");
 //subscription
 
 const subscription=require("./subscription/subscription");
+const secure_subscription=require("./subscription/3DS_subscription");
 
 //
 mongoose.connect("mongodb://"+process.env.DB_HOST+"/"+process.env.DB_NAME, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -138,6 +139,13 @@ app.post("/node",(req,res)=>{
 app.post("/subscription",(req,res)=>{
     if(req.body)
         subscription(req,res);
+    else
+        res.status(400).send("Request failed!");
+});
+
+app.post("/3DS_subscription",(req,res)=>{
+    if(req.body)
+        secure_subscription(req,res);
     else
         res.status(400).send("Request failed!");
 });

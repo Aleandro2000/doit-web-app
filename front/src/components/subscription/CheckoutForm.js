@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import swal from "sweetalert";
 import { useHistory } from "react-router-dom";
@@ -10,6 +10,8 @@ export const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
 
+    const [paymentIntent,setPaymentIntent]=useState("");
+
     const session=JSON.parse(localStorage.getItem("session"));
 
     const handleSubmit = async (event) => {
@@ -19,7 +21,7 @@ export const CheckoutForm = () => {
             type: "card",
             card: elements.getElement(CardElement)
         });
-      
+        
         if(error)
         {
             swal({
@@ -32,7 +34,7 @@ export const CheckoutForm = () => {
             });
             document.getElementById("loading").style.display="none";
         }
-        else
+        else if(!paymentIntent)
         {
             const data={_id: session["_id"], payment_method: paymentMethod.id, subscriptionType: session["subscriptionType"]};
             await fetch("/subscription",{
@@ -44,22 +46,81 @@ export const CheckoutForm = () => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    swal({
-                        title: data.title,
-                        text: data.message,
-                        icon: data.icon,
-                        buttons: {
-                            confirm: {text:'OK',className:'alert-button'}
-                        }
-                    });
+                    if(data.icon==="success"&&!data.intent)
+                    {
+                        data.result.password=data.result.verificationKey="";
+                        localStorage.setItem("session",JSON.stringify(data.result));
+                        swal({
+                            title: data.title,
+                            text: data.message,
+                            icon: data.icon,
+                            buttons: {
+                                confirm: {text:'OK',className:'alert-button'}
+                            }
+                        });
+                        history.push("/dashboard");
+                    }
+                    else if(!data.intent)
+                    {
+                        swal({
+                            title: data.title,
+                            text: data.message,
+                            icon: data.icon,
+                            buttons: {
+                                confirm: {text:'OK',className:'alert-button'}
+                            }
+                        });
+                        document.getElementById("loading").style.display="none";
+                    }
+                    else
+                    {
+                        stripe.confirmCardPayment(data.intent.client_secret)
+                            .then(result => {
+                                if(!result.error)
+                                    setPaymentIntent(JSON.stringify(data.intent))
+                            });
+                        document.getElementById("loading").style.display="none";
+                    }
+                });
+        }
+        else
+        {
+            const data={_id: session["_id"], paymentIntent: JSON.parse(paymentIntent)};
+            await fetch("/3DS_subscription",{
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
                     if(data.icon==="success")
                     {
                         data.result.password=data.result.verificationKey="";
                         localStorage.setItem("session",JSON.stringify(data.result));
+                        swal({
+                            title: data.title,
+                            text: data.message,
+                            icon: data.icon,
+                            buttons: {
+                                confirm: {text:'OK',className:'alert-button'}
+                            }
+                        });
                         history.push("/dashboard");
                     }
                     else
+                    {
+                        swal({
+                            title: data.title,
+                            text: data.message,
+                            icon: data.icon,
+                            buttons: {
+                                confirm: {text:'OK',className:'alert-button'}
+                            }
+                        });
                         document.getElementById("loading").style.display="none";
+                    }
                 });
         }
     };
