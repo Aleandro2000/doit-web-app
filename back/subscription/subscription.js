@@ -50,7 +50,6 @@ module.exports = function(req,res){
                                     .then(subscription => {
                                         user.customerId=customer.id;
                                         user.subscriptionId=subscription.id;
-                                        user.paymentIntentId=paymentIntent.id;
                                         user.save();
                                         return res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: user});
                                     })
