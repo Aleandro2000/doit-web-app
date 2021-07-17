@@ -52,19 +52,18 @@ module.exports = function(req,res){
                                         user.subscriptionId=subscription.id;
                                         user.paymentIntentId=paymentIntent.id;
                                         user.save();
-                                        res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: user});
+                                        return res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: user});
                                     })
                                     .catch(err => res.send({title: "ERROR!", message: err.message, icon: "error"}));
                                 
                             })
                             .catch(err => res.send({title: "ERROR!", message: err.message, icon: "error"}));
                     else if(paymentIntent.status==="requires_action"&&paymentIntent.next_action.type==="use_stripe_sdk")
-                        res.send({intent: paymentIntent});
+                        return res.send({intent: paymentIntent});
                     else
                     {
-                        console.log(1)
                         stripe.paymentIntents.cancel(paymentIntent.id);
-                        res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"});
+                        return res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"});
                     }
                 })
                 .catch(err => res.send({title: "ERROR!", message: err.message, icon: "error"}));

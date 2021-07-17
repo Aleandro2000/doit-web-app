@@ -15,7 +15,7 @@ module.exports = function(req,res){
                 price=process.env.YEARLY_PRICE;
                 break;
             default:
-                res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"});
+                return res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"});
         }
         if(req.body.paymentIntent.status==="succeeded"&&user)
             stripe.customers.create({
@@ -36,9 +36,9 @@ module.exports = function(req,res){
                         .then(subscription => {
                             user.customerId=customer.id;
                             user.subscriptionId=subscription.id;
-                            user.paymentIntentId=req.body.descriptionpaymentIntent.id;
+                            user.paymentIntentId=req.body.paymentIntent.id;
                             user.save();
-                            res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: user});
+                            return res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: user});
                         })
                         .catch(err => res.send({title: "ERROR!", message: err.message, icon: "error"}));
                     
@@ -47,7 +47,7 @@ module.exports = function(req,res){
         else
         {
             stripe.paymentIntents.cancel(req.body.paymentIntent.id);
-            res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"});
+            return res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"});
         }
     });
 }
