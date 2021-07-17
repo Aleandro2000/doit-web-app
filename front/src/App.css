@@ -642,3 +642,76 @@ ul{
     border-radius: 0 0 10px 10px;
     position:relative;    
 }
+
+/*creadit card design*/
+
+.stripe-input{
+    background-color: white;
+    padding: 7.5px;
+    border-radius: 7.5px;
+}
+
+@keyframes bganimation {
+    0%{
+      background-position: 0% 50%;
+    }
+    50%{
+      background-position: 100% 50%;
+    }
+    100%{
+      background-position: 0% 50%;
+    }
+}
+
+.credit-card{
+    font: 16px/1.5 'Helvetica Neue', Helvetica, sans-serif;
+    display: block;
+    vertical-align: middle;
+    max-width: 500px;
+    text-align: left;
+    padding: 30px;
+    color: #fff;
+    background: linear-gradient(125deg,#ff5cf7, #5563ff, #ff5168, #ff9d64);;
+    border-radius: 20px;
+    border: 1px solid #777777;
+    box-sizing: border-box;
+    background-size: 400%;
+    animation: bganimation 15s infinite;
+}
+
+.chip {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 50px;
+    height: 40px;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom left, #ffecc7, #d0b978);
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+.chip .chip-line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #333;
+}
+.chip .chip-line:nth-child(1) {
+    top: 13px;
+}
+.chip .chip-line:nth-child(2) {
+    top: 20px;
+}
+.chip .chip-line:nth-child(3) {
+    top: 28px;
+}
+.chip .chip-main {
+    width: 20px;
+    height: 25px;
+    border: 1px solid #333;
+    border-radius: 3px;
+    background-image: linear-gradient(to bottom left, #efdbab, #e1cb94);
+    z-index: 1;
+}

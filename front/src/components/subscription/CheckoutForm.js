@@ -3,6 +3,8 @@ import swal from "sweetalert";
 import { useHistory,Link } from "react-router-dom";
 
 import logo from "../../images/logo2.png";
+import worldMap from "../../images/world-map.svg";
+import contactless from "../../images/contactless.png";
 
 export const CheckoutForm = () => {
     const history = useHistory();
@@ -133,8 +135,24 @@ export const CheckoutForm = () => {
             </h3>
             <hr/>
             <center>
-                <form onSubmit={handleSubmit} style={{ maxWidth: 400 }}>
-                    <CardElement />
+                <form onSubmit={handleSubmit}>
+                    <div className="credit-card">
+                        <i style={{fontSize: "50px"}} class="fa fa-cc-stripe"/>
+                        <img alt="" style={{float: "right"}} src={contactless} width="50px" height="50px"/>
+                        <div className="chip">
+                            <div className="chip-line"/>
+                            <div className="chip-line"/>
+                            <div className="chip-line"/>
+                            <div className="chip-line"/>
+                            <div className="chip-main"/>
+                        </div>
+                        <div className="stripe-input">
+                            <CardElement/>
+                        </div>
+                        <br/>
+                        <img alt="" style={{float: "right"}} src={worldMap} width="75px" height="35px"/>
+                        <br/>
+                    </div>
                     <br/>
                     <button className="button">
                         <i className="fa fa-credit-card"/>|Subscribe
