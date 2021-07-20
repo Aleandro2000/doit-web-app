@@ -125,7 +125,7 @@ function IDE()
 
     const Run = () => {
         const code=aceEditorRef.current.editor.getValue();
-        if(code&&Buffer.byteLength(code,"utf8")/1000000<=50)
+        if(code&&Buffer.byteLength(code,"utf8")/1000000<=10)
             switch(selectedOption.label)
             {
                 case "C":
@@ -158,7 +158,7 @@ function IDE()
         else
             swal({
                 title: "OOPS!",
-                text: "Maximum size for IDE Editor is 100MB!",
+                text: "Maximum size for IDE Editor is 10MB!",
                 icon: "error",
                 buttons: {
                     confirm: {text:'OK',className:'alert-button'}

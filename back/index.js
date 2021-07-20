@@ -31,7 +31,7 @@ mongoose.connect("mongodb://"+process.env.DB_HOST+"/"+process.env.DB_NAME, {useN
 mongoose.set('useCreateIndex', true);
 
 app.use(cors());
-app.use(bodyparser({limit: '50mb'}));
+app.use(bodyparser({limit: '10mb'}));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 //
