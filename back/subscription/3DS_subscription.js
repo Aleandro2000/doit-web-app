@@ -3,16 +3,14 @@ const User = require('../models/user');
 
 module.exports = function(req,res){
     User.findOne({ _id: req.body._id }, function(err, user) {
-        let subscriptionPrice, price;
+        let subscriptionPrice;
         switch(req.body.subscriptionType)
         {
             case "monthly":
                 subscriptionPrice=process.env.DOIT_MONTHLY_SUBSCRIPTION;
-                price=process.env.MONTHLY_PRICE;
                 break;
             case "yearly":
                 subscriptionPrice=process.env.DOIT_YEARLY_SUBSCRIPTION;
-                price=process.env.YEARLY_PRICE;
                 break;
             default:
                 return res.send({title: "ERROR!", message: "Payment request failed!", icon: "error"});
