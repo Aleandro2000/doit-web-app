@@ -1,17 +1,9 @@
-import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 import logicthinking from "../../images/logic-thinking.png";
 import interview from "../../images/interview.png";
 
 function Quiz(){
-
-    const session=JSON.parse(localStorage.getItem("session"));
-
-    if(!session)
-        return <Redirect to="/login" />;
-    else if(!session["customerId"]||!session["subscriptionId"])
-        return <Redirect to="/subscription" />;
 
     return(
         <div className="options">

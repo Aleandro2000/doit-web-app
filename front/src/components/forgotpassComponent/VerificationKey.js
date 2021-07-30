@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../images/logo2.png";
 
 const VerificationKey = () => {
@@ -11,13 +11,7 @@ const VerificationKey = () => {
 
     const [keyInput, setKeyInput] = useState({borderColor: "#ced4da"});
 
-    const session = localStorage.getItem("session");
     const forgotPassEmail = localStorage.getItem("forgotPassEmail");
-
-    if(session)
-        return <Redirect to="/dashboard" />;
-    else if(!forgotPassEmail)
-        return <Redirect to="/forgotpass" />;
 
     function handleSubmit(event) {
         event.preventDefault();

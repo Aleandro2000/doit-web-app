@@ -1,7 +1,6 @@
 import logo from "../images/logo2.png";
 import {
     Link,
-    Redirect,
     useHistory
 } from "react-router-dom";
 import { useState } from "react";
@@ -18,7 +17,6 @@ function Register()
     const [res,setRes]=useState("");
 
     const history=useHistory();
-    const session=localStorage.getItem("session");
 
     const options = [
         { value: 'monthly', label: "$ "+process.env.REACT_APP_SUBSCRIPTION_MONTHLY_PRICE+" USD / month" },
@@ -87,9 +85,6 @@ function Register()
     const handleSubmit = (e) => {
         e.preventDefault();
     }
-
-    if(session)
-        return <Redirect to="/dashboard" />;
 
     return(
         <div className="content-box">

@@ -6,7 +6,7 @@ import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-tomorrow_night";
 import "ace-builds/src-noconflict/ext-language_tools";
 
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { createRef, useState } from "react";
 import Select from 'react-select';
 import swal from 'sweetalert';
@@ -30,13 +30,6 @@ function IDE()
     ];
 
     const [selectedOption, setSelectedOption] = useState(options[0]);
-
-    const session=JSON.parse(localStorage.getItem("session"));
-
-    if(!session)
-        return <Redirect to="/login" />;
-    else if(!session["customerId"]||!session["subscriptionId"])
-        return <Redirect to="/subscription" />;
     
     const handleChange = (selectedOption) => {
         setFileName("code"+selectedOption.value);
@@ -190,7 +183,18 @@ function IDE()
     }
 
     const Format = () => {
-        aceEditorRef.current.editor.setValue(beautify(aceEditorRef.current.editor.getValue(), { indent_size: 4, space_in_empty_paren: true }));
+        const code=aceEditorRef.current.editor.getValue();
+        if(Buffer.byteLength(code,"utf8")/1000<=100)
+            aceEditorRef.current.editor.setValue(beautify(code, { indent_size: 4, space_in_empty_paren: true }));
+        else
+            swal({
+                title: "OOPS!",
+                text: "Maximum size for IDE Editor is 100KB!",
+                icon: "error",
+                buttons: {
+                    confirm: {text:'OK',className:'alert-button'}
+                }
+            });
     }
 
     return(

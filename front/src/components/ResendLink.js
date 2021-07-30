@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../images/logo2.png";
 
 const ResendLink = () => {
@@ -10,11 +10,6 @@ const ResendLink = () => {
     const [message, setMessage] = useState("");
 
     const [emailInput, setEmailInput] = useState({borderColor: "#ced4da"});
-
-    const session = localStorage.getItem("session");
-
-    if(session)
-        return <Redirect to="/dashboard" />;
 
     function handleSubmit(event) {
         event.preventDefault();

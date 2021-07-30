@@ -7,6 +7,10 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+import PublicRoute from "./routes/PublicRoute";
+import PrivateRoute from "./routes/PrivateRoute";
+import GatewayRoute from "./routes/GatewayRoute";
+
 import './App.css';
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
@@ -36,21 +40,21 @@ function App() {
           <Route exact path="/">
             <Redirect to="/home"/>
           </Route>
-          <Route exact path="/home" component={Homepage}/>
-          <Route exact path="/login" component={Login}/>
-          <Route exact path="/register" component={Register}/>
-          <Route exact path="/verificationlink" component={VerificationLink}/>
-          <Route exact path="/resendlink" component={ResendLink}/>
-          <Route exact path="/forgotpass" component={ForgotPassword}/>
-          <Route exact path="/forgotpass/verificationkey" component={VerificationKey}/>
-          <Route exact path="/dashboard" component={Dashboard}/>
-          <Route exact path="/dashboard/quiz" component={Quiz}/>
-          <Route exact path="/dashboard/IDE" component={IDE}/>
-          <Route exact path="/dashboard/settings" component={Settings}/>
-          <Route exact path="/dashboard/settings/profile/resetpass" component={ResetPassword}/>
-          <Route exact path="/dashboard/settings/profile/delete" component={DeleteAccount}/>
-          <Route exact path="/subscription" component={Subscription}/>
-          <Route component={NotFound}/>
+          <PublicRoute restricted={false} exact path="/home" component={Homepage}/>
+          <PublicRoute restricted={true} exact path="/login" component={Login}/>
+          <PublicRoute restricted={true} exact path="/register" component={Register}/>
+          <PublicRoute restricted={true} exact path="/verificationlink" component={VerificationLink}/>
+          <PublicRoute restricted={true} exact path="/resendlink" component={ResendLink}/>
+          <PublicRoute restricted={true} exact path="/forgotpass" component={ForgotPassword}/>
+          <PublicRoute restricted={true} exact path="/forgotpass/verificationkey" component={VerificationKey}/>
+          <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+          <PrivateRoute exact path="/dashboard/quiz" component={Quiz}/>
+          <PrivateRoute exact path="/dashboard/IDE" component={IDE}/>
+          <PrivateRoute exact path="/dashboard/settings" component={Settings}/>
+          <PrivateRoute exact path="/dashboard/settings/profile/resetpass" component={ResetPassword}/>
+          <PrivateRoute exact path="/dashboard/settings/profile/delete" component={DeleteAccount}/>
+          <GatewayRoute exact path="/subscription" component={Subscription}/>
+          <PublicRoute restricted={false} component={NotFound}/>
         </Switch>
       </Router>
     </>

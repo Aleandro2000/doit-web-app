@@ -1,9 +1,7 @@
 import logo from "../../../images/logo2.png";
-import {
-    Link,
-    Redirect
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import { decodeSession } from "../../../utils";
 
 const ResetPassword = () => {
 
@@ -11,13 +9,6 @@ const ResetPassword = () => {
     const [repassword, setRePassword] = useState('');
     const [res, setRes] = useState("");
     const [passwordInput, setPasswordInput] = useState({borderColor: "#ced4da"});
-
-    const session=JSON.parse(localStorage.getItem("session"));
-
-    if(!session)
-        return <Redirect to="/login" />;
-    else if(!session["customerId"]||!session["subscriptionId"])
-        return <Redirect to="/subscription" />;
 
     const sendRequest = async() => {
         const passwordTest=new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})");
@@ -29,7 +20,7 @@ const ResetPassword = () => {
         }
 
         document.getElementById("loading").style.display="inline-block";
-        const data = {_id: session["_id"], password}
+        const data = {_id: decodeSession().user._id, password}
         const req = await fetch("/resetpass", {
             method: 'POST',
             headers: {
@@ -47,9 +38,6 @@ const ResetPassword = () => {
     function handleSubmit(event) {
         event.preventDefault();
     }
-
-    if(!session)
-        return <Redirect to="/dashboard" />;
 
     return ( 
         <div className="content-box">

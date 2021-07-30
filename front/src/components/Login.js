@@ -1,10 +1,10 @@
 import logo from "../images/logo2.png";
 import {
     Link,
-    Redirect,
     useHistory
 } from "react-router-dom";
 import { useState } from "react";
+import { login } from "../utils";
 
 function Login()
 {
@@ -14,8 +14,6 @@ function Login()
     const [emailInput, setEmailInput]=useState({borderColor: "#ced4da"});
     const [passwordInput, setPasswordInput]=useState({borderColor: "#ced4da"});
     const [res,setRes]=useState("");
-
-    const session=localStorage.getItem("session");
 
     const sendRequest=async () => {
         let ok=true;
@@ -49,7 +47,7 @@ function Login()
                 if(data.status===200)
                 {
                     localStorage.removeItem("registered");
-                    localStorage.setItem("session",JSON.stringify(data.result));
+                    login(data.result);
                     document.getElementById("loading").style.display="none";
                     history.push("/dashboard");
                 }
@@ -66,9 +64,6 @@ function Login()
     const handleSubmit = (e) => {
         e.preventDefault();
     }
-    
-    if(session)
-        return <Redirect to="/dashboard" />;
 
     return(
         <div className="content-box">

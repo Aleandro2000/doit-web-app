@@ -1,23 +1,17 @@
 import logo from "../../../images/logo2.png";
 import {
     Link,
-    Redirect,
     useHistory
 } from "react-router-dom";
+import { logout,decodeSession } from "../../../utils";
 
 function DeleteAccount()
 {
     const history=useHistory();
-    const session=JSON.parse(localStorage.getItem("session"));
-
-    if(!session)
-        return <Redirect to="/login" />;
-    else if(!session["customerId"]||!session["subscriptionId"])
-        return <Redirect to="/subscription" />;
 
     const deleteAccount=async () => {
         document.getElementById("loading").style.display="inline-block";
-        const data={_id: session["_id"]};
+        const data={_id: decodeSession().user._id};
         const req=await fetch("/delete", {
             method: 'POST',
             headers: {
@@ -27,7 +21,7 @@ function DeleteAccount()
         });
         if(req.status===200)
         {
-            localStorage.clear();
+            logout();
             document.getElementById("loading").style.display="none";
             history.push("/login");
         }

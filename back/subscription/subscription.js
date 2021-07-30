@@ -1,5 +1,6 @@
 const stripe = require('stripe')(process.env.SECRET_PAYMENT_KEY);
 const User = require('../models/user');
+const jsonwebtoken = require('jsonwebtoken');
 
 module.exports = function(req,res){
     User.findOne({ _id: req.body._id }, function(err, user) {
@@ -51,7 +52,7 @@ module.exports = function(req,res){
                                         user.customerId=customer.id;
                                         user.subscriptionId=subscription.id;
                                         user.save();
-                                        return res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: user});
+                                        return res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: jsonwebtoken.sign({user},process.env.SECRET_TOKEN)});
                                     })
                                     .catch(err => res.send({title: "ERROR!", message: err.message, icon: "error"}));
                                 

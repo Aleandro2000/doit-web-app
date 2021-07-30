@@ -1,6 +1,7 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import swal from "sweetalert";
 import { useHistory,Link } from "react-router-dom";
+import { login,decodeSession } from "../../utils";
 
 import logo from "../../images/logo2.png";
 import worldMap from "../../images/world-map.svg";
@@ -10,8 +11,6 @@ export const CheckoutForm = () => {
     const history = useHistory();
     const stripe = useStripe();
     const elements = useElements();
-
-    const session=JSON.parse(localStorage.getItem("session"));
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -35,7 +34,8 @@ export const CheckoutForm = () => {
         }
         else
         {
-            const data={_id: session["_id"], payment_method: paymentMethod.id, subscriptionType: session["subscriptionType"]};
+            const session=decodeSession().user;
+            const data={_id: session._id, payment_method: paymentMethod.id, subscriptionType: session.subscriptionType};
             await fetch("/subscription",{
                 method: "POST",
                 headers: {
@@ -47,8 +47,7 @@ export const CheckoutForm = () => {
                 .then(data => {
                     if(data.icon==="success"&&!data.intent)
                     {
-                        data.result.password=data.result.verificationKey="";
-                        localStorage.setItem("session",JSON.stringify(data.result));
+                        login(data.result);
                         swal({
                             title: data.title,
                             text: data.message,
@@ -79,7 +78,7 @@ export const CheckoutForm = () => {
                                 if(!result.error&&result.paymentIntent&&result.paymentIntent.status==="succeeded")
                                 {
                                     document.getElementById("loading").style.display="block";
-                                    const data={_id: session["_id"], subscriptionType: session["subscriptionType"], payment_method: paymentMethod.id, paymentIntent: result.paymentIntent};
+                                    const data={_id: session._id, subscriptionType: session.subscriptionType, payment_method: paymentMethod.id, paymentIntent: result.paymentIntent};
                                     return fetch("/3DS_subscription",{
                                         method: "POST",
                                         headers: {
@@ -91,8 +90,7 @@ export const CheckoutForm = () => {
                                         .then(data => {
                                             if(data.icon==="success")
                                             {
-                                                data.result.password=data.result.verificationKey="";
-                                                localStorage.setItem("session",JSON.stringify(data.result));
+                                                login(data.result);
                                                 swal({
                                                     title: data.title,
                                                     text: data.message,

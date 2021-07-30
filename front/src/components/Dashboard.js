@@ -1,4 +1,3 @@
-import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 import quiz from "../images/quiz.png";
@@ -9,13 +8,6 @@ import settings from "../images/settings.png";
 import solving from "../images/solving.png";
 
 function Dashboard(){
-
-    const session=JSON.parse(localStorage.getItem("session"));
-
-    if(!session)
-        return <Redirect to="/login" />;
-    else if(!session["customerId"]||!session["subscriptionId"])
-        return <Redirect to="/subscription" />;
 
     const logout = () => {
         localStorage.clear();

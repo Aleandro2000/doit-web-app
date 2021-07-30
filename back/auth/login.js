@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Bcrypt = require('bcrypt-nodejs');
+const jsonwebtoken = require('jsonwebtoken');
 
 module.exports = function(req, res, next) {
     User.findOne({ email: req.body.email }, function(err, user) {
@@ -14,7 +15,7 @@ module.exports = function(req, res, next) {
                 return res.status(401).send({msg:'Your email has not been verified. Please click on resend!'});
             else {
                 user.password=user.verificationKey="";
-                return res.send({status: 200, result: user});
+                return res.send({status: 200, result: jsonwebtoken.sign({user},process.env.SECRET_TOKEN)});
             }
         });
     });
