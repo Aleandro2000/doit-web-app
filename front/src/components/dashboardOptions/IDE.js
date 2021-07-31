@@ -36,19 +36,24 @@ function IDE()
         switch(selectedOption.label)
         {
             case "C":
-                setLanguage("c_cpp")
+                setLanguage("c_cpp");
+                aceEditorRef.current.editor.setValue(process.env.REACT_APP_DOIT_IDE_C);
                 break;
             case "C++":
-                setLanguage("c_cpp")
+                setLanguage("c_cpp");
+                aceEditorRef.current.editor.setValue(process.env.REACT_APP_DOIT_IDE_CPP);
                 break;
             case "Java":
-                setLanguage("java")
+                setLanguage("java");
+                aceEditorRef.current.editor.setValue(process.env.REACT_APP_DOIT_IDE_JAVA);
                 break;
             case "Python":
-                setLanguage("python")
+                setLanguage("python");
+                aceEditorRef.current.editor.setValue(process.env.REACT_APP_DOIT_IDE_PYTHON);
                 break;
             case "NodeJS":
-                setLanguage("javascript")
+                setLanguage("javascript");
+                aceEditorRef.current.editor.setValue(process.env.REACT_APP_DOIT_IDE_JAVASCRIPT);
                 break;
             default:
                 break;
@@ -175,7 +180,17 @@ function IDE()
             const reader=new FileReader();
             reader.onload=(() => {
                 return function(e) {
-                    aceEditorRef.current.editor.setValue(e.target.result);
+                    if(Buffer.byteLength(e.target.result,"utf8")/1000<=100)
+                        aceEditorRef.current.editor.setValue(e.target.result);
+                    else
+                        swal({
+                            title: "OOPS!",
+                            text: "Maximum size for IDE Editor is 100KB!",
+                            icon: "error",
+                            buttons: {
+                                confirm: {text:'OK',className:'alert-button'}
+                            }
+                        });
                 };
             })(event.target.files[0]);
             reader.readAsText(event.target.files[0]);
@@ -233,7 +248,9 @@ function IDE()
                             enableLiveAutocompletion: true,
                             enableSnippets: true,
                             showLineNumbers: true,
+                            fontSize: "12pt"
                         }}
+                        defaultValue={process.env.REACT_APP_DOIT_IDE_C}
                         ref={aceEditorRef}
                     />
                 </div>
