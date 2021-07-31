@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { logout } from "../utils";
+
 import logo from "../images/logo.png";
 import quiz from "../images/quiz.png";
 import lesson from "../images/lesson.png";
@@ -8,11 +10,7 @@ import settings from "../images/settings.png";
 import solving from "../images/solving.png";
 
 function Dashboard(){
-
-    const logout = () => {
-        localStorage.clear();
-    }
-
+    
     return(
         <div className="options">
             <div className="navigation">
