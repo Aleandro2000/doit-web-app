@@ -7,6 +7,12 @@ ul{
     list-style: none;
 }
 
+select{
+    background-color: white;
+    border: none;
+    max-width: 150px;
+}
+
 @keyframes a{
     0%{
         fill-opacity:0;

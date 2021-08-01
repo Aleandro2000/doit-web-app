@@ -19,6 +19,7 @@ function IDE()
     const [filename,setFileName]=useState("code.c");
     const [language,setLanguage]=useState("c_cpp");
     const [output, setOutput]=useState("");
+    const [textSize,setTextSize]=useState("12pt");
     const aceEditorRef=createRef();
 
     const options = [
@@ -230,9 +231,20 @@ function IDE()
                     </label>
                     <input onChange={Open} type="file" id="open" name="open" accept=".txt,.c,.cpp,.java,.py,.js" style={{display: "none"}}/>
                     <br/>
-                    <button onClick={Format} className="button-white responsive-no-button-border" style={{borderRadius: "0"}}>
+                    <button onClick={Format} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
                         <i className="fa fa-edit"/>|Beautify
                     </button>
+                    <select id="text-size" onChange={()=>setTextSize(document.getElementById("text-size").value)}>
+                        <option value="10pt">10pt</option>
+                        <option value="11pt">11pt</option>
+                        <option value="12pt" selected>12pt</option>
+                        <option value="13pt">13pt</option>
+                        <option value="14pt">14pt</option>
+                        <option value="15pt">15pt</option>
+                        <option value="16pt">16pt</option>
+                        <option value="17pt">17pt</option>
+                        <option value="18pt">18pt</option>
+                    </select>
                 </center>
                 <div style={{paddingTop: "15px"}}>
                     <AceEditor
@@ -248,7 +260,7 @@ function IDE()
                             enableLiveAutocompletion: true,
                             enableSnippets: true,
                             showLineNumbers: true,
-                            fontSize: "12pt"
+                            fontSize: textSize
                         }}
                         defaultValue={process.env.REACT_APP_DOIT_IDE_C}
                         ref={aceEditorRef}
