@@ -8,9 +8,22 @@ ul{
 }
 
 select{
-    background-color: white;
-    border: none;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
     max-width: 150px;
+    cursor: pointer;
+}
+
+select:hover{
+    background-color: white;
+    color: black;
+    transition-duration: 0.4s;
+}
+
+select:focus{
+    border: 1px solid white;
 }
 
 @keyframes a{

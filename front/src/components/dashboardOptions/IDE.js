@@ -5,6 +5,7 @@ import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-tomorrow_night";
 import "ace-builds/src-noconflict/ext-language_tools";
+import "ace-builds/src-noconflict/ext-searchbox";
 
 import { Link } from "react-router-dom";
 import { createRef, useState } from "react";
@@ -213,6 +214,10 @@ function IDE()
             });
     }
 
+    const Find = () => {
+        aceEditorRef.current.editor.execCommand("find");
+    }
+
     return(
         <>
             <div style={{backgroundColor: "#282a2e"}} className="fadeIn">
@@ -233,6 +238,9 @@ function IDE()
                     <br/>
                     <button onClick={Format} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
                         <i className="fa fa-edit"/>|Beautify
+                    </button>
+                    <button onClick={Find} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                        <i className="fa fa-search"/>|Find
                     </button>
                     <select id="text-size" onChange={()=>setTextSize(document.getElementById("text-size").value)}>
                         <option value="10pt">10pt</option>
