@@ -1,7 +1,7 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import swal from "sweetalert";
 import { useHistory,Link } from "react-router-dom";
-import { login,decodeSession } from "../../utils";
+import { login,decodeSession,logout } from "../../utils";
 
 import logo from "../../images/logo2.png";
 import worldMap from "../../images/world-map.svg";
@@ -161,7 +161,7 @@ export const CheckoutForm = () => {
             </center>
             <hr/>
             <Link to="/login">
-                <button className="button" onClick={localStorage.clear}>
+                <button className="button" onClick={logout}>
                     <i className="fa fa-times"/> Cancel
                 </button>
             </Link>

@@ -3,7 +3,7 @@ import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-tomorrow_night";
+import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-searchbox";
 
@@ -230,12 +230,17 @@ function IDE()
                         </ul>
                     </div>
                 </div>
-                <center>
+                <div className="solutions">
                     <label style={{cursor: "pointer",color: "white"}} htmlFor="open">
                         <i className="fa fa-file"/>|OPEN
                     </label>
                     <input onChange={Open} type="file" id="open" name="open" accept=".txt,.c,.cpp,.java,.py,.js" style={{display: "none"}}/>
                     <br/>
+                    <select id="text-size" onChange={()=>setTextSize(document.getElementById("text-size").value)}>
+                        <option value="solution_1" selected>Solution 1</option>
+                        <option value="solution_2">Solution 2</option>
+                        <option value="solution_3">Solution 3</option>
+                    </select>
                     <button onClick={Format} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
                         <i className="fa fa-edit"/>|Beautify
                     </button>
@@ -253,27 +258,25 @@ function IDE()
                         <option value="17pt">17pt</option>
                         <option value="18pt">18pt</option>
                     </select>
-                </center>
-                <div style={{paddingTop: "15px"}}>
-                    <AceEditor
-                        mode={language}
-                        theme="tomorrow_night"
-                        name="ide-editor"
-                        editorProps={{ $blockScrolling: true }}
-                        width="100%"
-                        showPrintMargin={false}
-                        showGutter={true}
-                        setOptions={{
-                            enableBasicAutocompletion: true,
-                            enableLiveAutocompletion: true,
-                            enableSnippets: true,
-                            showLineNumbers: true,
-                            fontSize: textSize
-                        }}
-                        defaultValue={process.env.REACT_APP_DOIT_IDE_C}
-                        ref={aceEditorRef}
-                    />
                 </div>
+                <AceEditor
+                    mode={language}
+                    theme="monokai"
+                    name="ide-editor"
+                    editorProps={{ $blockScrolling: true }}
+                    width="100%"
+                    showPrintMargin={false}
+                    showGutter={true}
+                    setOptions={{
+                        enableBasicAutocompletion: true,
+                        enableLiveAutocompletion: true,
+                        enableSnippets: true,
+                        showLineNumbers: true,
+                        fontSize: textSize
+                    }}
+                    defaultValue={process.env.REACT_APP_DOIT_IDE_C}
+                    ref={aceEditorRef}
+                />
                 <Select isSearchable={false} options={options} value={selectedOption} onChange={handleChange}/>
                 <div className="ide-options">
                     <p align="right">

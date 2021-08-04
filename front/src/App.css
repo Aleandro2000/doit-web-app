@@ -426,16 +426,16 @@ select:focus{
 
 .ide-navigation{
     position: relative;
-    background: #282a2e;
+    background: #272822;
     box-shadow: none;
-    fill: #282a2e;
+    fill: #272822;
 }
 
 .ide-options{
     color: white;
     font-family: monospace;
     padding: 7.5px 7.5px 40px 7.5px;
-    background-color: black;
+    background-color: #272822;
 }
 
 .prompt-cursor{
@@ -444,6 +444,12 @@ select:focus{
     background: black;
     display: inline-block;
     animation: 500ms ease infinite alternate blink;
+}
+
+.solutions{
+    background-color: #272822;
+    text-align: center;
+    padding: 10px;
 }
 
 /*Alert Window*/
