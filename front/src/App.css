@@ -295,7 +295,7 @@ select:focus{
         font-size: 12px;
         line-height: 12px;
     }
-    .responsive-no-button-border{
+    .responsive-no-button-border, select{
         border: none;
     }
 }
@@ -450,6 +450,10 @@ select:focus{
     background-color: #272822;
     text-align: center;
     padding: 10px;
+}
+
+.ace_editor {
+    border-top: 20px solid #2f3129;
 }
 
 /*Alert Window*/

@@ -199,23 +199,35 @@ function IDE()
         }
     }
 
-    const Format = () => {
-        const code=aceEditorRef.current.editor.getValue();
-        if(Buffer.byteLength(code,"utf8")/1000<=100)
-            aceEditorRef.current.editor.setValue(beautify(code, { indent_size: 4, space_in_empty_paren: true }));
-        else
-            swal({
-                title: "OOPS!",
-                text: "Maximum size for IDE Editor is 100KB!",
-                icon: "error",
-                buttons: {
-                    confirm: {text:'OK',className:'alert-button'}
-                }
-            });
-    }
-
-    const Find = () => {
-        aceEditorRef.current.editor.execCommand("find");
+    const Shortcut = (shortcut) => {
+        switch(shortcut.toLowerCase())
+        {
+            case "undo":
+                aceEditorRef.current.editor.undo();
+                break;
+            case "redo":
+                aceEditorRef.current.editor.redo();
+                break;
+            case "find":
+                aceEditorRef.current.editor.execCommand("find");
+                break;
+            case "format":
+                const code=aceEditorRef.current.editor.getValue();
+                if(Buffer.byteLength(code,"utf8")/1000<=100)
+                    aceEditorRef.current.editor.setValue(beautify(code, { indent_size: 4, space_in_empty_paren: true }));
+                else
+                    swal({
+                        title: "OOPS!",
+                        text: "Maximum size for IDE Editor is 100KB!",
+                        icon: "error",
+                        buttons: {
+                            confirm: {text:'OK',className:'alert-button'}
+                        }
+                    });
+                break;
+            default:
+                break;
+        }
     }
 
     return(
@@ -236,15 +248,15 @@ function IDE()
                     </label>
                     <input onChange={Open} type="file" id="open" name="open" accept=".txt,.c,.cpp,.java,.py,.js" style={{display: "none"}}/>
                     <br/>
-                    <select id="text-size" onChange={()=>setTextSize(document.getElementById("text-size").value)}>
-                        <option value="solution_1" selected>Solution 1</option>
-                        <option value="solution_2">Solution 2</option>
-                        <option value="solution_3">Solution 3</option>
+                    <select id="sources">
+                        <option value="source_1" selected>Source 1</option>
+                        <option value="source_2">Source 2</option>
+                        <option value="source_3">Source 3</option>
                     </select>
-                    <button onClick={Format} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                    <button onClick={()=>Shortcut("format")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
                         <i className="fa fa-edit"/>|Beautify
                     </button>
-                    <button onClick={Find} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                    <button onClick={()=>Shortcut("find")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
                         <i className="fa fa-search"/>|Find
                     </button>
                     <select id="text-size" onChange={()=>setTextSize(document.getElementById("text-size").value)}>
@@ -258,6 +270,13 @@ function IDE()
                         <option value="17pt">17pt</option>
                         <option value="18pt">18pt</option>
                     </select>
+                    <br/>
+                    <button onClick={()=>Shortcut("undo")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                        <i className="fa fa-undo"/>
+                    </button>
+                    <button onClick={()=>Shortcut("redo")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                        <i className="fa fa-repeat"/>
+                    </button>
                 </div>
                 <AceEditor
                     mode={language}
