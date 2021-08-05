@@ -248,11 +248,6 @@ function IDE()
                     </label>
                     <input onChange={Open} type="file" id="open" name="open" accept=".txt,.c,.cpp,.java,.py,.js" style={{display: "none"}}/>
                     <br/>
-                    <select id="sources">
-                        <option value="source_1" selected>Source 1</option>
-                        <option value="source_2">Source 2</option>
-                        <option value="source_3">Source 3</option>
-                    </select>
                     <button onClick={()=>Shortcut("format")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
                         <i className="fa fa-edit"/>|Beautify
                     </button>
@@ -269,6 +264,12 @@ function IDE()
                         <option value="16pt">16pt</option>
                         <option value="17pt">17pt</option>
                         <option value="18pt">18pt</option>
+                        <option value="19pt">19pt</option>
+                        <option value="20pt">20pt</option>
+                        <option value="21pt">21pt</option>
+                        <option value="22pt">22pt</option>
+                        <option value="23pt">23pt</option>
+                        <option value="24pt">24pt</option>
                     </select>
                     <br/>
                     <button onClick={()=>Shortcut("undo")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
