@@ -21,6 +21,7 @@ function IDE()
     const [language,setLanguage]=useState("c_cpp");
     const [output, setOutput]=useState("");
     const [textSize,setTextSize]=useState("12pt");
+    const [copiedText,setCopiedText]=useState("");
     const aceEditorRef=createRef();
 
     const options = [
@@ -225,6 +226,25 @@ function IDE()
                         }
                     });
                 break;
+            case "copy":
+                setCopiedText(aceEditorRef.current.editor.getCopyText());
+                break;
+            case "copy_all":
+                aceEditorRef.current.editor.selectAll();
+                setCopiedText(aceEditorRef.current.editor.getCopyText());
+                break;
+            case "cut":
+                setCopiedText(aceEditorRef.current.editor.getCopyText());
+                aceEditorRef.current.editor.insert("");
+                break;
+            case "cut_all":
+                aceEditorRef.current.editor.selectAll();
+                setCopiedText(aceEditorRef.current.editor.getCopyText());
+                aceEditorRef.current.editor.setValue("");
+                break;
+            case "paste":
+                aceEditorRef.current.editor.insert(copiedText);
+                break;
             default:
                 break;
         }
@@ -271,6 +291,22 @@ function IDE()
                         <option value="23pt">23pt</option>
                         <option value="24pt">24pt</option>
                     </select>
+                    <br/>
+                    <button onClick={()=>Shortcut("copy")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                        <i className="fa fa-copy"/>|Copy
+                    </button>
+                    <button onClick={()=>Shortcut("copy_all")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                        <i className="fa fa-clone"/>|Copy All
+                    </button>
+                    <button onClick={()=>Shortcut("cut")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                        <i className="fa fa-hand-scissors-o"/>|Cut
+                    </button>
+                    <button onClick={()=>Shortcut("cut_all")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                        <i className="fa fa-cut"/>|Cut All
+                    </button>
+                    <button onClick={()=>Shortcut("paste")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                        <i className="fa fa-paste"/>|Paste
+                    </button>
                     <br/>
                     <button onClick={()=>Shortcut("undo")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
                         <i className="fa fa-undo"/>
