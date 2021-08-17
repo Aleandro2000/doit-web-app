@@ -46,3 +46,5 @@ Dankort (PBS)   76009244561
 Dankort (PBS)   5019717010103742
 
 Switch/Solo (Paymentech)    6331101999990016
+
+https://www.npmjs.com/package/search-engine-scraper

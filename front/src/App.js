@@ -28,6 +28,7 @@ import ResetPassword from "./components/dashboardOptions/settingsOptions/ResetPa
 import DeleteAccount from "./components/dashboardOptions/settingsOptions/DeleteAccount";
 import Subscription from "./components/Subscription";
 import Quiz from "./components/dashboardOptions/Quiz";
+import Mentor from "./components/dashboardOptions/Mentor";
 
 function App() {
   AOS.init({
@@ -51,6 +52,7 @@ function App() {
           <PrivateRoute exact path="/dashboard/quiz" component={Quiz}/>
           <PrivateRoute exact path="/dashboard/IDE" component={IDE}/>
           <PrivateRoute exact path="/dashboard/settings" component={Settings}/>
+          <PrivateRoute exact path="/dashboard/mentor" component={Mentor}/>
           <PrivateRoute exact path="/dashboard/settings/profile/resetpass" component={ResetPassword}/>
           <PrivateRoute exact path="/dashboard/settings/profile/delete" component={DeleteAccount}/>
           <GatewayRoute exact path="/subscription" component={Subscription}/>

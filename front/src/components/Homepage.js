@@ -246,7 +246,7 @@ function Homepage()
                             <td><img alt="" src={tick} width="20px" heigh="20px"/></td>
                         </tr>
                         <tr>
-                            <td>Bot assistant based on AI as digital teacher during the studying</td>
+                            <td>Online mentor as digital teacher during the studying</td>
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
                             <td><img alt="" src={redX} width="20px" heigh="20px"/></td>
@@ -313,7 +313,7 @@ function Homepage()
                                 <b>Exploring every solution to a given problem</b>
                             </li>
                             <li className="price">
-                                <b>Unlimited access to our AI mentor.</b>
+                                <b>Unlimited access to our mentor.</b>
                             </li>
                             <li className="price">
                                 <b>Unlimited access to our online IDE.</b>
@@ -349,7 +349,7 @@ function Homepage()
                                 <b>Exploring every solution to a given problem</b>
                             </li>
                             <li className="price">
-                                <b>Unlimited access to our AI mentor.</b>
+                                <b>Unlimited access to our mentor.</b>
                             </li>
                             <li className="price">
                                 <b>Unlimited access to our online IDE.</b>

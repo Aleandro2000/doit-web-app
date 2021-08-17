@@ -76,7 +76,7 @@ function Dashboard(){
                         <br/>
                         <Link to="/dashboard/mentor">
                             <div className="button-black" style={{marginBottom: "15px",cursor: "pointer"}}>
-                                Our AI Mentor
+                                Our Mentor
                             </div>
                         </Link>
                     </div>
