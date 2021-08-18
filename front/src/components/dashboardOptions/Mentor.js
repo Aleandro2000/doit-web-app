@@ -16,7 +16,7 @@ const Mentor = () => {
     }
 
     return(
-        <>
+        <div className="fadeIn">
             <div className="navigation">
                 <div className="container">
                     <ul className="navigation-list float-right">
@@ -42,7 +42,7 @@ const Mentor = () => {
                     <i className="fa fa-search"/>|SEARCH
                 </button>
             </center>
-        </>
+        </div>
     );
 }
 
