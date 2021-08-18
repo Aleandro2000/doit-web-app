@@ -1,18 +1,33 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 
 const Mentor = () => {
-    const search = async () => {
-        const data={search};
-        await fetch("/search", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => response.json())
-            .then(data => alert(data));
+
+    const [searchInput, setSearchInput]=useState("#d1d1d1");
+    const [search,setSearch]=useState("");
+
+    const handleSearch = async () => {
+        if(search)
+        {
+            setSearchInput("#d1d1d1");
+            const data={search: search};
+            await fetch("/search", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => alert(data));
+        }
+        else
+            setSearchInput("red");
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
     }
 
     return(
@@ -37,10 +52,12 @@ const Mentor = () => {
             </div>
             <br/>
             <center className="container content">
-                <input name="search" style={{backgroundColor: "white"}} type="text" placeholder="What do you want to search?" required/>
-                <button className="button" onClick={search}>
-                    <i className="fa fa-search"/>|SEARCH
-                </button>
+                <form onSubmit={handleSubmit}>
+                    <input name="search" style={{backgroundColor: "white",borderColor: searchInput}} onChange={event => setSearch(event.target.value)} type="text" placeholder="What do you want to search?" required/>
+                    <button type="submit" className="button" onClick={handleSearch}>
+                        <i className="fa fa-search"/>|SEARCH
+                    </button>
+                </form>
             </center>
         </div>
     );

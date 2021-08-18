@@ -60,7 +60,7 @@ const VerificationKey = () => {
             </h3>
             <hr/>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="key" style={keyInput} placeholder="Enter verification key" onChange={e => { setKey(e.target.value); setKeyInput({borderColor: "#ced4da"})}}/>
+                <input type="text" name="key" style={keyInput} placeholder="Enter verification key" onChange={e => { setKey(e.target.value); setKeyInput({borderColor: "#ced4da"})}} required/>
                 <button type="submit" className="button" onClick={sendRequest}>
                     <i className="fa fa-send"/> SEND
                 </button>
