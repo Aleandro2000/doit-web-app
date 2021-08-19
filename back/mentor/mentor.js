@@ -6,7 +6,6 @@ module.exports=function(req,res){
         {
             const page = await wiki.page(req.body.search);
             const summary = await page.summary();
-            console.log(summary)
             res.send({result: summary.extract});
         }
         catch (error)
