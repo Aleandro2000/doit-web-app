@@ -26,6 +26,10 @@ const compiler=require("./compiler/compiler");
 const subscription=require("./subscription/subscription");
 const secure_subscription=require("./subscription/3DS_subscription");
 
+//mentor
+
+const mentor=require("./mentor/mentor");
+
 //
 mongoose.connect("mongodb://"+process.env.DB_HOST+"/"+process.env.DB_NAME, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useCreateIndex', true);
@@ -143,6 +147,15 @@ app.post("/subscription",(req,res)=>{
 app.post("/3DS_subscription",(req,res)=>{
     if(req.body)
         secure_subscription(req,res);
+    else
+        res.status(400).send("Request failed!");
+});
+
+//mentor
+
+app.post("/mentor",(req,res)=>{
+    if(req.body)
+        mentor(req,res);
     else
         res.status(400).send("Request failed!");
 });

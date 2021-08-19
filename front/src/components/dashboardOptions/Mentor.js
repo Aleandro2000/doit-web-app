@@ -6,13 +6,16 @@ const Mentor = () => {
 
     const [searchInput, setSearchInput]=useState("#d1d1d1");
     const [search,setSearch]=useState("");
+    const [result,setResult]=useState("");
 
     const handleSearch = async () => {
         if(search)
         {
+            setResult("");
+            document.getElementById("loading").style.display="inline-block";
             setSearchInput("#d1d1d1");
             const data={search: search};
-            await fetch("/search", {
+            await fetch("/mentor", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -20,7 +23,8 @@ const Mentor = () => {
                 body: JSON.stringify(data)
             })
                 .then(response => response.json())
-                .then(data => alert(data));
+                .then(data => setResult(data.result));
+            document.getElementById("loading").style.display="none";
         }
         else
             setSearchInput("red");
@@ -58,6 +62,14 @@ const Mentor = () => {
                         <i className="fa fa-search"/>|SEARCH
                     </button>
                 </form>
+                <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                {
+                    result ? (
+                    <div className="content-box">
+                        {result}
+                    </div>
+                    ) : (<></>)
+                }
             </center>
         </div>
     );
