@@ -30,7 +30,7 @@ function Register()
     }
 
     const submitForm = async() => {
-        let ok = true;
+        let ok = document.getElementById("agree").checked;
         
         if(email===''|| email.indexOf('@')===-1){
             setEmailInput({borderColor: "red"});
@@ -57,29 +57,36 @@ function Register()
         const data = {
             email: email, 
             password: password,
-            subscriptionType: selectedOption.value
         }
 
-        const req=await fetch("/register", {
+        await fetch("/register", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        });
-
-        if(req.status===200)
-        {
-            localStorage.setItem("registered",registered);
-            setRegistered("Succesful");
-            document.getElementById("loading").style.display="none";
-            history.push("/verificationlink");
-        }
-        else
-        {
-            document.getElementById("loading").style.display="none";
-            setRegistered("NotSuccesful");
-        }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status===200)
+                {
+                    localStorage.setItem("registered",registered);
+                    setRegistered("Succesful");
+                    document.getElementById("loading").style.display="none";
+                    history.push("/verificationlink");
+                }
+                else if(data.status===500)
+                {
+                    document.getElementById("loading").style.display="none";
+                    setRes(data.msg);
+                }
+                else
+                {
+                    document.getElementById("loading").style.display="none";
+                    setRegistered("NotSuccesful");
+                    setRes(data.msg);
+                }
+            });
     }
 
     const handleSubmit = (e) => {
@@ -101,10 +108,14 @@ function Register()
                 <input type="password" name="repassword" style={passwordInput} placeholder="Retype password" onChange={e => { setRePassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}} required/>
                 <Select isSearchable={false} options={options} value={selectedOption} onChange={handleChange}/>
                 <br/>
+                <p align="left">
+                    <input type="checkbox" id="agree" required/><b> * By checking the options, I have read the information on the protection of personal data, I agree with the entire content and I have personally filled in the data from the account creation pages.</b>
+                </p>
+                <br/>
                 <button type="submit" className="button" onClick={submitForm}>
                     <i className="fa fa-plus"/> REGISTER
                 </button>
-                <br/>
+                <br/><br/>
                 {res}
                 <center>
                     <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>

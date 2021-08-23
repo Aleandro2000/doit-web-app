@@ -45,49 +45,49 @@ app.post("/login",(req,res)=>{
     if(req.body)
         login(req,res);
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 app.post("/register",(req,res)=>{
     if(req.body)
         register(req,res);
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 app.get('/confirmation/:email/:token',(req,res)=>{
     if(req.body)
         confirmation(req,res);
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 app.post("/resend",(req,res)=>{
     if(req.body)
         resend(req,res);
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 app.post("/forgotpass",(req,res) => {
     if(req.body)
         forgotPassword(req,res);
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 app.post("/verificationkey",(req,res) => {
     if(req.body)
         verificationKey(req,res);
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 app.post("/resetpass",(req,res) => {
     if(req.body)
         resetPassword(req,res);
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 
@@ -95,7 +95,7 @@ app.post("/delete",(req, res)=>{
     if(req.body)
         deleteAccount(req,res);
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 //compilers
@@ -104,35 +104,35 @@ app.post("/c",(req,res)=>{
     if(req.body)
         compiler(req,res,c,"c");
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 app.post("/cpp",(req,res)=>{
     if(req.body)
         compiler(req,res,cpp,"cpp");
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 app.post("/java",(req,res)=>{
     if(req.body)
         compiler(req,res,java,"java");
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 app.post("/python",(req,res)=>{
     if(req.body)
         compiler(req,res,python,"python");
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 app.post("/node",(req,res)=>{
     if(req.body)
         compiler(req,res,node,"node");
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 //subscription
@@ -141,14 +141,14 @@ app.post("/subscription",(req,res)=>{
     if(req.body)
         subscription(req,res);
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 app.post("/3DS_subscription",(req,res)=>{
     if(req.body)
         secure_subscription(req,res);
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 //mentor
@@ -157,7 +157,7 @@ app.post("/mentor",(req,res)=>{
     if(req.body)
         mentor(req,res);
     else
-        res.status(400).send("Request failed!");
+        res.send({status: 400, msg:"Request failed!"});
 });
 
 //port listener

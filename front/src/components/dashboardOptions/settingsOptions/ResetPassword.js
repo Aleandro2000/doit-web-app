@@ -27,7 +27,7 @@ const ResetPassword = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        })
+        });
 
         if(req.status === 200)
             setRes("Action done succesfully!");

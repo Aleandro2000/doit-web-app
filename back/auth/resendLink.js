@@ -6,9 +6,9 @@ const nodemailer = require("nodemailer");
 module.exports = function (req, res, next) {
     User.findOne({ email: req.body.email }, function (err, user) {
         if(!user)
-            return res.status(400).send({msg:'We were unable to find a user with that email. Make sure your email is correct!'});
+            return res.send({status: 400, msg:'We were unable to find a user with that email. Make sure your email is correct!'});
         else if(user.isVerified)
-            return res.status(400).send({msg: 'This account has been already verified. Please login!'});
+            return res.send({status: 400, msg: 'This account has been already verified. Please login!'});
         else
         {
             let token = new Token({ _userId: user._id, token: crypto.randomBytes(16).toString('hex') });
@@ -31,13 +31,13 @@ module.exports = function (req, res, next) {
                     from: 'no-reply@doit.com',
                     to: user.email,
                     subject: 'Account Verification Link',
-                    html: '<h1 style="background-color: gray;color: white;">Hello,</h1><h4>Please verify your account by clicking the link: <a href="http:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '">http:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '</a><br/>Thank you for joining!</h4>'
+                    html: '<b>Hello from DoIT,</b><br/><br/>Please verify your account by clicking the link: <a href="http:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '">http:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '</a><br/>Thank you for joining!'
                 };
 
                 transporter.sendMail(mailOptions, function (err) {
                     if (err)
-                        return res.status(500).send({msg: 'Technical Issue! Please click on resend for verify your email!'});
-                    return res.status(200).send({msg: 'A verification email has been sent to ' + user.email + '. It will be expire after one hour. If you not get verification email, resend token!'});
+                        return res.send({status: 500, msg: 'Technical Issue! Please click on resend for verify your email!'});
+                    return res.send({status: 200, msg: 'A verification email has been sent to ' + user.email + '. It will be expire after one hour. If you not get verification email, resend token!'});
                 });
             });
         }

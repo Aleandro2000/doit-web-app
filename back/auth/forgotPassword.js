@@ -3,7 +3,8 @@ const Bcrypt = require('bcrypt-nodejs');
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 
-module.exports = function(req,res,next) {
+module.exports = function(req,res) {
+    console.log(req.body.email)
     User.findOne({email: req.body.email}, (err,user)=>{
         if(err)
             return res.status(500).send({msg: err.message});
@@ -27,13 +28,13 @@ module.exports = function(req,res,next) {
                 from: 'no-reply@doit.com',
                 to: user.email,
                 subject: 'Account Resetpassword Link',
-                html: '<h1 style="background-color: black;color: white;">Hello from DoIT,</h1><h4>Your verification key is: '+user.verificationKey
+                html: '<b>Hello from DoIT,</b><br/><br/>Your verification key is: '+user.verificationKey
             };
 
             transporter.sendMail(mailOptions, function (err) {
                 if (err)
-                    return res.status(500).send({msg:'Technical Issue! Please click on resend for verify your email!'});
-                return res.status(200).send('A verification key has been sent to ' + user.email + '. It will be expire after one hour. If you not get verification email, click on resend token!');
+                    return res.send({status: 500, msg: 'Technical Issue! Please click on resend for verify your email!'});
+                return res.send({status: 200, msg: 'A verification email has been sent to ' + user.email + '. It will be expire after one hour. If you not get verification email, resend token!'});
             });
 
             user.verificationKey=Bcrypt.hashSync(user.verificationKey, Bcrypt.genSaltSync(10));

@@ -1,20 +1,21 @@
 const User = require('../models/user');
 const Bcrypt = require('bcrypt-nodejs');
+const jsonwebtoken = require('jsonwebtoken');
 
-module.exports = function(req,res,next) {
+module.exports = function(req,res) {
     User.findOne({email: req.body.email}, (err,user)=>{
         if(err)
-            return res.status(500).send({msg: err.message});
+            return res.send({status: 500, msg: err.message});
         else if(!user)
-            return res.status(500).send({ msg:'The email address ' + req.body.email + ' is not associated with any account or it is not valid. please check and try again!'});
+            return res.send({ status: 500, msg:'The email address ' + req.body.email + ' is not associated with any account or it is not valid. please check and try again!'});
         Bcrypt.compare(req.body.key, user.verificationKey, (err,result)=>{
             if(err||!result)
-                return res.status(401).send({msg:'Invalid verification key!'});
+                return res.send({status: 401, msg:'Invalid verification key!'});
             else
             {
                 user.verificationKey="";
-                user.save(); 
-                return res.send({status: 200, result: user});
+                user.save();
+                return res.send({status: 200, result: jsonwebtoken.sign({user},process.env.SECRET_TOKEN)});
             }
         });
     });

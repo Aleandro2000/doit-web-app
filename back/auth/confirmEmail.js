@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const Token = require("../models/tokenSchema");
 
-module.exports = function (req, res, next) {
+module.exports = function (req,res) {
     Token.findOne({ token: req.params.token }, function (err, token) {
         if (!token)
             return res.status(400).send({msg:'Your verification link may have expired. Please click on resend for verify your Email.'});

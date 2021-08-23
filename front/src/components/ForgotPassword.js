@@ -7,7 +7,7 @@ const ForgotPassword = () => {
 
     const history = useHistory();
     const [email, setEmail] = useState('');
-    const [sent, setSent] = useState('false');
+    const [res,setRes] = useState("");
 
     const [emailInput, setEmailInput] = useState({borderColor: "#ced4da"});
 
@@ -22,25 +22,32 @@ const ForgotPassword = () => {
         }
         document.getElementById("loading").style.display="inline-block";
         const data = {email}
-        const req = await fetch("/forgotpass", {
+        await fetch("/forgotpass", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
-
-        if(req.status === 200){
-            localStorage.setItem("forgotPassEmail",email);
-            document.getElementById("loading").style.display="none";
-            setSent(true);
-            history.push("/forgotpass/verificationkey");
-        }
-        else
-        {
-            document.getElementById("loading").style.display="none";
-            setSent("NotSent");
-        }
+            .then(response => response.json())
+            .then(data => {
+                if(data.status===200)
+                {
+                    localStorage.setItem("forgotPassEmail",email);
+                    document.getElementById("loading").style.display="none";
+                    history.push("/forgotpass/verificationkey");
+                }
+                else if(data.status===500)
+                {
+                    document.getElementById("loading").style.display="none";
+                    setRes(data.msg);
+                }
+                else
+                {
+                    document.getElementById("loading").style.display="none";
+                    setRes("Couldn't not send the email!");
+                }
+            });
     }
 
     return (
@@ -61,9 +68,9 @@ const ForgotPassword = () => {
                 <center>
                     <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 </center>
-                { 
-                    sent === "NotSent" ? (<><br/><h5 className="text-center text-danger mx-3">Couldn't Send Email</h5></>) : ( <></> )
-                }
+                <br/>
+                {res}
+                <br/>
             </form>
             <hr/>
             <Link to="/login">

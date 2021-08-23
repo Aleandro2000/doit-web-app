@@ -16,7 +16,9 @@ export const isLogin = () => {
 }
 
 export const decodeSession = () => {
-    return decodeToken(localStorage.getItem("TOKEN_KEY"));
+    const decodedUser=decodeToken(localStorage.getItem("TOKEN_KEY"));
+    decodedUser.user.password=decodedUser.user.verificationKey="";
+    return decodedUser;
 }
 
 export const isSubscribed = () => {

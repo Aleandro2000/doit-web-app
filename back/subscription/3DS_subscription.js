@@ -36,7 +36,7 @@ module.exports = function(req,res){
                             user.customerId=customer.id;
                             user.subscriptionId=subscription.id;
                             user.save();
-                            return res.status(200).send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: jsonwebtoken.sign({user},process.env.SECRET_TOKEN)});
+                            return res.send({title: "CONGRATULATIONS!", message: "Payment request successfully!", icon: "success", result: jsonwebtoken.sign({user},process.env.SECRET_TOKEN)});
                         })
                         .catch(err => res.send({title: "ERROR!", message: err.message, icon: "error"}));
                     
