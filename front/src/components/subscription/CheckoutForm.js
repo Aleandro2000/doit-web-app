@@ -124,15 +124,15 @@ export const CheckoutForm = () => {
     }
 
     return (
-        <div className="content-box">
-            <img alt="" src={logo} className="logo"/>
-            <h3 className="title">
-                <b>
-                    Subscription
-                </b>
-            </h3>
-            <hr/>
-            <center>
+        <center>
+            <div className="content-box">
+                <img alt="" src={logo} className="logo"/>
+                <h3 className="title">
+                    <b>
+                        Subscription
+                    </b>
+                </h3>
+                <hr/>
                 <form onSubmit={handleSubmit}>
                     <div className="credit-card">
                         <i style={{fontSize: "50px"}} class="fa fa-cc-stripe"/>
@@ -158,19 +158,19 @@ export const CheckoutForm = () => {
                     <br/>
                     <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 </form>
-            </center>
-            <hr/>
-            <Link to="/login">
-                <button className="button" onClick={logout}>
-                    <i className="fa fa-times"/> Cancel
-                </button>
-            </Link>
-            <hr/>
-            <p>
-                <b>
-                    © Powered by <i><u>Softana</u></i>, All right reserved.
-                </b>
-            </p>
-        </div>
+                <hr/>
+                <Link to="/login">
+                    <button className="button" onClick={logout}>
+                        <i className="fa fa-times"/> Cancel
+                    </button>
+                </Link>
+                <hr/>
+                <p>
+                    <b>
+                        © Powered by <i><u>Softana</u></i>, All right reserved.
+                    </b>
+                </p>
+            </div>
+        </center>
     );
 };

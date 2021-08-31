@@ -361,8 +361,8 @@ function IDE()
                     </div>
                 </div>
             </div>
-            <div className="content-box">
-                <center>
+            <center>
+                <div className="content-box">
                     <img alt="" src={logo} className="logo"/>
                     <hr/>
                     <p>
@@ -370,8 +370,8 @@ function IDE()
                             © Powered by <i><u>Softana</u></i>, All right reserved.
                         </b>
                     </p>
-                </center>
-            </div>
+                </div>
+            </center>
         </>
     );
 }

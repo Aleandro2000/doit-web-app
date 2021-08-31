@@ -309,6 +309,7 @@ select:focus{
 }
 
 .content-box{
+    max-width: 1200px;
     margin: 50px;
     padding: 25px;
     box-shadow: 2.5px 2.5px 2.5px 2.5px gray;

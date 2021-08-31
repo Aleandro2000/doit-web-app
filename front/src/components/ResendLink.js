@@ -46,49 +46,51 @@ const ResendLink = () => {
     }
 
     return (
-        <div className="content-box">
-            <img alt="" src={logo} className="logo"/>
-            <h3 className="title">
-                <b>
-                    Resend Verification Link
-                </b>
-            </h3>
-            <hr/>
-            <form onSubmit={handleSubmit}>
-                <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}} required/>
-                <button type="submit" className="button" onClick={sendRequest}>
-                    <i className="fa fa-send"/> SEND
-                </button>
-                <br/>
-                <center>
-                    <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
-                </center>
-                <br/>
-                {message}
-            </form>
-            <hr/>
-            <Link to="/login">
-                <button className="button">
-                    <i className="fa fa-sign-in"/> LOGIN
-                </button>
-            </Link>
-            <Link to="/register">
-                <button className="button">
-                    <i className="fa fa-plus"/> REGISTER
-                </button>
-            </Link>
-            <Link to="/home">
-                <button className="button">
-                    <i className="fa fa-home"/> Home
-                </button>
-            </Link>
-            <hr/>
-            <p>
-                <b>
-                    © Powered by <i><u>Softana</u></i>, All right reserved.
-                </b>
-            </p>
-        </div>  
+        <center>
+            <div className="content-box">
+                <img alt="" src={logo} className="logo"/>
+                <h3 className="title">
+                    <b>
+                        Resend Verification Link
+                    </b>
+                </h3>
+                <hr/>
+                <form onSubmit={handleSubmit}>
+                    <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}} required/>
+                    <button type="submit" className="button" onClick={sendRequest}>
+                        <i className="fa fa-send"/> SEND
+                    </button>
+                    <br/>
+                    <center>
+                        <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                    </center>
+                    <br/>
+                    {message}
+                </form>
+                <hr/>
+                <Link to="/login">
+                    <button className="button">
+                        <i className="fa fa-sign-in"/> LOGIN
+                    </button>
+                </Link>
+                <Link to="/register">
+                    <button className="button">
+                        <i className="fa fa-plus"/> REGISTER
+                    </button>
+                </Link>
+                <Link to="/home">
+                    <button className="button">
+                        <i className="fa fa-home"/> Home
+                    </button>
+                </Link>
+                <hr/>
+                <p>
+                    <b>
+                        © Powered by <i><u>Softana</u></i>, All right reserved.
+                    </b>
+                </p>
+            </div>
+        </center>
     );
 }
  

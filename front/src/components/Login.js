@@ -66,47 +66,49 @@ function Login()
     }
 
     return(
-        <div className="content-box">
-            <img alt="" src={logo} className="logo"/>
-            <h3 className="title">
-                <b>
-                    Login
-                </b>
-            </h3>
-            <hr/>
-            <form onSubmit={handleSubmit}>
-                <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}} required/>
-                <input type="password" name="password" style={passwordInput} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}} required/>
-                <button type="submit" className="button" onClick={sendRequest}>
-                    <i className="fa fa-sign-in"/> LOGIN
-                </button>
-                <center>
-                    <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
-                </center>
-                {res}
-                <br/>
-                <Link to={"/forgotpass"}>Forgot password?</Link>
-                <br/>
-                <Link to={"/resendlink"}>Problem with verification link?</Link>
-            </form>
-            <hr/>
-            <Link to="/register">
-                <button className="button">
-                    <i className="fa fa-plus"/> REGISTER
-                </button>
-            </Link>
-            <Link to="/home">
-                <button className="button">
-                    <i className="fa fa-home"/> Home
-                </button>
-            </Link>
-            <hr/>
-            <p>
-                <b>
-                    © Powered by <i><u>Softana</u></i>, All right reserved.
-                </b>
-            </p>
-        </div>
+        <center>
+            <div className="content-box">
+                <img alt="" src={logo} className="logo"/>
+                <h3 className="title">
+                    <b>
+                        Login
+                    </b>
+                </h3>
+                <hr/>
+                <form onSubmit={handleSubmit}>
+                    <input type="email" name="email" style={emailInput} placeholder="Enter email" onChange={e => { setEmail(e.target.value); setEmailInput({borderColor: "#ced4da"})}} required/>
+                    <input type="password" name="password" style={passwordInput} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}} required/>
+                    <button type="submit" className="button" onClick={sendRequest}>
+                        <i className="fa fa-sign-in"/> LOGIN
+                    </button>
+                    <center>
+                        <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                    </center>
+                    {res}
+                    <br/>
+                    <Link to={"/forgotpass"}>Forgot password?</Link>
+                    <br/>
+                    <Link to={"/resendlink"}>Problem with verification link?</Link>
+                </form>
+                <hr/>
+                <Link to="/register">
+                    <button className="button">
+                        <i className="fa fa-plus"/> REGISTER
+                    </button>
+                </Link>
+                <Link to="/home">
+                    <button className="button">
+                        <i className="fa fa-home"/> Home
+                    </button>
+                </Link>
+                <hr/>
+                <p>
+                    <b>
+                        © Powered by <i><u>Softana</u></i>, All right reserved.
+                    </b>
+                </p>
+            </div>
+        </center>
     );
 }
 

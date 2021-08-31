@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo2.png";
+import { login } from "../../utils";
 
 const VerificationKey = () => {
 
@@ -36,8 +37,7 @@ const VerificationKey = () => {
                 if(data.status===200)
                 {
                     localStorage.removeItem("forgotPassEmail");
-                    data.result.password="";
-                    localStorage.setItem("session",JSON.stringify(data.result));
+                    login(data.result)
                     document.getElementById("loading").style.display="none";
                     history.push("/dashboard");
                 }
@@ -51,39 +51,41 @@ const VerificationKey = () => {
     }
 
     return (
-        <div className="content-box">
-            <img alt="" src={logo} className="logo"/>
-            <h3 className="title">
-                <b>
-                    Verification Key
-                </b>
-            </h3>
-            <hr/>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="key" style={keyInput} placeholder="Enter verification key" onChange={e => { setKey(e.target.value); setKeyInput({borderColor: "#ced4da"})}} required/>
-                <button type="submit" className="button" onClick={sendRequest}>
-                    <i className="fa fa-send"/> SEND
-                </button>
-                <br/>
-                <center>
-                    <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
-                </center>
-                <br/>
-                {message}
-            </form>
-            <hr/>
-            <Link to="/forgotpass">
-                <button className="button">
-                    <i className="fa fa-arrow-left"/> Back
-                </button>
-            </Link>
-            <hr/>
-            <p>
-                <b>
-                    © Powered by <i><u>Softana</u></i>, All right reserved.
-                </b>
-            </p>
-        </div>  
+        <center>
+            <div className="content-box">
+                <img alt="" src={logo} className="logo"/>
+                <h3 className="title">
+                    <b>
+                        Verification Key
+                    </b>
+                </h3>
+                <hr/>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" name="key" style={keyInput} placeholder="Enter verification key" onChange={e => { setKey(e.target.value); setKeyInput({borderColor: "#ced4da"})}} required/>
+                    <button type="submit" className="button" onClick={sendRequest}>
+                        <i className="fa fa-send"/> SEND
+                    </button>
+                    <br/>
+                    <center>
+                        <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                    </center>
+                    <br/>
+                    {message}
+                </form>
+                <hr/>
+                <Link to="/forgotpass">
+                    <button className="button">
+                        <i className="fa fa-arrow-left"/> Back
+                    </button>
+                </Link>
+                <hr/>
+                <p>
+                    <b>
+                        © Powered by <i><u>Softana</u></i>, All right reserved.
+                    </b>
+                </p>
+            </div>
+        </center>
     );
 }
  

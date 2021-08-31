@@ -14,7 +14,7 @@ const Mentor = () => {
             setResult("");
             document.getElementById("loading").style.display="inline-block";
             setSearchInput("#d1d1d1");
-            const data={search: search};
+            const data={search: search.split(' ')};
             await fetch("/mentor", {
                 method: 'POST',
                 headers: {
@@ -23,7 +23,14 @@ const Mentor = () => {
                 body: JSON.stringify(data)
             })
                 .then(response => response.json())
-                .then(data => setResult(data.result));
+                .then(data => {
+                    if(data.status===200)
+                    {
+                        setResult(data.result[0]);
+                    }
+                    else
+                        setResult(data.msg);
+                });
             document.getElementById("loading").style.display="none";
         }
         else
