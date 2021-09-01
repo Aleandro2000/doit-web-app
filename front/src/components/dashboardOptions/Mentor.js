@@ -14,7 +14,7 @@ const Mentor = () => {
             setResult("");
             document.getElementById("loading").style.display="inline-block";
             setSearchInput("#d1d1d1");
-            const data={search: search.split(' ')};
+            const data={search: search};
             await fetch("/mentor", {
                 method: 'POST',
                 headers: {

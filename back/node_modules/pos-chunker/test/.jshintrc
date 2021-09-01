@@ -1,0 +1,13 @@
+{
+  "node": true
+, "devel": true
+
+, "eqeqeq": true
+, "unused": true
+
+, "curly": true
+, "trailing": true
+, "undef": true
+
+, "mocha": true
+}
