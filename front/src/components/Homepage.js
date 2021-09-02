@@ -5,6 +5,7 @@ import redX from "../images/red-x.png";
 import bestPrice from "../images/best-price.png";
 import price from "../images/price.png";
 import { Link } from "react-router-dom";
+import { isLogin } from "../utils";
 
 function Homepage()
 {
@@ -20,22 +21,36 @@ function Homepage()
 
     return(
         <div className="fadeIn">
-            <div className="navigation">
-                <div className="container">
-                    <ul className="navigation-list float-right">
-                        <li className="navigation-item">
-                            <div className="dropdown">
-                                <div className="button-white responsive-no-button-border dropbtn" onClick={() => navmenu("dropdown-content") }>Authentificate</div>
-                                <div className="dropdown-content" id="dropdown-content">
-                                    <Link className="navigation-link button-white-dropdown" to="/login"><i className="fa fa-sign-in"/> Login</Link>
-                                    <br/>
-                                    <Link className="navigation-link button-white-dropdown" to="/register"><i className="fa fa-plus"/> Register</Link>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            {
+                isLogin() ? (
+                    <div className="navigation">
+                        <div className="container">
+                            <ul className="navigation-list float-right">
+                                <li className="navigation-item">
+                                    <Link className="navigation-link button-white responsive-no-button-border" to="/dashboard">Dashboard</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="navigation">
+                        <div className="container">
+                            <ul className="navigation-list float-right">
+                                <li className="navigation-item">
+                                    <div className="dropdown">
+                                        <div className="button-white responsive-no-button-border dropbtn" onClick={() => navmenu("dropdown-content") }>Authentificate</div>
+                                        <div className="dropdown-content" id="dropdown-content">
+                                            <Link className="navigation-link button-white-dropdown" to="/login"><i className="fa fa-sign-in"/> Login</Link>
+                                            <br/>
+                                            <Link className="navigation-link button-white-dropdown" to="/register"><i className="fa fa-plus"/> Register</Link>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                )
+            }
             <div className="header">
                 <img alt="" className="rotation" style={{marginBottom: "20px"}} src={logo}/>
                 <div className="header-content">

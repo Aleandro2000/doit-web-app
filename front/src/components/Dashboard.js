@@ -11,13 +11,29 @@ import solving from "../images/solving.png";
 
 function Dashboard(){
     
+    function navmenu(id)
+    {
+        let element=document.getElementById(id);
+        if(element.style.display==="none")
+            element.style.display="block";
+        else
+            element.style.display="none";
+    }
+
     return(
         <div className="options">
             <div className="navigation">
                 <div className="container">
                     <ul className="navigation-list float-right">
                         <li className="navigation-item">
-                            <Link className="navigation-link button-white responsive-no-button-border" to="/login" onClick={logout}>Logout</Link>
+                            <div className="dropdown">
+                                <div className="button-white responsive-no-button-border dropbtn" onClick={() => navmenu("dropdown-content") }><i className="fa fa-user"/> Options</div>
+                                <div className="dropdown-content" id="dropdown-content">
+                                    <Link className="navigation-link button-white-dropdown" to="/home"><i className="fa fa-home"/> Home</Link>
+                                    <br/>
+                                    <Link className="navigation-link button-white-dropdown" to="/login" onClick={logout}><i className="fa fa-sign-out"/> Logout</Link>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
