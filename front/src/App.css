@@ -745,3 +745,37 @@ select:focus{
     background-image: linear-gradient(to bottom left, #efdbab, #e1cb94);
     z-index: 1;
 }
+
+/*Pagination*/
+
+.pagination{
+    display: inline-block;
+}
+
+.pagination-component{
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+}
+
+.pagination-button:hover{
+    cursor: pointer;
+    background-color: #777777;
+    color: white;
+    transition-duration: 0.4s;
+}
+
+/*Teacher*/
+
+.teacher{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90px;
+    height: 90px;
+    padding: 10px;
+    background: linear-gradient(180deg, #f4f4f8 60%, #4d4d4d 75%);
+    border: 2px solid #333333;
+    border-radius: 100%;
+}

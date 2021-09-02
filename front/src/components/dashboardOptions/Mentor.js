@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
+import teacher from "../../images/teacher.gif";
 
 const Mentor = () => {
 
     const [searchInput, setSearchInput]=useState("#d1d1d1");
     const [search,setSearch]=useState("");
-    const [result,setResult]=useState("");
+    const [result,setResult]=useState([]);
+    const [currentPage,setCurrentPage]=useState(1);
 
     const handleSearch = async () => {
         if(search)
@@ -25,11 +27,9 @@ const Mentor = () => {
                 .then(response => response.json())
                 .then(data => {
                     if(data.status===200)
-                    {
-                        setResult(data.result[0]);
-                    }
+                        setResult(result);
                     else
-                        setResult(data.msg);
+                        setResult([data.msg]);
                 });
             document.getElementById("loading").style.display="none";
         }
@@ -39,6 +39,16 @@ const Mentor = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+    }
+
+    const forward=() => {
+        if(currentPage<result.length)
+            setCurrentPage(currentPage+1);
+    }
+
+    const backward=() => {
+        if(currentPage>1)
+            setCurrentPage(currentPage-1);
     }
 
     return(
@@ -61,20 +71,45 @@ const Mentor = () => {
                     Mentor
                 </span>
             </div>
-            <br/>
             <center className="container content">
-                <form onSubmit={handleSubmit}>
-                    <input name="search" style={{backgroundColor: "white",borderColor: searchInput}} onChange={event => setSearch(event.target.value)} type="text" placeholder="What do you want to search?" required/>
-                    <button type="submit" className="button" onClick={handleSearch}>
-                        <i className="fa fa-search"/>|SEARCH
-                    </button>
-                </form>
+                <div className="content-box">
+                    <div className="teacher">
+                        <img alt="" src={teacher} width="40px"/>
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        <br/>
+                        <input name="search" style={{backgroundColor: "white",borderColor: searchInput}} onChange={event => setSearch(event.target.value)} type="text" placeholder="What do you want to search?" required/>
+                        <button type="submit" className="button" onClick={handleSearch}>
+                            <i className="fa fa-search"/>|SEARCH
+                        </button>
+                    </form>
+                </div>
                 <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 {
-                    result ? (
-                    <div className="content-box">
-                        {result}
-                    </div>
+                    result.length ? (
+                        <>
+                            {
+                                result.map(item => {
+                                    return(
+                                        <div className="content-box">
+                                            {item}
+                                        </div>
+                                    );
+                                })
+                            }
+                            <br/>
+                            <div className="pagination">
+                                <span className="pagination-component pagination-button" onClick={backward}>
+                                    &laquo;
+                                </span>
+                                <span className="pagination-component">
+                                    {currentPage}/{result.length}
+                                </span>
+                                <span className="pagination-component pagination-button" onClick={forward}>
+                                    &raquo;
+                                </span>
+                            </div>
+                        </>
                     ) : (<></>)
                 }
             </center>
