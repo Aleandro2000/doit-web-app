@@ -30,34 +30,36 @@ function DeleteAccount()
     }
     
     return(
-        <div className="content-box">
-            <img alt="" src={logo} className="logo"/>
-            <h3 className="title">
-                <b>
-                    Delete Account
-                </b>
-            </h3>
-            <p align="center">
-                Are you sure you want to do this? This action is not reversible.
-            </p>
-            <hr/>
-            <button type="submit" className="button" onClick={deleteAccount}>
-                YES
-            </button>
-            <Link to="/dashboard/settings">
-                <button type="submit" className="button">
-                    NO
+        <center>
+            <div className="content-box">
+                <img alt="" src={logo} className="logo"/>
+                <h3 className="title">
+                    <b>
+                        Delete Account
+                    </b>
+                </h3>
+                <p align="center">
+                    Are you sure you want to do this? This action is not reversible.
+                </p>
+                <hr/>
+                <button type="submit" className="button" onClick={deleteAccount}>
+                    YES
                 </button>
-            </Link>
-            <br/>
-            <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
-            <hr/>
-            <p>
-                <b>
-                    © Powered by <i><u>Softana</u></i>, All right reserved.
-                </b>
-            </p>
-        </div>
+                <Link to="/dashboard/settings">
+                    <button type="submit" className="button">
+                        NO
+                    </button>
+                </Link>
+                <br/>
+                <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                <hr/>
+                <p>
+                    <b>
+                        © Powered by <i><u>Softana</u></i>, All right reserved.
+                    </b>
+                </p>
+            </div>
+        </center>
     );
 }
 

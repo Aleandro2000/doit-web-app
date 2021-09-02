@@ -39,39 +39,41 @@ const ResetPassword = () => {
         event.preventDefault();
     }
 
-    return ( 
-        <div className="content-box">
-            <img alt="" src={logo} className="logo"/>
-            <h3 className="title">
-                <b>
-                    Reset Password
-                </b>
-            </h3>
-            <hr/>
-            <form onSubmit={handleSubmit}>
-                <input type="password" name="password" style={passwordInput} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
-                <input type="password" name="repassword" style={passwordInput} placeholder="Retype password" onChange={e => { setRePassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
-                <button type="submit" className="button" onClick={sendRequest}>
-                    RESET
-                </button>
-                <br/>
-                <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
-                <br/>
-                {res}
-            </form>
-            <hr/>
-            <Link to="/dashboard/settings">
-                <button className="button">
-                    <i className="fa fa-arrow-left"/> Back
-                </button>
-            </Link>
-            <hr/>
-            <p>
-                <b>
-                    © Powered by <i><u>Softana</u></i>, All right reserved.
-                </b>
-            </p>
-        </div>
+    return (
+        <center>
+            <div className="content-box">
+                <img alt="" src={logo} className="logo"/>
+                <h3 className="title">
+                    <b>
+                        Reset Password
+                    </b>
+                </h3>
+                <hr/>
+                <form onSubmit={handleSubmit}>
+                    <input type="password" name="password" style={passwordInput} placeholder="Enter password" onChange={e => { setPassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
+                    <input type="password" name="repassword" style={passwordInput} placeholder="Retype password" onChange={e => { setRePassword(e.target.value); setPasswordInput({borderColor: "#ced4da"})}}/>
+                    <button type="submit" className="button" onClick={sendRequest}>
+                        RESET
+                    </button>
+                    <br/>
+                    <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                    <br/>
+                    {res}
+                </form>
+                <hr/>
+                <Link to="/dashboard/settings">
+                    <button className="button">
+                        <i className="fa fa-arrow-left"/> Back
+                    </button>
+                </Link>
+                <hr/>
+                <p>
+                    <b>
+                        © Powered by <i><u>Softana</u></i>, All right reserved.
+                    </b>
+                </p>
+            </div>
+        </center>
     );
 }
  
