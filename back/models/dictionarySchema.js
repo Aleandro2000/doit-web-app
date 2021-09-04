@@ -9,6 +9,8 @@ const dictionarySchema = new mongoose.Schema({
         type: String,
         required: true
     },
+},{
+    collection: "dictionary"
 });
 
-module.exports = mongoose.model('Dictionary', dictionarySchema);
+module.exports = mongoose.model('dictionary', dictionarySchema);

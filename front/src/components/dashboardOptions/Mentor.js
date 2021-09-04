@@ -16,7 +16,7 @@ const Mentor = () => {
             setResult("");
             document.getElementById("loading").style.display="inline-block";
             setSearchInput("#d1d1d1");
-            const data={search: search};
+            const data={search: search.toLowerCase()};
             await fetch("/mentor", {
                 method: 'POST',
                 headers: {
@@ -30,6 +30,7 @@ const Mentor = () => {
                         setResult(result);
                     else
                         setResult([data.msg]);
+                    alert(JSON.stringify(result))
                 });
             document.getElementById("loading").style.display="none";
         }
@@ -91,8 +92,10 @@ const Mentor = () => {
                             {
                                 result.map(item => {
                                     return(
-                                        <div className="content-box">
-                                            {item}
+                                        <div className="content-box" key="">
+                                            {item.keyword}
+                                            <br/><br/>
+                                            {item.definition}
                                         </div>
                                     );
                                 })

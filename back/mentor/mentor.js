@@ -36,15 +36,24 @@ module.exports=function(req,res){
     if(!noums.length)
         return res.send({status: 500, msg: "Sorry! We may not find it!"});
     noums=Array.from(new Set(noums));
-    let result=[];
-    noums.forEach(element => {
-        Dictionary.findOne({keyword: element},(dictionary,err)=>{
-            if(!err&&dictionary)
-                result.push(dictionary.definition);
-        });
+    Dictionary.find({},(err,dictionary)=>{
+        if(err)
+            return res.send({status: 500, msg: "Sorry! We may not find it!"});
+        else if(dictionary)
+        {
+            let result=[];
+            for(let element in dictionary)
+                for(let index in noums)
+                    if(dictionary[element].keyword==noums[index])
+                    {
+                        dictionary[element]._id="";
+                        result.push(dictionary[element]);
+                        break;
+                    }
+            if(result.length)
+                return res.send({status: 200, result: result});
+            else
+                return res.send({status: 500, msg: "Sorry! We may not find it!"});
+        }
     });
-    if(result.length)
-        return res.send({status: 200, result: result});
-    else
-        return res.send({status: 500, msg: "Sorry! We may not find it!"});
 }

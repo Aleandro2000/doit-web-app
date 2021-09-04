@@ -753,6 +753,7 @@ select:focus{
 }
 
 .pagination-component{
+    background-color: white;
     color: black;
     padding: 8px 16px;
     text-decoration: none;

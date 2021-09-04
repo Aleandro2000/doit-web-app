@@ -274,10 +274,10 @@ function IDE()
                     <button onClick={()=>Shortcut("find")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
                         <i className="fa fa-search"/>|Find
                     </button>
-                    <select id="text-size" onChange={()=>setTextSize(document.getElementById("text-size").value)}>
+                    <select id="text-size" value={textSize} onChange={()=>setTextSize(document.getElementById("text-size").value)}>
                         <option value="10pt">10pt</option>
                         <option value="11pt">11pt</option>
-                        <option value="12pt" selected>12pt</option>
+                        <option value="12pt" defaultValue>12pt</option>
                         <option value="13pt">13pt</option>
                         <option value="14pt">14pt</option>
                         <option value="15pt">15pt</option>
