@@ -22,7 +22,8 @@ module.exports=function(req,res){
         .tag(words)
         .map(function(tag){return tag[0] + '/' + tag[1];})
         .join(' ');
-    let places=chunker.chunk(tags, '[{ tag: NNP|NNS|NN }]');
+    let places=chunker.chunk(tags, '[{ tag: NNP|NNS|NN|JJ|VBG }]');
+    console.log(places)
     let noums=[];
     strtok(places,"{}").forEach(element => {
         element=element.replace(/\s/g,"");
@@ -32,13 +33,17 @@ module.exports=function(req,res){
             noums.push(strstr(element,"/NNS",true));
         else if(strstr(element,"/NN",true))
             noums.push(strstr(element,"/NN",true));
+        else if(strstr(element,"/JJ",true))
+            noums.push(strstr(element,"/JJ",true));
+        else if(strstr(element,"/VBG",true))
+            noums.push(strstr(element,"/VBG",true));
     });
     if(!noums.length)
-        return res.send({status: 500, msg: "Sorry! We may not find it!"});
+        return res.send({result: [{keyword: "SORRY!",definition: "We may not find it!"}]});
     noums=Array.from(new Set(noums));
     Dictionary.find({},(err,dictionary)=>{
         if(err)
-            return res.send({status: 500, msg: "Sorry! We may not find it!"});
+            return res.send({result: [{keyword: "SORRY!",definition: "We may not find it!"}]});
         else if(dictionary)
         {
             let result=[];
@@ -51,9 +56,9 @@ module.exports=function(req,res){
                         break;
                     }
             if(result.length)
-                return res.send({status: 200, result: result});
+                return res.send({result: result});
             else
-                return res.send({status: 500, msg: "Sorry! We may not find it!"});
+                return res.send({result: [{keyword: "SORRY!",definition: "We may not find it!"}]});
         }
     });
 }

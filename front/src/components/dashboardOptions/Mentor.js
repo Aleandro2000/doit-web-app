@@ -8,12 +8,17 @@ const Mentor = () => {
     const [searchInput, setSearchInput]=useState("#d1d1d1");
     const [search,setSearch]=useState("");
     const [result,setResult]=useState([]);
+    const [currentResult,setCurrentResult]=useState([]);
     const [currentPage,setCurrentPage]=useState(1);
+    const [pagesNumber,setPagesNumber]=useState(1);
 
     const handleSearch = async () => {
         if(search)
         {
-            setResult("");
+            setResult([]);
+            setCurrentResult([]);
+            setCurrentPage(1);
+            setPagesNumber(1);
             document.getElementById("loading").style.display="inline-block";
             setSearchInput("#d1d1d1");
             const data={search: search.toLowerCase()};
@@ -26,11 +31,12 @@ const Mentor = () => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    if(data.status===200)
-                        setResult(result);
+                    setResult(data.result)
+                    setCurrentResult(data.result.slice(0,4));
+                    if(data.result.length%5)
+                        setPagesNumber(parseInt(data.result.length/5+1));
                     else
-                        setResult([data.msg]);
-                    alert(JSON.stringify(result))
+                        setPagesNumber(parseInt(data.result.length/5))
                 });
             document.getElementById("loading").style.display="none";
         }
@@ -43,13 +49,19 @@ const Mentor = () => {
     }
 
     const forward=() => {
-        if(currentPage<result.length)
+        if(currentPage<pagesNumber)
+        {
             setCurrentPage(currentPage+1);
+            setCurrentResult(result.slice(currentPage*5,(currentPage+1)*5));
+        }
     }
 
     const backward=() => {
         if(currentPage>1)
+        {
             setCurrentPage(currentPage-1);
+            setCurrentResult(result.slice((currentPage-2)*5,(currentPage-1)*5));
+        }
     }
 
     return(
@@ -90,10 +102,12 @@ const Mentor = () => {
                     result.length ? (
                         <>
                             {
-                                result.map(item => {
+                                currentResult.map(item => {
                                     return(
                                         <div className="content-box" key="">
-                                            {item.keyword}
+                                            <b>
+                                                {item.keyword.toUpperCase()}
+                                            </b>
                                             <br/><br/>
                                             {item.definition}
                                         </div>
@@ -106,7 +120,7 @@ const Mentor = () => {
                                     &laquo;
                                 </span>
                                 <span className="pagination-component">
-                                    {currentPage}/{result.length}
+                                    {currentPage}/{pagesNumber}
                                 </span>
                                 <span className="pagination-component pagination-button" onClick={forward}>
                                     &raquo;
