@@ -23,7 +23,6 @@ module.exports=function(req,res){
         .map(function(tag){return tag[0] + '/' + tag[1];})
         .join(' ');
     let places=chunker.chunk(tags, '[{ tag: NNP|NNS|NN|JJ|VBG }]');
-    console.log(places)
     let noums=[];
     strtok(places,"{}").forEach(element => {
         element=element.replace(/\s/g,"");
