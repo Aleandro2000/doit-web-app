@@ -38,11 +38,11 @@ module.exports=function(req,res){
             noums.push(strstr(element,"/VBG",true));
     });
     if(!noums.length)
-        return res.send({result: [{keyword: "SORRY!",definition: "We may not find it!"}]});
+        return res.send({result: [{_id: null,keyword: "SORRY!",definition: "We may not find it!"}]});
     noums=Array.from(new Set(noums));
     Dictionary.find({},(err,dictionary)=>{
         if(err)
-            return res.send({result: [{keyword: "SORRY!",definition: "We may not find it!"}]});
+            return res.send({result: [{_id: null,keyword: "SORRY!",definition: "We may not find it!"}]});
         else if(dictionary)
         {
             let result=[];
@@ -50,14 +50,13 @@ module.exports=function(req,res){
                 for(let index in noums)
                     if(dictionary[element].keyword==noums[index])
                     {
-                        dictionary[element]._id="";
                         result.push(dictionary[element]);
                         break;
                     }
             if(result.length)
                 return res.send({result: result});
             else
-                return res.send({result: [{keyword: "SORRY!",definition: "We may not find it!"}]});
+                return res.send({result: [{_id: null,keyword: "SORRY!",definition: "We may not find it!"}]});
         }
     });
 }
