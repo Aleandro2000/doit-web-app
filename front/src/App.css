@@ -427,16 +427,16 @@ select:focus{
 
 .ide-navigation{
     position: relative;
-    background: #272822;
+    background: #000000;
     box-shadow: none;
-    fill: #272822;
+    fill: #000000;
 }
 
 .ide-options{
     color: white;
     font-family: monospace;
     padding: 7.5px 7.5px 40px 7.5px;
-    background-color: #272822;
+    background-color: #000000;
 }
 
 .prompt-cursor{
@@ -448,13 +448,13 @@ select:focus{
 }
 
 .solutions{
-    background-color: #272822;
+    background-color: #000000;
     text-align: center;
     padding: 10px;
 }
 
 .ace_editor {
-    border-top: 20px solid #2f3129;
+    border-top: 20px solid #1a1a1a;
 }
 
 /*Alert Window*/
@@ -753,7 +753,7 @@ select:focus{
 }
 
 .pagination-component{
-    background-color: white;
+    background: white;
     color: black;
     padding: 8px 16px;
     text-decoration: none;
@@ -762,7 +762,7 @@ select:focus{
 
 .pagination-button:hover{
     cursor: pointer;
-    background-color: #777777;
+    background: linear-gradient(90deg, black 0%, gray 100%);
     color: white;
     transition-duration: 0.4s;
 }

@@ -3,7 +3,7 @@ import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-min-noconflict/theme-tomorrow_night_bright";
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-searchbox";
 
@@ -317,7 +317,7 @@ function IDE()
                 </div>
                 <AceEditor
                     mode={language}
-                    theme="monokai"
+                    theme="tomorrow_night_bright"
                     name="ide-editor"
                     editorProps={{ $blockScrolling: true }}
                     width="100%"
@@ -328,6 +328,7 @@ function IDE()
                         enableLiveAutocompletion: true,
                         enableSnippets: true,
                         showLineNumbers: true,
+                        cursorStyle: "smooth",
                         fontSize: textSize
                     }}
                     defaultValue={process.env.REACT_APP_DOIT_IDE_C}
