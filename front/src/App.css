@@ -697,6 +697,7 @@ select:focus{
     font: 16px/1.5 'Helvetica Neue', Helvetica, sans-serif;
     display: block;
     vertical-align: middle;
+    margin: auto;
     max-width: 500px;
     text-align: left;
     padding: 30px;

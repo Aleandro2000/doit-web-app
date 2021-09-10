@@ -156,7 +156,9 @@ export const CheckoutForm = () => {
                         <i className="fa fa-credit-card"/>|Subscribe
                     </button>
                     <br/>
-                    <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                    <center>
+                        <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
+                    </center>
                 </form>
                 <hr/>
                 <Link to="/login">

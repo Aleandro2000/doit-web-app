@@ -1,14 +1,16 @@
 
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { isLogin } from '../utils';
+import { isLogin, isSubscribed } from '../utils';
 
 const GatewayRoute = ({component: Component, ...rest}) => {
     return (
         <Route {...rest} render={props => (
-            isLogin() ?
+            isLogin() && !isSubscribed() ?
                 <Component {...props} />
-            : <Redirect to="/login" />
+            : ( isLogin() ? 
+            <Redirect to="/dashboard" />
+            : <Redirect to="/login" /> )
         )} />
     );
 };

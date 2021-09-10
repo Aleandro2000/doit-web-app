@@ -50,3 +50,5 @@ Switch/Solo (Paymentech)    6331101999990016
 https://www.npmjs.com/package/search-engine-scraper
 
 mongoimport -d db -c src --type csv --file db.csv --headerline
+
+https://dev.to/raymag/build-a-quiz-rest-api-with-nodejs-2p64

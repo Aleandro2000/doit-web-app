@@ -25,8 +25,8 @@ function Register()
 
     const [selectedOption, setSelectedOption] = useState(options[0]);
 
-    const handleChange = (selectedOption) => {
-        setSelectedOption(selectedOption);
+    const handleChange = (option) => {
+        setSelectedOption(option);
     }
 
     const submitForm = async() => {
@@ -53,10 +53,11 @@ function Register()
             return;
 
         document.getElementById("loading").style.display="inline-block";
-        
+
         const data = {
             email: email, 
             password: password,
+            subscriptionType: selectedOption.value
         }
 
         await fetch("/register", {
