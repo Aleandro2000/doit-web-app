@@ -27,7 +27,7 @@ function Homepage()
                         <div className="container">
                             <ul className="navigation-list float-right">
                                 <li className="navigation-item">
-                                    <Link className="navigation-link button-white responsive-no-button-border" to="/dashboard">Dashboard</Link>
+                                    <Link className="navigation-link button-white responsive-no-button-border" to="/dashboard"><i class="fa fa-tachometer"/> Dashboard</Link>
                                 </li>
                             </ul>
                         </div>

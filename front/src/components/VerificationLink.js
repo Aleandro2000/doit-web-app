@@ -1,5 +1,5 @@
 import logo from "../images/logo2.png";
-import { Link, Redirect } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 
 const VerificationLink = () => {
     const registered=localStorage.getItem("registered");

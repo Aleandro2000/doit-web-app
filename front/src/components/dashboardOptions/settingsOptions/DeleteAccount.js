@@ -1,8 +1,5 @@
 import logo from "../../../images/logo2.png";
-import {
-    Link,
-    useHistory
-} from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { logout,decodeSession } from "../../../utils";
 
 function DeleteAccount()

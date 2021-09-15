@@ -1,5 +1,5 @@
 const stripe = require('stripe')(process.env.SECRET_PAYMENT_KEY);
-const User = require('../models/user');
+const User = require('../models/userSchema');
 const Token = require('../models/tokenSchema');
 
 module.exports = function(req, res, next) {

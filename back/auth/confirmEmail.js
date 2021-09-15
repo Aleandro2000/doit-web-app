@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/userSchema');
 const Token = require("../models/tokenSchema");
 
 module.exports = function (req,res) {
