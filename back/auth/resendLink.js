@@ -14,7 +14,7 @@ module.exports = function (req, res, next) {
             let token = new Token({ _userId: user._id, token: crypto.randomBytes(16).toString('hex') });
             token.save(function (err) {
                 if (err) {
-                  return res.status(500).send({msg: err.message});
+                  return res.send({status: 500, msg: err.message});
                 }
     
                 let testAccount = nodemailer.createTestAccount();
