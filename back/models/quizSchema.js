@@ -36,6 +36,10 @@ const quizSchema=new mongoose.Schema({
         required: true,
         unique: true,
     },
+    type: {
+      type: String,
+      required: true
+    },
     instructions: {
         type: String,
         required: true
