@@ -30,6 +30,10 @@ const secure_subscription=require("./subscription/3DS_subscription");
 
 const mentor=require("./mentor/mentor");
 
+//quiz
+
+const quiz=require("./quiz/quiz");
+
 //
 mongoose.connect("mongodb://"+process.env.DB_HOST+"/"+process.env.DB_NAME, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useCreateIndex', true);
@@ -156,6 +160,15 @@ app.post("/3DS_subscription",(req,res)=>{
 app.post("/mentor",(req,res)=>{
     if(req.body)
         mentor(req,res);
+    else
+        res.send({status: 400, msg:"Request failed!"});
+});
+
+//quizes
+
+app.post("/quiz",(req,res)=>{
+    if(req.body)
+        quiz(req,res);
     else
         res.send({status: 400, msg:"Request failed!"});
 });
