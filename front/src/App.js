@@ -35,31 +35,29 @@ function App() {
     duration: 1000
   });
   return(
-    <>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Redirect to="/home"/>
-          </Route>
-          <PublicRoute restricted={false} exact path="/home" component={Homepage}/>
-          <PublicRoute restricted={true} exact path="/login" component={Login}/>
-          <PublicRoute restricted={true} exact path="/register" component={Register}/>
-          <PublicRoute restricted={true} exact path="/verificationlink" component={VerificationLink}/>
-          <PublicRoute restricted={true} exact path="/resendlink" component={ResendLink}/>
-          <PublicRoute restricted={true} exact path="/forgotpass" component={ForgotPassword}/>
-          <PublicRoute restricted={true} exact path="/forgotpass/verificationkey" component={VerificationKey}/>
-          <PrivateRoute exact path="/dashboard" component={Dashboard}/>
-          <PrivateRoute exact path="/dashboard/quiz" component={Quiz}/>
-          <PrivateRoute exact path="/dashboard/IDE" component={IDE}/>
-          <PrivateRoute exact path="/dashboard/settings" component={Settings}/>
-          <PrivateRoute exact path="/dashboard/mentor" component={Mentor}/>
-          <PrivateRoute exact path="/dashboard/settings/profile/resetpass" component={ResetPassword}/>
-          <PrivateRoute exact path="/dashboard/settings/profile/delete" component={DeleteAccount}/>
-          <GatewayRoute exact path="/subscription" component={Subscription}/>
-          <PublicRoute restricted={false} component={NotFound}/>
-        </Switch>
-      </Router>
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Redirect to="/home"/>
+        </Route>
+        <PublicRoute restricted={false} exact path="/home" component={Homepage}/>
+        <PublicRoute restricted={true} exact path="/login" component={Login}/>
+        <PublicRoute restricted={true} exact path="/register" component={Register}/>
+        <PublicRoute restricted={true} exact path="/verificationlink" component={VerificationLink}/>
+        <PublicRoute restricted={true} exact path="/resendlink" component={ResendLink}/>
+        <PublicRoute restricted={true} exact path="/forgotpass" component={ForgotPassword}/>
+        <PublicRoute restricted={true} exact path="/forgotpass/verificationkey" component={VerificationKey}/>
+        <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+        <PrivateRoute exact path="/dashboard/quiz" component={Quiz}/>
+        <PrivateRoute exact path="/dashboard/IDE" component={IDE}/>
+        <PrivateRoute exact path="/dashboard/settings" component={Settings}/>
+        <PrivateRoute exact path="/dashboard/mentor" component={Mentor}/>
+        <PrivateRoute exact path="/dashboard/settings/profile/resetpass" component={ResetPassword}/>
+        <PrivateRoute exact path="/dashboard/settings/profile/delete" component={DeleteAccount}/>
+        <GatewayRoute exact path="/subscription" component={Subscription}/>
+        <PublicRoute restricted={false} component={NotFound}/>
+      </Switch>
+    </Router>
   );
 }
 
