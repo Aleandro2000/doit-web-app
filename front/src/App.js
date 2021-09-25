@@ -2,7 +2,7 @@ import "milligram";
 import AOS from "aos";
 import "./aos.css";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
   Redirect
@@ -35,7 +35,7 @@ function App() {
     duration: 1000
   });
   return(
-    <Router>
+    <BrowserRouter>
       <Switch>
         <Route exact path="/">
           <Redirect to="/home"/>
@@ -57,7 +57,7 @@ function App() {
         <GatewayRoute exact path="/subscription" component={Subscription}/>
         <PublicRoute restricted={false} component={NotFound}/>
       </Switch>
-    </Router>
+    </BrowserRouter>
   );
 }
 
