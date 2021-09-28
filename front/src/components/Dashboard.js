@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { logout } from "../utils";
+import { logout,navmenu } from "../utils";
 
 import logo from "../images/logo.png";
 import quiz from "../images/quiz.png";
@@ -9,17 +9,8 @@ import mentor from "../images/mentor.png";
 import settings from "../images/settings.png";
 import solving from "../images/solving.png";
 
-function Dashboard(){
-    
-    function navmenu(id)
-    {
-        let element=document.getElementById(id);
-        if(element.style.display==="none")
-            element.style.display="block";
-        else
-            element.style.display="none";
-    }
-
+function Dashboard()
+{
     return(
         <div className="options">
             <div className="navigation">

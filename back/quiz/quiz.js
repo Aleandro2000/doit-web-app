@@ -1,17 +1,17 @@
-const { listenerCount } = require("../models/quizSchema");
-const Quiz=require("../models/quizSchema");
+const { listenerCount } = require("../models/questionSchema");
+const Question=require("../models/questionSchema");
 
 function sendQuiz(req,res)
 {
-    Quiz.find({type: req.body.type},(quizs,err)=>{
+    Question.find({type: req.body.type},(questions,err)=>{
         if(err)
             res.send({status: 400, msg: err.message});
         else
         {
             let result=new Set();
-            while(result.size<process.env.QUIZES_NUM||result.size<quizes.length)
-                result.add(Math.floor(Math.random()*quizes.length));
-            result=Array.from(result,index=>quizes[index]);
+            while(result.size<process.env.QUSETIONS_NUM||result.size<questions.length)
+                result.add(Math.floor(Math.random()*questions.length));
+            result=Array.from(result,index=>questions[index]);
             res.send({status: 200, result: result});
         }
     });

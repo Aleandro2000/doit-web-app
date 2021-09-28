@@ -5,20 +5,10 @@ import redX from "../images/red-x.png";
 import bestPrice from "../images/best-price.png";
 import price from "../images/price.png";
 import { Link } from "react-router-dom";
-import { isLogin } from "../utils";
+import { isLogin,navmenu } from "../utils";
 
-function Homepage()
+export default function Homepage()
 {
-
-    function navmenu(id)
-    {
-        let element=document.getElementById(id);
-        if(element.style.display==="none")
-            element.style.display="block";
-        else
-            element.style.display="none";
-    }
-
     return(
         <div className="fadeIn">
             {
@@ -467,5 +457,3 @@ function Homepage()
         </div>
     );
 }
-
-export default Homepage;
