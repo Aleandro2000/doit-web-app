@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../../images/logo.png";
 import teacher from "../../images/teacher.gif";
+
+import Navbar from "../../components/Navbar";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 const Mentor = () => {
 
@@ -66,24 +68,9 @@ const Mentor = () => {
 
     return(
         <div className="fadeIn">
-            <div className="navigation">
-                <div className="container">
-                    <ul className="navigation-list float-right">
-                        <li className="navigation-item">
-                            <Link className="navigation-link button-white responsive-no-button-border" to="/dashboard"><i className="fa fa-arrow-left"/></Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <Navbar type="back"/>
             <br/>
-            <div className="dashboard-header">
-                <p>
-                    <img alt="" className="rotation" style={{marginBottom: "20px"}} src={logo}/>
-                </p>
-                <span className="dashboard-title">
-                    Mentor
-                </span>
-            </div>
+            <Header type="dashboard" text="Mentor"/>
             <center className="container content">
                 <div className="content-box">
                     <div className="teacher">
@@ -130,30 +117,7 @@ const Mentor = () => {
                     ) : (<></>)
                 }
             </center>
-            <center>
-                <div className="footer">
-                    <p>
-                        <b>
-                            © Powered by <i><u>Softana</u></i>, All right reserved.
-                        </b>
-                    </p>
-                    <p>
-                        <a href={process.env.REACT_APP_DOIT_FACEBOOK}>
-                            <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
-                        </a>
-                        <a href={process.env.REACT_APP_DOIT_INSTAGRAM}>
-                            <i className="fa fa-instagram social-media"/>
-                        </a>
-                        <a href={process.env.REACT_APP_DOIT_YOUTUBE}>
-                            <i className="fa fa-youtube social-media"/>
-                        </a>
-                        <a href={process.env.REACT_APP_DOIT_LINKEDIN}>
-                            <i className="fa fa-linkedin social-media"/>
-                        </a>
-                    </p>
-                    <br/>
-                </div>
-            </center>
+            <Footer/>
             <br/>
         </div>
     );

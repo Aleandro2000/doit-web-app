@@ -13,7 +13,7 @@ import Select from 'react-select';
 import swal from 'sweetalert';
 import beautify from "js-beautify";
 
-import logo from "../../images/logo2.png";
+import Footer from "../../components/Footer";
 
 function IDE()
 {
@@ -252,7 +252,7 @@ function IDE()
 
     return(
         <>
-            <div style={{backgroundColor: "#282a2e"}} className="fadeIn">
+            <div className="fadeIn">
                 <div className="navigation ide-navigation">
                     <div className="container">
                         <ul className="navigation-list float-right">
@@ -362,17 +362,8 @@ function IDE()
                     </div>
                 </div>
             </div>
-            <center>
-                <div className="content-box">
-                    <img alt="" src={logo} className="logo"/>
-                    <hr/>
-                    <p>
-                        <b>
-                            © Powered by <i><u>Softana</u></i>, All right reserved.
-                        </b>
-                    </p>
-                </div>
-            </center>
+            <Footer/>
+            <br/>
         </>
     );
 }

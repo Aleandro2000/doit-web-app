@@ -1,66 +1,21 @@
-import logo from "../images/logo.png";
 import code from "../images/code.svg";
 import tick from "../images/tick.png";
 import redX from "../images/red-x.png";
 import bestPrice from "../images/best-price.png";
 import price from "../images/price.png";
+
 import { Link } from "react-router-dom";
-import { isLogin,navmenu } from "../utils";
+
+import Navbar from "../components/Navbar";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Homepage()
 {
     return(
         <div className="fadeIn">
-            {
-                isLogin() ? (
-                    <div className="navigation">
-                        <div className="container">
-                            <ul className="navigation-list float-right">
-                                <li className="navigation-item">
-                                    <Link className="navigation-link button-white responsive-no-button-border" to="/dashboard"><i class="fa fa-tachometer"/> Dashboard</Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                ) : (
-                    <div className="navigation">
-                        <div className="container">
-                            <ul className="navigation-list float-right">
-                                <li className="navigation-item">
-                                    <div className="dropdown">
-                                        <div className="button-white responsive-no-button-border dropbtn" onClick={() => navmenu("dropdown-content") }>Authentificate</div>
-                                        <div className="dropdown-content" id="dropdown-content">
-                                            <Link className="navigation-link button-white-dropdown" to="/login"><i className="fa fa-sign-in"/> Login</Link>
-                                            <br/>
-                                            <Link className="navigation-link button-white-dropdown" to="/register"><i className="fa fa-plus"/> Register</Link>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                )
-            }
-            <div className="header">
-                <img alt="" className="rotation" style={{marginBottom: "20px"}} src={logo}/>
-                <div className="header-content">
-                    <b className="header-content-title">
-                        Become the Super Software Engineer!
-                    </b>
-                    <hr/>
-                    <p className="header-content-text">
-                        Become <b>master</b> at the <b>coding interview</b> and get your <b>dream job</b>. Learn how to write <b>clean quality code</b> that passes the technical interview. Develop your <b>problem solving skills</b> using our <b>step by step</b> interactive lessons, video content and tips&#38;tricks.
-                    </p>
-                    <Link className="header-content-text" to="/demo">
-                        <div className="button-white" style={{padding: "7.5px"}}>
-                            <b>
-                                Try our DEMO
-                            </b>
-                        </div>
-                    </Link>
-                    <br/>
-                </div>
-            </div>
+            <Navbar type="home"/>
+            <Header type="home"/>
             <div className="container content" data-aos='fade-up'>
                 <div className="row">
                     <div className="column">
@@ -429,30 +384,7 @@ export default function Homepage()
                     </div>
                 </div>
             </center>
-            <center style={{marginTop: "100px"}}>
-                <div className="footer" data-aos='zoom-in'>
-                    <p>
-                        <b>
-                            © Powered by <i><u>Softana</u></i>, All right reserved.
-                        </b>
-                    </p>
-                    <p>
-                        <a href={process.env.REACT_APP_DOIT_FACEBOOK}>
-                            <i className="fa fa-facebook social-media" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
-                        </a>
-                        <a href={process.env.REACT_APP_DOIT_INSTAGRAM}>
-                            <i className="fa fa-instagram social-media"/>
-                        </a>
-                        <a href={process.env.REACT_APP_DOIT_YOUTUBE}>
-                            <i className="fa fa-youtube social-media"/>
-                        </a>
-                        <a href={process.env.REACT_APP_DOIT_LINKEDIN}>
-                            <i className="fa fa-linkedin social-media"/>
-                        </a>
-                    </p>
-                    <br/>
-                </div>
-            </center>
+            <Footer top="100px" aos="zoom-in"/>
             <br/>
         </div>
     );

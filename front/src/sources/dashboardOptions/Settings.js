@@ -1,30 +1,17 @@
 import { Link } from "react-router-dom";
-import logo from "../../images/logo.png";
 import reset from "../../images/password-reset.png";
 import del from "../../images/delete-account.png";
+
+import Navbar from "../../components/Navbar";
+import Header from "../../components/Header";
 
 function Settings(){
 
     return(
         <div className="options">
-            <div className="navigation">
-                <div className="container">
-                    <ul className="navigation-list float-right">
-                        <li className="navigation-item">
-                            <Link className="navigation-link button-white responsive-no-button-border" to="/dashboard"><i className="fa fa-arrow-left"/></Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <Navbar type="back"/>
             <br/>
-            <div className="dashboard-header">
-                <p>
-                    <img alt="" className="rotation" style={{marginBottom: "20px"}} src={logo}/>
-                </p>
-                <span className="dashboard-title">
-                    Settings
-                </span>
-            </div>
+            <Header type="dashboard" text="Settings"/>
             <div className="container content">
                 <div className="row">
                     <div className="content-box column" style={{padding: "20px"}}>
