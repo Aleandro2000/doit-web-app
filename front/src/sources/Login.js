@@ -3,7 +3,7 @@ import { Link,useHistory } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../utils";
 
-function Login()
+export default function Login()
 {
     const history=useHistory();
     const [email,setEmail]=useState("");
@@ -108,5 +108,3 @@ function Login()
         </center>
     );
 }
-
-export default Login;

@@ -251,120 +251,118 @@ function IDE()
     }
 
     return(
-        <>
-            <div className="fadeIn">
-                <div className="navigation ide-navigation">
-                    <div className="container">
-                        <ul className="navigation-list float-right">
-                            <li className="navigation-item">
-                                <Link className="navigation-link button-white responsive-no-button-border" to="/dashboard"><i className="fa fa-arrow-left"/></Link>
-                            </li>
-                        </ul>
+        <div className="fadeIn">
+            <div className="navigation ide-navigation">
+                <div className="container">
+                    <ul className="navigation-list float-right">
+                        <li className="navigation-item">
+                            <Link className="navigation-link button-white responsive-no-button-border" to="/dashboard"><i className="fa fa-arrow-left"/></Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div className="solutions">
+                <label style={{cursor: "pointer",color: "white"}} htmlFor="open">
+                    <i className="fa fa-file"/>|OPEN
+                </label>
+                <input onChange={Open} type="file" id="open" name="open" accept=".txt,.c,.cpp,.java,.py,.js" style={{display: "none"}}/>
+                <br/>
+                <button onClick={()=>Shortcut("format")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                    <i className="fa fa-edit"/>|Beautify
+                </button>
+                <button onClick={()=>Shortcut("find")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                    <i className="fa fa-search"/>|Find
+                </button>
+                <select id="text-size" value={textSize} onChange={()=>setTextSize(document.getElementById("text-size").value)}>
+                    <option value="10pt">10pt</option>
+                    <option value="11pt">11pt</option>
+                    <option value="12pt" defaultValue>12pt</option>
+                    <option value="13pt">13pt</option>
+                    <option value="14pt">14pt</option>
+                    <option value="15pt">15pt</option>
+                    <option value="16pt">16pt</option>
+                    <option value="17pt">17pt</option>
+                    <option value="18pt">18pt</option>
+                    <option value="19pt">19pt</option>
+                    <option value="20pt">20pt</option>
+                    <option value="21pt">21pt</option>
+                    <option value="22pt">22pt</option>
+                    <option value="23pt">23pt</option>
+                    <option value="24pt">24pt</option>
+                </select>
+                <br/>
+                <button onClick={()=>Shortcut("copy")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                    <i className="fa fa-copy"/>|Copy
+                </button>
+                <button onClick={()=>Shortcut("copy_all")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                    <i className="fa fa-clone"/>|Copy All
+                </button>
+                <button onClick={()=>Shortcut("cut")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                    <i className="fa fa-hand-scissors-o"/>|Cut
+                </button>
+                <button onClick={()=>Shortcut("cut_all")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                    <i className="fa fa-cut"/>|Cut All
+                </button>
+                <button onClick={()=>Shortcut("paste")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                    <i className="fa fa-paste"/>|Paste
+                </button>
+                <br/>
+                <button onClick={()=>Shortcut("undo")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                    <i className="fa fa-undo"/>
+                </button>
+                <button onClick={()=>Shortcut("redo")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
+                    <i className="fa fa-repeat"/>
+                </button>
+            </div>
+            <AceEditor
+                mode={language}
+                theme="tomorrow_night_bright"
+                name="ide-editor"
+                editorProps={{ $blockScrolling: true }}
+                width="100%"
+                showPrintMargin={false}
+                showGutter={true}
+                setOptions={{
+                    enableBasicAutocompletion: true,
+                    enableLiveAutocompletion: true,
+                    enableSnippets: true,
+                    showLineNumbers: true,
+                    cursorStyle: "smooth",
+                    fontSize: textSize
+                }}
+                defaultValue={process.env.REACT_APP_DOIT_IDE_C}
+                ref={aceEditorRef}
+            />
+            <Select isSearchable={false} options={options} value={selectedOption} onChange={handleChange}/>
+            <div className="ide-options">
+                <p align="right">
+                    <button onClick={SaveFile} className="button-white responsive-no-button-border" style={{borderRadius: "0"}}>
+                        <i className="fa fa-save"/>|SAVE
+                    </button>
+                    <button onClick={Run} className="button-white responsive-no-button-border" style={{borderRadius: "0"}}>
+                        <i className="fa fa-cog"/>|RUN
+                    </button>
+                </p>
+                <center>
+                    <div className="lds-ellipsis" style={{background: "transparent"}} id="loading"><div style={{background: "white"}}></div><div style={{background: "white"}}></div><div style={{background: "white"}}></div><div style={{background: "white"}}></div></div>
+                </center>
+                <div className="output">
+                    <b style={{marginLeft: "5px"}}>Input</b>
+                    <div className="screen" style={{padding: "0"}}>
+                        <textarea className="input" id="input"/>
                     </div>
                 </div>
-                <div className="solutions">
-                    <label style={{cursor: "pointer",color: "white"}} htmlFor="open">
-                        <i className="fa fa-file"/>|OPEN
-                    </label>
-                    <input onChange={Open} type="file" id="open" name="open" accept=".txt,.c,.cpp,.java,.py,.js" style={{display: "none"}}/>
-                    <br/>
-                    <button onClick={()=>Shortcut("format")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
-                        <i className="fa fa-edit"/>|Beautify
-                    </button>
-                    <button onClick={()=>Shortcut("find")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
-                        <i className="fa fa-search"/>|Find
-                    </button>
-                    <select id="text-size" value={textSize} onChange={()=>setTextSize(document.getElementById("text-size").value)}>
-                        <option value="10pt">10pt</option>
-                        <option value="11pt">11pt</option>
-                        <option value="12pt" defaultValue>12pt</option>
-                        <option value="13pt">13pt</option>
-                        <option value="14pt">14pt</option>
-                        <option value="15pt">15pt</option>
-                        <option value="16pt">16pt</option>
-                        <option value="17pt">17pt</option>
-                        <option value="18pt">18pt</option>
-                        <option value="19pt">19pt</option>
-                        <option value="20pt">20pt</option>
-                        <option value="21pt">21pt</option>
-                        <option value="22pt">22pt</option>
-                        <option value="23pt">23pt</option>
-                        <option value="24pt">24pt</option>
-                    </select>
-                    <br/>
-                    <button onClick={()=>Shortcut("copy")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
-                        <i className="fa fa-copy"/>|Copy
-                    </button>
-                    <button onClick={()=>Shortcut("copy_all")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
-                        <i className="fa fa-clone"/>|Copy All
-                    </button>
-                    <button onClick={()=>Shortcut("cut")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
-                        <i className="fa fa-hand-scissors-o"/>|Cut
-                    </button>
-                    <button onClick={()=>Shortcut("cut_all")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
-                        <i className="fa fa-cut"/>|Cut All
-                    </button>
-                    <button onClick={()=>Shortcut("paste")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
-                        <i className="fa fa-paste"/>|Paste
-                    </button>
-                    <br/>
-                    <button onClick={()=>Shortcut("undo")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
-                        <i className="fa fa-undo"/>
-                    </button>
-                    <button onClick={()=>Shortcut("redo")} className="button-white responsive-no-button-border" style={{borderRadius: "5px"}}>
-                        <i className="fa fa-repeat"/>
-                    </button>
-                </div>
-                <AceEditor
-                    mode={language}
-                    theme="tomorrow_night_bright"
-                    name="ide-editor"
-                    editorProps={{ $blockScrolling: true }}
-                    width="100%"
-                    showPrintMargin={false}
-                    showGutter={true}
-                    setOptions={{
-                        enableBasicAutocompletion: true,
-                        enableLiveAutocompletion: true,
-                        enableSnippets: true,
-                        showLineNumbers: true,
-                        cursorStyle: "smooth",
-                        fontSize: textSize
-                    }}
-                    defaultValue={process.env.REACT_APP_DOIT_IDE_C}
-                    ref={aceEditorRef}
-                />
-                <Select isSearchable={false} options={options} value={selectedOption} onChange={handleChange}/>
-                <div className="ide-options">
-                    <p align="right">
-                        <button onClick={SaveFile} className="button-white responsive-no-button-border" style={{borderRadius: "0"}}>
-                            <i className="fa fa-save"/>|SAVE
-                        </button>
-                        <button onClick={Run} className="button-white responsive-no-button-border" style={{borderRadius: "0"}}>
-                            <i className="fa fa-cog"/>|RUN
-                        </button>
-                    </p>
-                    <center>
-                        <div className="lds-ellipsis" style={{background: "transparent"}} id="loading"><div style={{background: "white"}}></div><div style={{background: "white"}}></div><div style={{background: "white"}}></div><div style={{background: "white"}}></div></div>
-                    </center>
-                    <div className="output">
-                        <b style={{marginLeft: "5px"}}>Input</b>
-                        <div className="screen" style={{padding: "0"}}>
-                            <textarea className="input" id="input"/>
-                        </div>
-                    </div>
-                    <br/>
-                    <div className="output">
-                        <div className="status" id="status"/>
-                        <div className="screen">
-                            <p>-&#62; Output:<b>{output}</b><span className="prompt-cursor"/></p>
-                        </div>
+                <br/>
+                <div className="output">
+                    <div className="status" id="status"/>
+                    <div className="screen">
+                        <p>-&#62; Output:<b>{output}</b><span className="prompt-cursor"/></p>
                     </div>
                 </div>
             </div>
             <Footer/>
             <br/>
-        </>
+        </div>
     );
 }
 
