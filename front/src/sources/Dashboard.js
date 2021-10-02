@@ -11,7 +11,7 @@ import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-function Dashboard()
+export default function Dashboard()
 {
     return(
         <div className="options">
@@ -83,5 +83,3 @@ function Dashboard()
         </div>
     );
 }
-
-export default Dashboard;
