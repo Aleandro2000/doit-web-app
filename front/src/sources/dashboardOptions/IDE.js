@@ -15,7 +15,7 @@ import beautify from "js-beautify";
 
 import Footer from "../../components/Footer";
 
-function IDE()
+export default function IDE()
 {
     const [filename,setFileName]=useState("code.c");
     const [language,setLanguage]=useState("c_cpp");
@@ -365,5 +365,3 @@ function IDE()
         </div>
     );
 }
-
-export default IDE;
