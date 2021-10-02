@@ -30,6 +30,10 @@ import Subscription from "./sources/Subscription";
 import Quiz from "./sources/dashboardOptions/Quiz";
 import Mentor from "./sources/dashboardOptions/Mentor";
 
+import LogicalQuiz from "./sources/quizType/LogicalQuiz";
+import TechnicalQuiz from "./sources/quizType/TechnicalQuiz";
+import InterviewQuiz from "./sources/quizType/InterviewQuiz";
+
 function App() {
   AOS.init({
     duration: 1000
@@ -49,6 +53,9 @@ function App() {
         <PublicRoute restricted={true} exact path="/forgotpass/verificationkey" component={VerificationKey}/>
         <PrivateRoute exact path="/dashboard" component={Dashboard}/>
         <PrivateRoute exact path="/dashboard/quiz" component={Quiz}/>
+        <PrivateRoute exact path="/dashboard/quiz/logical" component={LogicalQuiz}/>
+        <PrivateRoute exact path="/dashboard/quiz/technical" component={TechnicalQuiz}/>
+        <PrivateRoute exact path="/dashboard/quiz/interview" component={InterviewQuiz}/>
         <PrivateRoute exact path="/dashboard/IDE" component={IDE}/>
         <PrivateRoute exact path="/dashboard/settings" component={Settings}/>
         <PrivateRoute exact path="/dashboard/mentor" component={Mentor}/>

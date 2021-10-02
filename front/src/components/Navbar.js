@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { isLogin,navmenu,logout } from "../utils";
 
 export default function Navbar(props)
 {
+    const history=useHistory();
+
     switch(props.type)
     {
         case "home":
@@ -65,7 +67,7 @@ export default function Navbar(props)
                     <div className="container">
                         <ul className="navigation-list float-right">
                             <li className="navigation-item">
-                                <Link className="navigation-link button-white responsive-no-button-border" to="/dashboard"><i className="fa fa-arrow-left"/></Link>
+                                <div className="navigation-link button-white responsive-no-button-border" onClick={history.goBack}><i className="fa fa-arrow-left"/></div>
                             </li>
                         </ul>
                     </div>
