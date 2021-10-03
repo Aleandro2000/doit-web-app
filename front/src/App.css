@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
 body{
     scroll-behavior: smooth;
     background-image: url("./images/background-content.svg");
@@ -791,4 +793,18 @@ select:focus{
     background: linear-gradient(180deg, #f4f4f8 60%, #4d4d4d 75%);
     border: 2px solid #333333;
     border-radius: 100%;
+}
+
+/*Clock*/
+
+.clock{
+    background-color: #333;
+    color: white;
+    border: 3px solid #1a1a1a;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px gray;
+    padding: 5px;
+    font-size: 36px;
+    max-width: 250px;
+    font-family: Orbitron;
 }

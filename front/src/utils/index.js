@@ -23,10 +23,7 @@ export const decodeSession = () => {
 
 export const isSubscribed = () => {
     const decoded=decodeSession();
-    if(decoded.user.customerId&&decoded.user.subscriptionId)
-        return true;
-    else
-        return false;
+    return decoded.user.customerId&&decoded.user.subscriptionId;
 }
 
 export function navmenu(id)
