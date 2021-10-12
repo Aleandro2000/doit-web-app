@@ -1,4 +1,5 @@
 import { useState,useEffect,useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
@@ -9,6 +10,13 @@ export default function LogicalQuiz()
     const Ref=useRef(null);
 
     const [timer,setTimer]=useState("00:00:00");
+
+    const [result,setResult]=useState([]);
+    const [currentResult,setCurrentResult]=useState([]);
+    const [pagesNumber,setPagesNumber]=useState(1);
+    const [start,setStart]=useState(false);
+
+    const history=useHistory();
 
     const getTimeRemaining = (e) => {
         const total=Date.parse(e)-Date.parse(new Date());
@@ -31,7 +39,7 @@ export default function LogicalQuiz()
     }
 
     const clearTimer = (e) => {
-        setTimer('01:00:00');
+        setTimer('01:30:00');
         if(Ref.current)
             clearInterval(Ref.current);
         const id=setInterval(() => {
@@ -41,7 +49,7 @@ export default function LogicalQuiz()
     }
 
     const getDeadTime = (hours,min,sec) => {
-        let deadline = new Date();
+        let deadline=new Date();
         deadline.setHours(deadline.getHours()+hours);
         deadline.setMinutes(deadline.getMinutes()+min);
         deadline.setSeconds(deadline.getSeconds()+sec);
@@ -49,9 +57,36 @@ export default function LogicalQuiz()
     }
 
     useEffect(() => {
-        clearTimer(getDeadTime(1,0,0));
+        if(start)
+            clearTimer(getDeadTime(1,30,0));
         // eslint-disable-next-line
-    },[]);
+    },[start]);
+
+    const quiz = async () => {
+        await fetch("/quiz", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                type: "logical"
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status===200)
+                {
+                    setResult(data.result)
+                    setCurrentResult(data.result.slice(0,4));
+                    if(data.result.length%5)
+                        setPagesNumber(parseInt(data.result.length/5+1));
+                    else
+                        setPagesNumber(parseInt(data.result.length/5));
+                }
+                else
+                    setCurrentResult([data.msg]);
+            });
+    }
 
     return(
         <div className="fadeIn">
@@ -59,9 +94,29 @@ export default function LogicalQuiz()
             <br/>
             <Header type="dashboard" text="Logical Reasoning"/>
             <center>
-                <div className="clock">
-                    {timer}
-                </div>
+            {
+                start ? (
+                    <div className="content-box">
+                        <div className="clock">
+                            {timer}
+                        </div>
+                        <br/>
+                        <br/>
+                        <button className="button">Previous</button>
+                        <button className="button">Next</button>
+                    </div>
+                ) : (
+                    <div className="content-box">
+                        <h4>
+                            <b>
+                                This quiz will take 1 hour and 30 minutes. The process is ireversible when you start!
+                            </b>
+                        </h4>
+                        <button className="button" onClick={history.goBack}>Back</button>
+                        <button className="button" onClick={()=>setStart(true)}>Start</button>
+                    </div>
+                )
+            }
             </center>
             <br/>
             <Footer/>

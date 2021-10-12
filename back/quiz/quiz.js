@@ -1,33 +1,21 @@
-const { listenerCount } = require("../models/questionSchema");
 const Question=require("../models/questionSchema");
 
-function sendQuiz(req,res)
-{
+module.exports=function(req,res){
     Question.find({type: req.body.type},(questions,err)=>{
         if(err)
             res.send({status: 400, msg: err.message});
+        else if(!questions)
+            res.send({status: 400, msg: "Request failed!"});
         else
         {
             let result=new Set();
             while(result.size<process.env.QUSETIONS_NUM||result.size<questions.length)
                 result.add(Math.floor(Math.random()*questions.length));
             result=Array.from(result,index=>questions[index]);
-            res.send({status: 200, result: result});
+            if(result.length)
+                res.send({status: 200, result: result});
+            else
+                res.send({status: 400, msg: "Request failed!"});
         }
     });
-}
-
-module.exports=function(req,res){
-    switch(req.body.type)
-    {
-        case "logical":
-            sendQuiz(req,res);
-            break;
-        case "interview":
-            sendQuiz(req,res);
-            break;
-        default:
-            res.send({status: 400, msg: "Request failed!"});
-            break;
-    }
 }

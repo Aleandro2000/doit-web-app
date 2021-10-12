@@ -804,6 +804,7 @@ select:focus{
     border-radius: 5px;
     box-shadow: 2px 2px 2px 2px gray;
     padding: 5px;
+    margin: auto;
     font-size: 36px;
     max-width: 250px;
     font-family: Orbitron;
