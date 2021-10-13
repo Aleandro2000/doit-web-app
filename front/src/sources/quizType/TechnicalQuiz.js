@@ -7,9 +7,7 @@ export default function TechnicalQuiz()
 {
     return(
         <div className="fadeIn">
-            <Navbar type="back"/>
-            <br/>
-            <Header type="dashboard" text="Logical Reasoning"/>
+            <Header type="dashboard" text="Technical"/>
             <QuizTest type="technical"/>
             <br/>
             <Footer/>

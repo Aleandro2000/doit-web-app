@@ -7,8 +7,6 @@ export default function LogicalQuiz()
 {
     return(
         <div className="fadeIn">
-            <Navbar type="back"/>
-            <br/>
             <Header type="dashboard" text="Logical Reasoning"/>
             <QuizTest type="logical"/>
             <br/>

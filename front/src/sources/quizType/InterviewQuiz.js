@@ -7,9 +7,7 @@ export default function InterviewQuiz()
 {
     return(
         <div className="fadeIn">
-            <Navbar type="back"/>
-            <br/>
-            <Header type="dashboard" text="Logical Reasoning"/>
+            <Header type="dashboard" text="Interview"/>
             <QuizTest type="interview"/>
             <br/>
             <Footer/>
