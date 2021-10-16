@@ -8,9 +8,8 @@ export default function QuizTest(props)
     const [timer,setTimer]=useState("00:00:00");
 
     const [result,setResult]=useState([]);
-    const [currentResult,setCurrentResult]=useState([]);
-    const [pagesNumber,setPagesNumber]=useState(1);
-    const [currentPage,setCurrentPage]=useState(1);
+    const [pagesNumber,setPagesNumber]=useState(0);
+    const [currentPage,setCurrentPage]=useState(0);
     const [start,setStart]=useState(false);
 
     const history=useHistory();
@@ -61,18 +60,12 @@ export default function QuizTest(props)
 
     const forward=() => {
         if(currentPage<pagesNumber)
-        {
             setCurrentPage(currentPage+1);
-            setCurrentResult(result.slice(currentPage,currentPage+1));
-        }
     }
 
     const backward=() => {
         if(currentPage>1)
-        {
             setCurrentPage(currentPage-1);
-            setCurrentResult(result.slice(currentPage-2,currentPage-1));
-        }
     }
 
     const startQuiz = async () => {
@@ -90,15 +83,14 @@ export default function QuizTest(props)
             .then(data => {
                 if(data.status===200)
                 {
-                    setResult(data.result);
-                    setCurrentResult(data.result.slice(0,1));
-                    setPagesNumber(data.result.length);
                     document.getElementById("loading").style.display="none";
                     setStart(true);
+                    setResult(data.result);
+                    setPagesNumber(data.result.length);
                 }
                 else
                 {
-                    setCurrentResult([data.msg]);
+                    setResult([data.msg]);
                     document.getElementById("loading").style.display="none";
                 }
             });
@@ -114,10 +106,14 @@ export default function QuizTest(props)
                     </div>
                     <br/>
                     {
-                        currentResult.slice(currentPage,currentPage+1).map((item,index)=>{
+                        result.slice(currentPage,currentPage+1).map((item,index)=>{
                             return(
                                 <div key={index}>
-                                    {item.question}
+                                    <h4 align="justify">
+                                        <b>
+                                            {item.question}
+                                        </b>
+                                    </h4>
                                 </div>
                             )
                         })
@@ -137,7 +133,7 @@ export default function QuizTest(props)
                     <button className="button" onClick={startQuiz}>Start</button>
                     <br/>
                     <b>
-                        {currentResult[0]}
+                        {result[0]}
                     </b>
                     <center>
                         <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>

@@ -7,7 +7,7 @@ import "ace-builds/src-min-noconflict/theme-tomorrow_night_bright";
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-searchbox";
 
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { createRef, useState } from "react";
 import Select from 'react-select';
 import swal from 'sweetalert';
@@ -23,6 +23,8 @@ export default function IDE()
     const [textSize,setTextSize]=useState("12pt");
     const [copiedText,setCopiedText]=useState("");
     const aceEditorRef=createRef();
+
+    const history=useHistory();
 
     const options = [
         { value: '.c', label: 'C' },
@@ -256,7 +258,7 @@ export default function IDE()
                 <div className="container">
                     <ul className="navigation-list float-right">
                         <li className="navigation-item">
-                            <Link className="navigation-link button-white responsive-no-button-border" to="/dashboard"><i className="fa fa-arrow-left"/></Link>
+                            <span className="navigation-link button-white responsive-no-button-border" onClick={history.goBack}><i className="fa fa-arrow-left"/></span>
                         </li>
                     </ul>
                 </div>

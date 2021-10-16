@@ -10,7 +10,8 @@ const dictionarySchema = new mongoose.Schema({
         required: true
     },
 },{
-    collection: "dictionary"
+    collection: "dictionary",
+    timestamps: true
 });
 
 module.exports = mongoose.model('dictionary', dictionarySchema);

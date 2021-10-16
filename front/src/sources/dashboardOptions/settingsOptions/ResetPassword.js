@@ -1,5 +1,5 @@
 import logo from "../../../images/logo2.png";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { decodeSession } from "../../../utils";
 
@@ -9,6 +9,8 @@ const ResetPassword = () => {
     const [repassword, setRePassword] = useState('');
     const [res, setRes] = useState("");
     const [passwordInput, setPasswordInput] = useState({borderColor: "#ced4da"});
+
+    const history=useHistory();
 
     const sendRequest = async() => {
         const passwordTest=new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})");
@@ -61,11 +63,9 @@ const ResetPassword = () => {
                     {res}
                 </form>
                 <hr/>
-                <Link to="/dashboard/settings">
-                    <button className="button">
-                        <i className="fa fa-arrow-left"/> Back
-                    </button>
-                </Link>
+                <button className="button" onClick={history.goBack}>
+                    <i className="fa fa-arrow-left"/> Back
+                </button>
                 <hr/>
                 <p>
                     <b>

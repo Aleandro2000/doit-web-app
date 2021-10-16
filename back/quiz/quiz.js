@@ -1,7 +1,7 @@
 const Question=require("../models/questionSchema");
 
 module.exports=function(req,res){
-    Question.find({type: req.body.type},(questions,err)=>{
+    Question.find({isEnabled: true,type: req.body.type},(err,questions)=>{
         if(err)
             res.send({status: 400, msg: err.message});
         else if(!questions)

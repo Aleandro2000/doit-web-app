@@ -51,4 +51,6 @@ https://www.npmjs.com/package/search-engine-scraper
 
 mongoimport -d db -c src --type csv --file db.csv --headerline
 
+mongoimport --db=DoIT --collection=questions --file=questions.json --jsonArray
+
 https://dev.to/raymag/build-a-quiz-rest-api-with-nodejs-2p64

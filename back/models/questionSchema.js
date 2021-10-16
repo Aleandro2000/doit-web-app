@@ -32,8 +32,9 @@ const questionSchema=new mongoose.Schema({
       default: ""
     }
 
-}, {
+},{
+    collection: "questions",
     timestamps: true
 });
 
-module.exports=mongoose.model('question', questionSchema);
+module.exports=mongoose.model('questions', questionSchema);

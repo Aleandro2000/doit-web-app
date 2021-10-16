@@ -1,5 +1,5 @@
 import logo from "../../../images/logo2.png";
-import { Link,useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { logout,decodeSession } from "../../../utils";
 
 function DeleteAccount()
@@ -39,14 +39,12 @@ function DeleteAccount()
                     Are you sure you want to do this? This action is not reversible.
                 </p>
                 <hr/>
-                <button type="submit" className="button" onClick={deleteAccount}>
+                <button className="button" onClick={deleteAccount}>
                     YES
                 </button>
-                <Link to="/dashboard/settings">
-                    <button type="submit" className="button">
-                        NO
-                    </button>
-                </Link>
+                <button className="button" onClick={history.goBack}>
+                    NO
+                </button>
                 <br/>
                 <div className="lds-ellipsis" id="loading"><div></div><div></div><div></div><div></div></div>
                 <hr/>
