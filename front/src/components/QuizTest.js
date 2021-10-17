@@ -64,7 +64,7 @@ export default function QuizTest(props)
     }
 
     const backward=() => {
-        if(currentPage>1)
+        if(currentPage>0)
             setCurrentPage(currentPage-1);
     }
 
@@ -101,24 +101,38 @@ export default function QuizTest(props)
         {
             start ? (
                 <div className="content-box">
+                    <br/>
                     <div className="clock">
                         {timer}
                     </div>
-                    <br/>
+                    <br/><br/>
                     {
                         result.slice(currentPage,currentPage+1).map((item,index)=>{
                             return(
                                 <div key={index}>
                                     <h4 align="justify">
                                         <b>
-                                            {item.question}
+                                            <span className="question-index">{currentPage+1}</span> {item.question}
                                         </b>
                                     </h4>
+                                    <div className="paper-shadow">
+                                    {
+                                        item.alternatives.map((item,index)=>{
+                                            return(
+                                                <>
+                                                    <label for={index}>
+                                                        <input type="checkbox" name={index} value={item.isCorrect}/>
+                                                        {item.text}
+                                                    </label>
+                                                </>
+                                            )
+                                        })
+                                    }
+                                    </div>
                                 </div>
                             )
                         })
                     }
-                    <br/>
                     <button className="button" onClick={backward}>Previous</button>
                     <button className="button" onClick={forward}>Next</button>
                 </div>

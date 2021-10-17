@@ -809,3 +809,65 @@ select:focus{
     max-width: 250px;
     font-family: Orbitron;
 }
+
+/*question-index*/
+
+.question-index{
+    display: inline-block;
+    padding: 10px;
+    line-height: 10px;
+    border-radius: 100%;
+    background-color: #4d4d4d;
+    color: white;
+}
+
+/*Paper*/
+
+
+.paper-shadow {
+	position: relative;
+    background: #fff;
+    max-width: 800px;
+    margin: 100px auto;
+    box-shadow: 0px 2px 38px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    padding: 20px;
+    text-align: justify;
+}
+.paper-shadow:after, .paper-shadow:before{
+    content: '';
+    position: absolute;
+    left: auto;
+    background:none;
+    z-index: -1;
+}
+.paper-shadow:after{
+    width: 90%;
+    height: 10px;
+    top: 30px;
+    right:8px;
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+    -webkit-box-shadow: 0px -20px 36px 5px #295d92;
+    -moz-box-shadow: 0px -20px 36px 5px #295d92;
+    box-shadow: 0px -25px 35px 0px rgba(0,0,0,0.5);
+}
+
+.paper-shadow:before{
+    width: 10px;
+    height: 95%;
+    top: 5px;
+    right:18px;
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    -webkit-box-shadow: 20px 0px 25px 5px #295d92;
+    -moz-box-shadow: 20px 0px 25px 5px #295d92;
+    box-shadow: 22px 0px 35px 0px rgba(0,0,0,0.5);
+}
