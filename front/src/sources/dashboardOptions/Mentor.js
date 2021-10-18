@@ -11,14 +11,14 @@ export default function Mentor()
     const [search,setSearch]=useState("");
     const [result,setResult]=useState([]);
     const [currentPage,setCurrentPage]=useState(0);
-    const [pagesNumber,setPagesNumber]=useState(0);
+    const [pagesNumber,setPagesNumber]=useState(1);
 
     const handleSearch = async () => {
         if(search)
         {
             setResult([]);
             setCurrentPage(0);
-            setPagesNumber(0);
+            setPagesNumber(1);
             document.getElementById("loading").style.display="inline-block";
             setSearchInput("#d1d1d1");
             const data={search: search.toLowerCase()};
