@@ -5,22 +5,20 @@ import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-const Mentor = () => {
-
+export default function Mentor()
+{
     const [searchInput, setSearchInput]=useState("#d1d1d1");
     const [search,setSearch]=useState("");
     const [result,setResult]=useState([]);
-    const [currentResult,setCurrentResult]=useState([]);
-    const [currentPage,setCurrentPage]=useState(1);
-    const [pagesNumber,setPagesNumber]=useState(1);
+    const [currentPage,setCurrentPage]=useState(0);
+    const [pagesNumber,setPagesNumber]=useState(0);
 
     const handleSearch = async () => {
         if(search)
         {
             setResult([]);
-            setCurrentResult([]);
-            setCurrentPage(1);
-            setPagesNumber(1);
+            setCurrentPage(0);
+            setPagesNumber(0);
             document.getElementById("loading").style.display="inline-block";
             setSearchInput("#d1d1d1");
             const data={search: search.toLowerCase()};
@@ -34,7 +32,6 @@ const Mentor = () => {
                 .then(response => response.json())
                 .then(data => {
                     setResult(data.result)
-                    setCurrentResult(data.result.slice(0,4));
                     if(data.result.length%5)
                         setPagesNumber(parseInt(data.result.length/5+1));
                     else
@@ -51,19 +48,13 @@ const Mentor = () => {
     }
 
     const forward=() => {
-        if(currentPage<pagesNumber)
-        {
+        if(currentPage<pagesNumber-1)
             setCurrentPage(currentPage+1);
-            setCurrentResult(result.slice(currentPage*5,(currentPage+1)*5));
-        }
     }
 
     const backward=() => {
-        if(currentPage>1)
-        {
+        if(currentPage>0)
             setCurrentPage(currentPage-1);
-            setCurrentResult(result.slice((currentPage-2)*5,(currentPage-1)*5));
-        }
     }
 
     return(
@@ -89,7 +80,7 @@ const Mentor = () => {
                     result.length ? (
                         <>
                             {
-                                currentResult.map(item => {
+                                result.slice(currentPage*4,(currentPage+1)*4).map(item => {
                                     return(
                                         <div className="content-box" key={item._id}>
                                             <b>
@@ -107,7 +98,7 @@ const Mentor = () => {
                                     &laquo;
                                 </span>
                                 <span className="pagination-component">
-                                    {currentPage}/{pagesNumber}
+                                    {currentPage+1}/{pagesNumber}
                                 </span>
                                 <span className="pagination-component pagination-button" onClick={forward}>
                                     &raquo;
@@ -122,5 +113,3 @@ const Mentor = () => {
         </div>
     );
 }
-
-export default Mentor;
