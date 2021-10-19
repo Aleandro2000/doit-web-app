@@ -46,6 +46,10 @@ const ForgotPassword = () => {
                     document.getElementById("loading").style.display="none";
                     setRes("Couldn't not send the email!");
                 }
+            })
+            .catch(err => {
+                setRes(err.message);
+                document.getElementById("loading").style.display="none";
             });
     }
 

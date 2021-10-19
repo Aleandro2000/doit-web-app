@@ -21,7 +21,9 @@ module.exports = function(req,res,lang,type){
             break;
     }
     if(safe)
-        lang.runSource(req.body.code, {stdin: req.body.input}).then(result => res.send(result));
+        lang.runSource(req.body.code, {stdin: req.body.input})
+            .then(result => res.send(result))
+            .catch(err=>res.send({stderr: err}));
     else
         res.send({stderr: "Error to compile the code!"});
 }

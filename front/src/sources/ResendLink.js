@@ -42,6 +42,10 @@ const ResendLink = () => {
                     document.getElementById("loading").style.display="none";
                     setMessage(data.msg);
                 }
+            })
+            .catch(err => {
+                setMessage(err.message);
+                document.getElementById("loading").style.display="none";
             });
     }
 

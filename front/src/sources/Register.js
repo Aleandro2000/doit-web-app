@@ -84,6 +84,10 @@ function Register()
                     setRegistered("NotSuccesful");
                     setRes(data.msg);
                 }
+            })
+            .catch(err => {
+                setRes(err.message);
+                document.getElementById("loading").style.display="none";
             });
     }
 

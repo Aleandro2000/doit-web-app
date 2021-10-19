@@ -93,6 +93,10 @@ export default function QuizTest(props)
                     setResult([data.msg]);
                     document.getElementById("loading").style.display="none";
                 }
+            })
+            .catch(err => {
+                setResult([err.message]);
+                document.getElementById("loading").style.display="none";
             });
     }
 

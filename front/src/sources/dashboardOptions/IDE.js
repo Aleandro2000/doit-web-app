@@ -99,6 +99,7 @@ export default function IDE()
     }
 
     const submitToCompile = async (lang,code) =>{
+        setOutput("...");
         document.getElementById("loading").style.display="inline-block";
         const input=document.getElementById("input").value;
         const data={code,input};
@@ -123,6 +124,11 @@ export default function IDE()
                     document.getElementById("status").style.backgroundColor="#00d742";
                     setOutput(data.stdout);
                 }
+            })
+            .catch(err => {
+                document.getElementById("loading").style.display="none";
+                document.getElementById("status").style.backgroundColor="#ff3b47";
+                setOutput(err.message);
             });
     }
 

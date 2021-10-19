@@ -55,6 +55,10 @@ export default function Login()
                     setEmailInput({borderColor: "#ced4da"});
                     setPasswordInput({borderColor: "#ced4da"});
                 }
+            })
+            .catch(err => {
+                setRes(err.message);
+                document.getElementById("loading").style.display="none";
             });
     }
 
