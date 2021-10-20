@@ -60,7 +60,6 @@ export default function Mentor()
     return(
         <div className="fadeIn">
             <Navbar type="back"/>
-            <br/>
             <Header type="dashboard" text="Mentor"/>
             <center className="container content">
                 <div className="content-box">

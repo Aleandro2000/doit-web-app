@@ -12,7 +12,6 @@ export default function Quiz()
     return(
         <div className="options">
             <Navbar type="back"/>
-            <br/>
             <Header type="dashboard" text="Quiz"/>
             <div className="container content">
                 <div className="row">

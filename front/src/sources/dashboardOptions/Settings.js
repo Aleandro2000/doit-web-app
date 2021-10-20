@@ -10,7 +10,6 @@ function Settings(){
     return(
         <div className="options">
             <Navbar type="back"/>
-            <br/>
             <Header type="dashboard" text="Settings"/>
             <div className="container content">
                 <div className="row">

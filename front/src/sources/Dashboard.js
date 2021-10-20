@@ -16,7 +16,6 @@ export default function Dashboard()
     return(
         <div className="options">
             <Navbar type="dashboard"/>
-            <br/>
             <Header type="dashboard" text="Dashboard"/>
             <div className="container content">
                 <div className="row">

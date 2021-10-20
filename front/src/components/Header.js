@@ -8,7 +8,7 @@ export default function Header(props)
         case "home":
             return(
                 <div className="header">
-                    <img alt="" className="rotation" style={{marginBottom: "20px"}} src={logo}/>
+                    <img alt="" className="rotation" style={{marginBottom: "25px",marginTop: "50px"}} src={logo}/>
                     <div className="header-content">
                         <b className="header-content-title">
                             Become the Super Software Engineer!
@@ -32,7 +32,7 @@ export default function Header(props)
             return(
                 <div className="dashboard-header">
                     <p>
-                        <img alt="" className="rotation" style={{marginBottom: "20px"}} src={logo}/>
+                        <img alt="" className="rotation" style={{marginBottom: "25px",marginTop: "50px"}} src={logo}/>
                     </p>
                     <span className="dashboard-title">
                         {props.text}
