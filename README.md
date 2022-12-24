@@ -1,4 +1,6 @@
-![drawing](doit_logo.png)
+<p align="center">
+    ![drawing](doit_logo.png)
+</p>
 
 # DoIT
 WARNING! THIS IS A DEMO DOCUMENTATION! TE DOCUMENTATION WILL BE CONTINUED SOON!
