@@ -1,5 +1,5 @@
 <p align="center">
-    ![drawing](doit_logo.png)
+    <img src="doit_logo.png" alt="DoIT Logo">
 </p>
 
 # DoIT
