@@ -11,7 +11,7 @@ Many coding interview platforms look the same, have a problem, an IDE and show a
 ## Solution
 A platform with a Mentor Bot to search for useful resources and help students anytime. In addition, the platform in feauter must include AI and Machine Learning courses to entertain the students.
 
-## Before start the documentation
+## Before to start the documentation
 Hi! My name is Alexandru Carmici and this is the most impactful project that has brought my development skills to the next level. The project was carried out before any work experience project. This was my first real project even though it was a personal project. It is a soul project because the main tasks of these projects were very unusual. For example:
 1. I created an online IDE in the platform that compiles 4 different programming languages ​​on the server, I also had to think of a solution for a security that does not harm the servers
 2. I learned to integrate a payment system, Stripe, with a monthly and annual subscription system. I also learned security practices to verify that the card is suitable for subscription (not expired or otherwise invalid).
@@ -24,7 +24,7 @@ That was the spark that brought the great fire!
 
 Good luck and feel free to contact me if you'd like to contribute to this one as well and switch to full-stack sensei developer!
 
-# Main component from the application
+# Main components from the application
 
 ## Generally Aspects
 This application was made using ReactJS, NodeJS, ExpressJS, MongoDB, Stripe API and Ace Editor. All environmets variable are stored in ".env" files.
