@@ -1,4 +1,4 @@
-![drawing](doit_logo.png){ width=50% }
+![drawing](doit_logo.png){: height="36px" width="36px"}
 
 # DoIT
 WARNING! THIS IS A DEMO DOCUMENTATION! TE DOCUMENTATION WILL BE CONTINUED SOON!
