@@ -18,7 +18,7 @@ Hi! My name is Alexandru Carmici and this is the most impactful project that has
 3. I learned to make a search engine integrated with wikipedia to help users with useful information about technical concepts. For the search engine system we used NLP to take main nouns for the sentence and search information about them.
 AND OTHER
 
-For me, this is the biggest project of my entire career, even if it is not commercial and in use. This is why I finally decided to make it public. Because it's the project of my heart and it's so close to Christmas, I've decided to make it OPEN SOURCE, with the goal of giving you as much as it gave me and still giving. Even though it is not a perfect project that meets the highest standards, from the mistakes in this project I learned the most valuable practices that I can offer from the beginning of a career as a full-stack developer. I hope it will be useful in your career development, especially if you are a beginner or junior developer.
+For me, this is the biggest project of my entire career, even if it is not commercial and in use. This is why I finally decided to make it public. Because it's the project of my heart and it's so close to Christmas, I've decided to make it OPEN SOURCE, with the goal of giving you value as much as it gave me. Even though it is not a perfect project that meets the highest standards, from the mistakes in this project I learned the most valuable practices that I can offer from the beginning of a career as a full-stack developer. I hope it will be useful in your career development, especially if you are a beginner or junior developer.
 
 That was the spark that brought the great fire!
 
