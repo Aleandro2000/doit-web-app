@@ -1,4 +1,4 @@
-![Screenshot](screenshot.png =250x)
+![drawing](doit_logo.png){ width=50% }
 
 # DoIT
 WARNING! THIS IS A DEMO DOCUMENTATION! TE DOCUMENTATION WILL BE CONTINUED SOON!
