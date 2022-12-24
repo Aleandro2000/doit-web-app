@@ -270,12 +270,6 @@ export default function Homepage()
                                 <b>Write code in 5 different languages</b>
                             </li>
                             <li className="price">
-                                <b>Exploring every solution to a given problem</b>
-                            </li>
-                            <li className="price">
-                                <b>Unlimited access to our mentor.</b>
-                            </li>
-                            <li className="price">
                                 <b>Unlimited access to our online IDE.</b>
                             </li>
                             <li className="grey price"><Link to="/register" className="button">BUY</Link></li>
@@ -327,7 +321,7 @@ export default function Homepage()
                     <div className="text">
                         <h3>Jane Doe</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur elit. Ipsa voluptatum ipsum, laudantium minima aliquam porro? Iste,  Et, esta ah.
+                            So glad to be here!
                         </p>
                     </div>
                     <div className="card-footer">
@@ -340,7 +334,7 @@ export default function Homepage()
                     <div className="text">
                         <h3>Jane Doe</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur elit. Ipsa voluptatum ipsum, laudantium minima aliquam porro? Iste,  Et, esta ah.
+                            Awesome!
                         </p>
                     </div>
                     <div className="card-footer">
@@ -353,7 +347,7 @@ export default function Homepage()
                     <div className="text">
                         <h3>Jane Doe</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur elit. Ipsa voluptatum ipsum, laudantium minima aliquam porro? Iste,  Et, esta ah.
+                            Good platform!
                         </p>
                     </div>
                     <div className="card-footer">
@@ -362,13 +356,13 @@ export default function Homepage()
                 </div>
             </center>
             <h1 align="center" style={{marginTop: "100px"}} data-aos='fade-up'>
-                Meet the Founder
+                Meet the Contribuitors
             </h1>
             <center className="container" data-aos='fade-up'>
                 <div className="testimonial-card">
                     <div className="text">
                         <h3><b>Alexandru Camrici</b></h3>
-                        <h4><i>Founder</i></h4>
+                        <h4><i>Creator of DoIT Platform</i></h4>
                         <a href={process.env.REACT_APP_FOUNDER_LINKEDIN}>
                             <i className="fa fa-linkedin social-media-founder" style={{paddingLeft: "17.5px",paddingRight: "17.5px"}}/>
                         </a>
@@ -376,7 +370,7 @@ export default function Homepage()
                             <i className="fa fa-github social-media-founder"/>
                         </a>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur elit. Ipsa voluptatum ipsum, laudantium minima aliquam porro? Iste,  Et, esta ah.
+                            Full-stack Developer
                         </p>
                     </div>
                     <div className="card-footer">

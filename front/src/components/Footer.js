@@ -5,7 +5,7 @@ export default function Footer(props)
             <div className="footer" data-aos={props.aos}>
                 <p>
                     <b>
-                        © Powered by <i><u>Softana</u></i>, All right reserved.
+                        © Powered by <i><u>Aleandro2000 from GitHub</u></i>, All right reserved.
                     </b>
                 </p>
                 <p>

@@ -51,6 +51,7 @@ function App() {
         <PublicRoute restricted={true} exact path="/resendlink" component={ResendLink}/>
         <PublicRoute restricted={true} exact path="/forgotpass" component={ForgotPassword}/>
         <PublicRoute restricted={true} exact path="/forgotpass/verificationkey" component={VerificationKey}/>
+        <PublicRoute exact path="/demo" component={IDE}/>
         <PrivateRoute exact path="/dashboard" component={Dashboard}/>
         <PrivateRoute exact path="/dashboard/quiz" component={Quiz}/>
         <PrivateRoute exact path="/dashboard/quiz/logical" component={LogicalQuiz}/>
