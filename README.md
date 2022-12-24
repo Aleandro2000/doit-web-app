@@ -12,17 +12,17 @@ Many coding interview platforms look the same, have a problem, an IDE and show a
 A platform with a Mentor Bot to search for useful resources and help students anytime. In addition, the platform in feauter must include AI and Machine Learning courses to entertain the students.
 
 ## Before start the documentation
-Hi! My name is Alexandru Carmici ant this is the most impactfull prject that brought me my development skills to the next level. The project was made before any work experience project. That was my first real project even if it was a personal project. It is a soul projects because the main tasks for these project was very unusuals. For example:
-1. I created an online IDE in platform that compile 4 different programming language on the server, I had to also think to a solution for a security to not harm the servers
-2. I learned to integrate a payment system, Stripe, with a subscritpion system monthly and yearly. I also learned security practices to check if the card is right for subscription (not to be expired or invalid in any other way).
-3. I learned to make a search engine integrated with wikipedia to help users with usefull information about tech concepts. For the search engine system I used NLP to take main noums for sentence and search informations abut them.
-AND MORE
+Hi! My name is Alexandru Carmici and this is the most impactful project that has brought my development skills to the next level. The project was carried out before any work experience project. This was my first real project even though it was a personal project. It is a soul project because the main tasks of these projects were very unusual. For example:
+1. I created an online IDE in the platform that compiles 4 different programming languages ​​on the server, I also had to think of a solution for a security that does not harm the servers
+2. I learned to integrate a payment system, Stripe, with a monthly and annual subscription system. I also learned security practices to verify that the card is suitable for subscription (not expired or otherwise invalid).
+3. I learned to make a search engine integrated with wikipedia to help users with useful information about technical concepts. For the search engine system we used NLP to take main nouns for the sentence and search information about them.
+AND OTHER
 
-For me, that is the biggest project from my entire career even if It's not a commercial one and in use. That is the reason when I decided finally to make it public. Because it's my heart project and it's so close to Christmass, I have decidet to make it OPEN SOURCE, yep, OPEN SOURCE with the purpose to give YOU velue as much as given me, and still giving. Even if it's not a perfect project that respects highest standards, from the mistakes from this projects I learned the most valuable practices that may offer from the beginning of a full-stack developer career. I hope it will be usefull in your careeer development, especially if you are a beginner or a junior developer.
+For me, this is the biggest project of my entire career, even if it is not commercial and in use. This is why I finally decided to make it public. Because it's the project of my heart and it's so close to Christmas, I've decided to make it OPEN SOURCE, yes, OPEN SOURCE, with the goal of giving you as much as it gave me and still giving. Even though it is not a perfect project that meets the highest standards, from the mistakes in this project I learned the most valuable practices that I can offer from the beginning of a career as a full-stack developer. I hope it will be useful in your career development, especially if you are a beginner or junior developer.
 
-That was the spark that bring the big fire!
+That was the spark that brought the great fire!
 
-Good luck, and feel free to contact me if you feel like contributing to this one as well and moving up to sensei full-stack developer!
+Good luck and feel free to contact me if you'd like to contribute to this one as well and switch to full-stack sensei developer!
 
 # Main component from the application
 
