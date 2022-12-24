@@ -1,4 +1,4 @@
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.png =250x)
 
 # DoIT
 WARNING! THIS IS A DEMO DOCUMENTATION! TE DOCUMENTATION WILL BE CONTINUED SOON!
