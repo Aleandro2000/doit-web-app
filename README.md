@@ -3,7 +3,7 @@
 </p>
 
 # DoIT
-WARNING! THIS IS A DEMO DOCUMENTATION! TE DOCUMENTATION WILL BE CONTINUED SOON!
+WARNING! THIS IS A DEMO DOCUMENTATION! DOCUMENTATION WILL BE CONTINUED SOON!
 
 ## The problem
 Many coding interview platforms look the same, have a problem, an IDE and show a boring score. This is not attracting and keeping the dopamine high for users.
@@ -176,4 +176,4 @@ module.exports=function(req,res){
 
 
 
-WARNING! THIS IS A DEMO DOCUMENTATION! TE DOCUMENTATION WILL BE CONTINUED SOON!
+WARNING! THIS IS A DEMO DOCUMENTATION! DOCUMENTATION WILL BE CONTINUED SOON!
