@@ -1,4 +1,4 @@
-![drawing](doit_logo.png | width=100)
+![drawing](doit_logo.png)
 
 # DoIT
 WARNING! THIS IS A DEMO DOCUMENTATION! TE DOCUMENTATION WILL BE CONTINUED SOON!
