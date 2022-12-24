@@ -1,4 +1,4 @@
-![plot](./front/ront/src/images/logo3.png)
+![Screenshot](screenshot.png)
 
 # DoIT
 WARNING! THIS IS A DEMO DOCUMENTATION! TE DOCUMENTATION WILL BE CONTINUED SOON!
