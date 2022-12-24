@@ -18,13 +18,11 @@ Hi! My name is Alexandru Carmici ant this is the most impactfull prject that bro
 3. I learned to make a search engine integrated with wikipedia to help users with usefull information about tech concepts. For the search engine system I used NLP to take main noums for sentence and search informations abut them.
 AND MORE
 
-For me, that is the biggest project from my entire career even if It's not a commercial one and in use. That is the reason when I decided finally to make it public. Because it's my heart project and it's so close to Christmass, I have decidet to make it OPEN SOURCE, yep, OPEN SOURCE with the purpose to give YOU velue as much as given me, and still giving. Even if it's not a perfect project that respects highest standards, from the mistakes from this projects I learned the most valuable practices that may offer from the beginning of a full-stack developer career.
+For me, that is the biggest project from my entire career even if It's not a commercial one and in use. That is the reason when I decided finally to make it public. Because it's my heart project and it's so close to Christmass, I have decidet to make it OPEN SOURCE, yep, OPEN SOURCE with the purpose to give YOU velue as much as given me, and still giving. Even if it's not a perfect project that respects highest standards, from the mistakes from this projects I learned the most valuable practices that may offer from the beginning of a full-stack developer career. I hope it will be usefull in your careeer development, especially if you are a beginner or a junior developer.
 
 That was the spark that bring the big fire!
 
-Cheers and no hesitate to contact me if you feel to contribue also to it and to level up to sensei full-stack developer! I hope it will be usefull in your careeer development, especially if you are a beginner or a junior developer.
-
-Happy coding!
+Good luck, and feel free to contact me if you feel like contributing to this one as well and moving up to sensei full-stack developer!
 
 # Main component from the application
 
